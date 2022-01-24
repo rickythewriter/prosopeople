@@ -1,0 +1,50 @@
+from .db import db
+from sqlalchemy.sql import func
+
+class Person(db.Model):
+    __tablename__ = 'people'
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    # relationship information
+    name = db.Column(db.String(100), nullable=False)
+    company = db.Column(db.String(150))
+    relationship = db.Column(db.String(60))
+    description = db.Column(db.Text)
+
+    # contact information
+    phone_numbers = db.Column(db.Array(db.String(40)))
+    email_addresses = db.Column(db.Array(db.String(254)))
+    addresses = db.Column(db.Array(db.Text))
+    websites = db.Column(db.Array(db.String(255)))
+    social_media = db.Column(db.Array(db.String(255)))
+
+    # personal information
+    birthday = db.Column(db.Date)
+
+    # database timekeeping
+    created_at = db.Column(db.DateTime, server_default=func.now())
+    updated_at = db.Column(db.DateTime, server_default=func.now())
+
+"""
+For personal reference:
+
+Will the arrays work?
+    I need to test this model on Postbird later
+
+Why is the name attribute a string type and not text type?
+
+    The name attribute represents how we refer to this person.
+    For convenience, we might
+        limit the number of syllables;
+        use nicknames;
+        omit prefixes, suffixes, other names, and titles.
+
+Why are the addresses contained in text instead of separate fields for 
+street, city, country, zip code, etc?
+
+    Prosopeople, in its first iteration, is for personal reference.
+    That's why it has not been formatted in a more API-friendly manner.
+    In the future, I might consider implementing Google Geocoding API.
+
+"""
