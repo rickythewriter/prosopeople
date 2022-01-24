@@ -8,19 +8,19 @@ class Person(db.Model):
 
     # relationship information
     name = db.Column(db.String(100), nullable=False)
-    company = db.Column(db.String(150))
     relationship = db.Column(db.String(60))
+
+    # descriptive information
     description = db.Column(db.Text)
+    websites = db.Column(db.Array(db.String(255)))
+    social_media = db.Column(db.Array(db.String(255)))
+    birthday = db.Column(db.Date)
 
     # contact information
-    phone_numbers = db.Column(db.Array(db.String(40)))
     email_addresses = db.Column(db.Array(db.String(254)))
-    social_media = db.Column(db.Array(db.String(255)))
-    websites = db.Column(db.Array(db.String(255)))
+    phone_numbers = db.Column(db.Array(db.String(40)))
     addresses = db.Column(db.Array(db.Text))
-
-    # personal information
-    birthday = db.Column(db.Date)
+    company = db.Column(db.String(150))
 
     # user
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
@@ -34,15 +34,15 @@ class Person(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'company': self.company,
             'relationship': self.relationship,
             'description': self.description,
-            'phone_numbers': self.phone_numbers,
-            'email_addresses': self.email_addresses,
-            'social_media': self.social_media,
             'websites': self.websites,
+            'social_media': self.social_media,
+            'birthday': self.birthday,
+            'email_addresses': self.email_addresses,
+            'phone_numbers': self.phone_numbers,
             'addresses': self.addresses,
-            'birthday': self.birthday
+            'company': self.company,
         }
 
 """
