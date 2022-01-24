@@ -15,9 +15,9 @@ class Person(db.Model):
     # contact information
     phone_numbers = db.Column(db.Array(db.String(40)))
     email_addresses = db.Column(db.Array(db.String(254)))
-    addresses = db.Column(db.Array(db.Text))
-    websites = db.Column(db.Array(db.String(255)))
     social_media = db.Column(db.Array(db.String(255)))
+    websites = db.Column(db.Array(db.String(255)))
+    addresses = db.Column(db.Array(db.Text))
 
     # personal information
     birthday = db.Column(db.Date)
@@ -29,6 +29,21 @@ class Person(db.Model):
     # database timekeeping
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now())
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'company': self.company,
+            'relationship': self.relationship,
+            'description': self.description,
+            'phone_numbers': self.phone_numbers,
+            'email_addresses': self.email_addresses,
+            'social_media': self.social_media,
+            'websites': self.websites,
+            'addresses': self.addresses,
+            'birthday': self.birthday
+        }
 
 """
 For personal reference:
