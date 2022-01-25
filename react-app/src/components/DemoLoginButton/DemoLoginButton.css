@@ -1,0 +1,10 @@
+#demo-login {
+	background-color: transparent;
+	color: #61714d;
+}
+
+#demo-login:hover {
+	color: #465237;
+	font-weight: 530;
+	background-color: #bec8b3;
+}

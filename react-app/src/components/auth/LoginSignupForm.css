@@ -50,7 +50,6 @@ div {
 }
 
 .heading p {
-    color: #aaaaaa;
     font-size: 16px;
     color: #333333;
 }
@@ -179,7 +178,9 @@ input[type="submit"] {
 }
 
 
-
+input[type="submit"]:hover {
+    background-color: #465237;
+}
 
 
 

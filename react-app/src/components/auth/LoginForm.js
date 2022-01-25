@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import DemoLoginButton from '../DemoLoginButton';
 import './LoginSignupForm.css'
 
 const LoginForm = () => {
@@ -41,7 +42,7 @@ const LoginForm = () => {
 
           <div className='heading'>
 
-            <div class="MinimalFormFrame-prosopeople-logo">
+            <div className="MinimalFormFrame-prosopeople-logo">
               <p>Insert Logo Here</p>
               <h1>PROSOPEOPLE</h1>
               <p className='tagline'> Chronicle Your Relationships </p>
@@ -110,10 +111,12 @@ const LoginForm = () => {
                     />
                   </div>
                 </li>
+
               </ol>  
 
             </form>
 
+            <DemoLoginButton />
 
           </div>
         </div>
