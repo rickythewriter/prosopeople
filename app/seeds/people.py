@@ -15,15 +15,8 @@ def seed_people():
     	company = "WebFlicks",
     	user_id = 1
     	)
-
-    bf = Person(
-    	name = "Brenda Fong",
-    	user_id = 1
-		)
-   	ca  = Person(
-   		name = "Christian Anderson",
-   		user_id = 1
-		)
+    bf = Person( name = "Brenda Fong", user_id = 1)
+    ca = Person( name = "Christian Anderson", user_id = 1)
 
     db.session.add(ay)
     db.session.add(bf)
@@ -38,5 +31,5 @@ def seed_people():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_people():
-    db.session.execute('TRUNCATE people RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
