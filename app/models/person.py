@@ -12,14 +12,14 @@ class Person(db.Model):
 
     # descriptive information
     description = db.Column(db.Text)
-    websites = db.Column(db.Array(db.String(255)))
-    social_media = db.Column(db.Array(db.String(255)))
+    websites = db.Column(db.ARRAY(db.String(255)))
+    social_media = db.Column(db.ARRAY(db.String(255)))
     birthday = db.Column(db.Date)
 
     # contact information
-    email_addresses = db.Column(db.Array(db.String(254)))
-    phone_numbers = db.Column(db.Array(db.String(40)))
-    addresses = db.Column(db.Array(db.Text))
+    email_addresses = db.Column(db.ARRAY(db.String(254)))
+    phone_numbers = db.Column(db.ARRAY(db.String(40)))
+    addresses = db.Column(db.ARRAY(db.Text))
     company = db.Column(db.String(150))
 
     # user
