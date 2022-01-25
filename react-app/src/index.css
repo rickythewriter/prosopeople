@@ -1,1 +1,15 @@
-/* TODO Add site wide styles */
+body {
+    font-family: 'PT Serif', serif;
+    /*font-family: 'Source Serif Pro', serif;*/
+    font-style: normal;
+    font-weight: 400;
+}
+
+html {
+    font-size: 100%;
+}
+
+div {
+    display: block;
+}
+
