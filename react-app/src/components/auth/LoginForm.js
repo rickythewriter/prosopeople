@@ -43,8 +43,8 @@ const LoginForm = () => {
 
             <div class="MinimalFormFrame-prosopeople-logo">
               <p>Insert Logo Here</p>
-              <h1>Prosopeople</h1>
-              <p className='tagline'> Some Tagline </p>
+              <h1>PROSOPEOPLE</h1>
+              <p className='tagline'> Chronicle Your Relationships </p>
             </div>
 
           </div>
