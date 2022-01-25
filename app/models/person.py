@@ -44,26 +44,3 @@ class Person(db.Model):
             'addresses': self.addresses,
             'company': self.company,
         }
-
-"""
-For personal reference:
-
-Will the arrays work?
-    I need to test this model on Postbird later
-
-Why is the name attribute a string type and not text type?
-
-    The name attribute represents how we refer to this person.
-    For convenience, we might
-        limit the number of syllables;
-        use nicknames;
-        omit prefixes, suffixes, other names, and titles.
-
-Why are the addresses contained in text instead of separate fields for 
-street, city, country, zip code, etc?
-
-    Prosopeople, in its first iteration, is for personal reference.
-    That's why it has not been formatted in a more API-friendly manner.
-    In the future, I might consider implementing Google Geocoding API.
-
-"""
