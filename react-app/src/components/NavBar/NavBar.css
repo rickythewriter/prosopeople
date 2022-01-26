@@ -1,0 +1,55 @@
+.global-header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background:  #fff;
+    z-index: 999;
+}
+
+.top {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 40px;
+    height: 80px;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.global-logo h1 {
+    font-family: 'Bodoni Moda', serif;
+}
+
+.top .global-logo {
+    display: inline-block;
+    /*width: 177px;*/
+    /*height: 40px;*/
+    /*background-size: contain;*/
+}
+
+.top .utility-nav {
+    display: inline-block;   
+    margin-left: auto;
+}
+
+ul, ol, table {
+    line-height: 21px;
+    font-size: 13px;
+}
+
+.top .utility-nav li:first-child {
+    margin-left: 0;
+}
+
+.top .utility-nav li {
+    font-size: 14px;
+    display: inline-block;
+    margin:  0 5px;
+    position: relative;
+    /*vertical-align: middle;*/
+}
+
+.utility-nav p:hover {
+    color: #465237;
+    font-weight: 530;
+}

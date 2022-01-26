@@ -17,7 +17,7 @@ div {
     position: absolute;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%)
+    transform:translate(-50%,-50%);
 }
 
 .minimal-wrapper {
@@ -39,6 +39,7 @@ div {
     border-radius: 2px;
     text-align: left;
     /*background: #c2a887*/
+    /*background-color: #c5d9ad;*/
 }
 
 .heading {
@@ -175,6 +176,7 @@ input[type="submit"] {
     font-size: 1.333rem;
     line-height: 1.1875;
     padding: 0.67rem;
+    font-family: inherit;
 }
 
 
