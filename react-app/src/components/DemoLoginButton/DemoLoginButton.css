@@ -1,6 +1,8 @@
 #demo-login {
-	background-color: transparent;
-	color: #61714d;
+	/*background-color: transparent;
+	color: #61714d;*/
+	background-color: #61714d;
+	color: #fff;
 	height: 40px;
 	min-width: 120px;
 	font-size: 14px;
@@ -14,7 +16,9 @@
 }
 
 #demo-login:hover {
-	color: #465237;
-	font-weight: 530;
-	background-color: #bec8b3;
+	/*color: #465237;*/
+	/*font-weight: 530;*/
+	/*background-color: #bec8b3;*/
+	background-color: #465237;
+	border-color: #465237;
 } 
