@@ -1,6 +1,7 @@
 /*---------------------------------------------------------------------/
 
-Query and display dossiers.
+Query and display dossiers (named after the people for whom they were
+made.
 
 /---------------------------------------------------------------------*/
 
