@@ -5,9 +5,8 @@ const LOAD_PEOPLE = 'people/LOAD_PEOPLE'
 /*---------------------------------------------------------------------/
 	Actions
 /---------------------------------------------------------------------*/
-const getPeople = (user, people) => ({
+const getPeople = (people) => ({
 	type: LOAD_PEOPLE,
-	user,
 	people
 });
 
@@ -18,7 +17,7 @@ const getPeople = (user, people) => ({
 export const loadPeople = user => async dispatch => {
     const res = await fetch(`/api/users/${user.id}/people`)
     const data = await res.json();
-    dispatch(getPeople(user, data));
+    dispatch(getPeople(data));
     return data;
 }
 
