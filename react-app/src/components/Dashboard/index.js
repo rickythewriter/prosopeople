@@ -36,14 +36,16 @@ States:
 /---------------------------------------------------------------------*/
 
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import './Dashboard.css';
 
 const Dashboard = () => {
-	// const user = useSelector(state => state.session.user);
+	const user = useSelector(state => state.session.user);
 	const [ selectedItem, setSelectedItem ] = useState();
 
-	// if (user) {
+	if (user) {
 		return (
 			<div id="dashboard">
 				<div id="container-top-nav">
@@ -53,23 +55,27 @@ const Dashboard = () => {
 				<div id="horizontal-panels">
 					<div className="horizontal-panel" id="container-navigation">
 						{/*<Navigation />*/}
-						Nav
+						{/*Nav*/}
 					</div>
 					
 					<div className="horizontal-panel" id="container-entries">
 						{/*<Entries />*/}
-						Entries
+						{/*Entries*/}
 					</div>
 
 					<div className="horizontal-panel" id="container-main-view">
-						Main View
+						{/*Main View*/}
 					</div>
 				</div>
 			</div>
 		);
-	};
+	} else {
+		return (
+			<Redirect to="/" />
+		)
+	}
 
 
-// }
+}
 
 export default Dashboard;

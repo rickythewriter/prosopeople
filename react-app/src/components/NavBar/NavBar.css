@@ -4,6 +4,8 @@
     width: 100%;
     background:  #fff;
     z-index: 999;
+    border: 2px solid #fff;
+    border-radius: 7px;
 }
 
 .top {
@@ -51,5 +53,5 @@ ul, ol, table {
 
 .utility-nav p:hover {
     color: #465237;
-    font-weight: 530;
+    font-weight: 500;
 }

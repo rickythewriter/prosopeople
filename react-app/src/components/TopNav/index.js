@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import DemoLoginButton from '../DemoLoginButton'
 import LogoutButton from '../auth/LogoutButton';
 import './TopNav.css'
 

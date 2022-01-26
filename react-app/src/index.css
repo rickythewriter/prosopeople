@@ -1,3 +1,9 @@
-/*html {
+html {
 	background-color: #bec8b3;
-}*/
+}
+
+#homepage {
+	display: grid;
+	grid-template-rows: 80px 1fr 100px;
+	height: 97vh;
+}
