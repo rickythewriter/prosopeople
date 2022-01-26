@@ -39,6 +39,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
+import NavPanel from '../NavPanel';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -54,17 +55,16 @@ const Dashboard = () => {
 				
 				<div id="horizontal-panels">
 					<div className="horizontal-panel" id="container-navigation">
-						{/*<Navigation />*/}
-						{/*Nav*/}
+						<NavPanel />
 					</div>
 					
 					<div className="horizontal-panel" id="container-entries">
 						{/*<Entries />*/}
-						{/*Entries*/}
+						EntriesWindow
 					</div>
 
 					<div className="horizontal-panel" id="container-main-view">
-						{/*Main View*/}
+						Main View
 					</div>
 				</div>
 			</div>

@@ -24,7 +24,6 @@
 	width:  100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 2fr;
-	text-align: center;
 	/*background-color: #61714d;*/
 }
 
@@ -32,6 +31,7 @@
 	border: 1px solid #bec8b3;
 	/*border-radius: 7px;*/
 	background-color: #bec8b3;
+	padding: 0 40px;
 }
 
 #container-navigation {
@@ -56,9 +56,11 @@
 	/*background-color: #61714d;*/
 	/*color: #bec8b3;*/
 	height: 40px;
+	/*height: 1.5em;*/
 	min-width: 120px;
 	font-size: 14px;
 	line-height: 37px;
+	/*line-height: 1.5em;*/
 	text-align: center;
 	text-decoration: none;
 	letter-spacing: .5px;
