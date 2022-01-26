@@ -149,7 +149,7 @@ const SignUpForm = () => {
             <div className='context-switch-explanation'>
                 <p> Already have an account? </p>
               </div>
-              <div class="switch">
+              <div className="switch">
                 <NavLink 
                   to="/login" 
                   exact={true}

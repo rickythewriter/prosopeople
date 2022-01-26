@@ -119,7 +119,7 @@ const LoginForm = () => {
             <div className='context-switch-explanation'>
               <p> Don't have an account? </p>
             </div>
-            <div class="switch">
+            <div className="switch">
               <NavLink 
                 to="/sign-up" 
                 exact={true}
