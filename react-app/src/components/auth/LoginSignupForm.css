@@ -182,7 +182,25 @@ input[type="submit"]:hover {
     background-color: #465237;
 }
 
+.context-switch-explanation {
+    line-height: 1.64;
+    margin: 0;
+    text-align: center;
+}
 
+.switch {
+    margin-top: 6px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #61714D;
+    line-height: 18px;    
+}
+
+.switch p:hover {
+    color: #465237;
+}
 
 
 

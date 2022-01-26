@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import LoginSignupLogo from '../LoginSignupLogo';
 import './LoginSignupForm.css'
@@ -144,6 +144,26 @@ const SignUpForm = () => {
 
               </form>
             </div>
+
+            <div id="context-switch">
+            <div className='context-switch-explanation'>
+                <p> Already have an account? </p>
+              </div>
+              <div class="switch">
+                <NavLink 
+                  to="/login" 
+                  exact={true}
+                  style={
+                    {textDecoration: 'none', color: '#61714d'}
+                  }
+                  >
+                  <p>
+                   Sign In
+                  </p>
+                </NavLink>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

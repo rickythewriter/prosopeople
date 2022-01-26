@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { login } from '../../store/session';
 import DemoLoginButton from '../DemoLoginButton';
 import LoginSignupLogo from '../LoginSignupLogo';
@@ -113,9 +113,25 @@ const LoginForm = () => {
 
             </form>
 
-            <DemoLoginButton />
-
           </div>
+
+          <div id="context-switch">
+            <div className='context-switch-explanation'>
+              <p> Don't have an account? </p>
+            </div>
+            <div class="switch">
+              <NavLink 
+                to="/sign-up" 
+                exact={true}
+                style={{textDecoration: 'none', color: '#61714d'}
+              }>
+              <p>
+                Create account
+              </p>
+              </NavLink>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
