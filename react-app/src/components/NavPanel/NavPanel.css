@@ -4,13 +4,13 @@
 
 #nav-panel h4:hover {
 	/*box-shadow: 0 1px #bec8b3;*/
-	text-decoration: underline solid #bec8b3;
+	text-decoration: underline solid #f7f8b4;
 	cursor: pointer;
 }
 
 .selected-people {
 	/*color: #eee;*/
-	/*text-decoration: underline solid #000;	*/
+	text-decoration: underline solid #f7f8b4;
 }
 
 .dossier-name {
@@ -37,9 +37,11 @@
 }
 
 #list-people li:hover {
-	color: #bec8b3;
+	/*color: #ffffc0;*/
+	color: #f7f8b4;
 }
 
 .selected-person li {
-	color: #eee;
+	/*color: #f7f8b4;*/
+	color: #ffffc0;
 }

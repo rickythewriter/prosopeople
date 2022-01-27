@@ -21,11 +21,10 @@ const FormPersonCreate = ({user}) => {
         	return
         }
         else {
-        	const userIdString = `${user.id}`
             const payload = {
                 name: name,
                 description: null,
-                user_id: userIdString
+                user_id: user.id
             }
             console.log(payload)
             const newPerson = await dispatch(createPerson(payload, user))
