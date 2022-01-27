@@ -6,21 +6,8 @@ class Person(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    # relationship information
     name = db.Column(db.String(100), nullable=False)
-    relationship = db.Column(db.String(60))
-
-    # descriptive information
     description = db.Column(db.Text)
-    websites = db.Column(db.ARRAY(db.String(255)))
-    social_media = db.Column(db.ARRAY(db.String(255)))
-    birthday = db.Column(db.Date)
-
-    # contact information
-    email_addresses = db.Column(db.ARRAY(db.String(254)))
-    phone_numbers = db.Column(db.ARRAY(db.String(40)))
-    addresses = db.Column(db.ARRAY(db.Text))
-    company = db.Column(db.String(150))
 
     # user
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
@@ -34,13 +21,5 @@ class Person(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'relationship': self.relationship,
             'description': self.description,
-            'websites': self.websites,
-            'social_media': self.social_media,
-            'birthday': self.birthday,
-            'email_addresses': self.email_addresses,
-            'phone_numbers': self.phone_numbers,
-            'addresses': self.addresses,
-            'company': self.company,
         }
