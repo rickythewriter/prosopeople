@@ -43,7 +43,8 @@
 }
 
 .horizontal-panel-R {
-	/*grid-template-columns: 1fr 2fr;*/
+	background-color: #fff;
+	border-radius: 7px;
 }
 
 #container-navigation {
@@ -51,14 +52,8 @@
 	border-radius: 7px;
 }
 
-#container-entries {
-	background-color: #fff;
-	border-radius: 7px;
-}
+#horizontal-panel-large-R {
 
-#container-main-view {
-	background-color: #fff;
-	border-radius: 7px;
 }
 
 #button-logout {

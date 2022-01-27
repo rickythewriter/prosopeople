@@ -18,6 +18,15 @@
 	width: 100%;
 }
 
+#input-name input:hover {
+	box-shadow: 0 1px #bec8b3;
+	cursor: default;
+}
+
+#input-name input:focus {
+	box-shadow: 0 1px #bec8b3;
+}
+
 .person-form-read-update-input input{
 	border: none;
 	outline: none;

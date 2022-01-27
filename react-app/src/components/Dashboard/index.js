@@ -65,6 +65,9 @@ const Dashboard = () => {
 					<div className="horizontal-panel" id="container-navigation">
 						<NavPanel user={user} people={people} setSelectedItemType={setSelectedItemType} setSelectedItemId={setSelectedItemId}/>
 					</div>
+
+					{/*<div className="horizontal-panel" id="horizontal-panel-large-R">
+					</div>*/}
 					
 					<div id="horizontal-panels-R">
 						<div className="horizontal-panel-R horizontal-panel" id="container-entries">
