@@ -34,8 +34,8 @@ export const peopleReducer = (state = initialState, action) => {
         case LOAD_PEOPLE:
         	const people = {}
         	const allPeople = action.people.people;
-        	console.log("These are all the people");
-        	console.log(allPeople);
+        	// console.log("These are all the people");
+        	// console.log(allPeople);
         	allPeople.forEach(person => {people[person.id] = person
         	})
         	return {...state, ...people}
