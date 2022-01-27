@@ -4,8 +4,6 @@ import { updatePerson, deletePerson, loadPeople } from '../../store/people'
 import './FormPersonRU.css'
 
 const FormPersonRU = (selectedPerson, {user}) => {
-	
-	console.log("selectedPerson after passing into FormPersonRU: ", selectedPerson);
 
 	const [ person, setPerson ] = useState(selectedPerson.selectedPerson);
 	const [ name, setName] = useState()

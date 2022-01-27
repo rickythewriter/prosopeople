@@ -24,6 +24,6 @@ def delete_person(id):
 	person = Person.query.get(id)
 	db.session.delete(person)
 	db.session.commit()
-	return {'message': 'Successfully Deleted Task'}
+	return person.to_dict();
 	# Delete task from database
 	# return success message

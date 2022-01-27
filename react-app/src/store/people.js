@@ -94,7 +94,10 @@ export const peopleReducer = (state = initialState, action) => {
             newState[action.person.id] = action.person
             return newState;
         case REMOVE_PERSON:
+            console.log("This is person: ", newState[action.person]);
+            console.log("This is what [action.person.id] selects: ", newState[action.person.id]);
             delete newState[action.person.id]
+            console.log("This is the new state: ", newState)
             return newState;
         default:
             return state;
