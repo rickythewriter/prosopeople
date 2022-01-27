@@ -14,11 +14,24 @@ const NavPanel = ({user, people, selectedItemType, selectedItemId, setSelectedIt
 	// const user = useSelector(state => state.session.user);
 	// const peopleObj = useSelector(state => state.people)
 	// const people = Object.values(peopleObj)
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 	
 	useEffect(() => {
         dispatch(loadPeople(user))
     }, [dispatch, user])
+
+	/* Sort people array by alphabetical order */
+	people.sort(function(a,b) {
+		const nameA = a.name.toLowerCase() 
+		const nameB = b.name.toLowerCase()
+		if (nameA < nameB) {
+			return -1;
+		}
+		if (nameA > nameB) {
+			return 1
+		}
+		return 0
+	});
 
 	return (
 		<nav id='nav-panel'>
@@ -45,6 +58,7 @@ const NavPanel = ({user, people, selectedItemType, selectedItemId, setSelectedIt
 									onClick={()=> {
 										setSelectedItemType("person");
 										setSelectedItemId(person.id);
+										dispatch(loadPeople(user))	//refill form fields after alterations
 									}}
 								>
 									{person.name}
