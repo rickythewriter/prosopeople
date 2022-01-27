@@ -2,6 +2,7 @@
 
 const LOAD_PEOPLE = 'people/LOAD_PEOPLE'
 const ADD_PERSON = 'people/ADD_PERSON'
+const REMOVE_PERSON = 'people/REMOVE_PERSON'
 
 /*---------------------------------------------------------------------/
 	Actions
@@ -13,6 +14,11 @@ const getPeople = (people) => ({
 
 const addPerson = (person) => ({
     type: ADD_PERSON,
+    person
+})
+
+const removePerson = (person) => ({
+    type: REMOVE_PERSON,
     person
 })
 
@@ -55,6 +61,17 @@ export const updatePerson = person => async dispatch => {
     }
 }
 
+export const deletePerson = (person) => async dispatch => {
+    const res = await fetch(`/api/people/${person.id}`, {
+        method: 'DELETE'
+    });
+    const data = await res.json();
+    if(res.ok) {
+        dispatch(removePerson(data))
+        return data
+    }
+}
+
 
 /*---------------------------------------------------------------------/
 	Reducers
@@ -75,6 +92,9 @@ export const peopleReducer = (state = initialState, action) => {
         	return {...state, ...people}
         case ADD_PERSON:
             newState[action.person.id] = action.person
+            return newState;
+        case REMOVE_PERSON:
+            delete newState[action.people.id]
             return newState;
         default:
             return state;
