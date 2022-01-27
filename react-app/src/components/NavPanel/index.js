@@ -22,7 +22,14 @@ const NavPanel = ({user, people, setSelectedItemType, setSelectedItemId }) => {
 
 	return (
 		<nav id='nav-panel'>
-			<h4>People</h4>
+			<h4 
+				onClick={()=> {
+					setSelectedItemType("people")
+					setSelectedItemId(null)
+				}
+			}>
+				People
+			</h4>
 			<ul id="list-people">
 				{people.map( person => {
 					return (

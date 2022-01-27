@@ -51,8 +51,43 @@ const Dashboard = () => {
 	const user = useSelector(state => state.session.user);
 	const peopleObj = useSelector(state => state.people);
 	const people = Object.values(peopleObj);
-	const [selectedItemType, setSelectedItemType] = useState();
+	const [selectedItemType, setSelectedItemType] = useState('people');
 	const [selectedItemId, setSelectedItemId] = useState();
+
+	const horizontalPanelsRight = (selectedItemType) => {
+		switch(selectedItemType){
+			case 'person':
+				return (
+					<div id="horizontal-panels-R">
+						<div className="horizontal-panel-R horizontal-panel" id="container-entries">
+							{/*<SecondaryNavPanel />*/}
+							SecondaryNavPanel
+						</div>
+
+						<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
+							<MainView selectedItemType={selectedItemType} selectedItemId={selectedItemId} peopleObj={peopleObj}/>
+						</div>
+					</div>
+				)
+				break;
+			case 'people':
+				return (
+					<div 
+						id="horizontal-panel-large-R"
+					>
+						 <div 
+						 	className="horizontal-panel-R horizontal-panel" 
+						 	id="container-main-view">
+						</div>
+					</div>
+				)
+				break;
+			default:
+				return null
+		}
+	}
+
+
 
 	if (user) {
 		return (
@@ -65,20 +100,9 @@ const Dashboard = () => {
 					<div className="horizontal-panel" id="container-navigation">
 						<NavPanel user={user} people={people} setSelectedItemType={setSelectedItemType} setSelectedItemId={setSelectedItemId}/>
 					</div>
-
-					{/*<div className="horizontal-panel" id="horizontal-panel-large-R">
-					</div>*/}
 					
-					<div id="horizontal-panels-R">
-						<div className="horizontal-panel-R horizontal-panel" id="container-entries">
-							{/*<SecondaryNavPanel />*/}
-							SecondaryNavPanel
-						</div>
-
-						<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-							<MainView selectedItemType={selectedItemType} selectedItemId={selectedItemId} peopleObj={peopleObj}/>
-						</div>
-					</div>
+					{horizontalPanelsRight(selectedItemType)}
+					
 				</div>
 			</div>
 		);
