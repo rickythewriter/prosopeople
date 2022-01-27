@@ -9,8 +9,8 @@ There is one top bar
 
 There are three panels
 
-	1. Leftmost - Navigation
-	2. Left-mid - EntriesWindow
+	1. Leftmost - NavPanel
+	2. Left-mid - SecondaryNavPanel
 	3. Rightmost - MainView
 		Possible Components:
 		• Person's Information
@@ -67,8 +67,8 @@ const Dashboard = () => {
 					</div>
 					
 					<div className="horizontal-panel" id="container-entries">
-						{/*<Entries />*/}
-						EntriesWindow
+						{/*<SecondaryNavPanel />*/}
+						SecondaryNavPanel
 					</div>
 
 					<div className="horizontal-panel" id="container-main-view">
