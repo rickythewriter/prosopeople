@@ -33,6 +33,10 @@ States:
 		• Main View shows Read/Edit Entry form
 
 
+Note: 
+The peopleObj follows the following format:
+	{ <person's id> : <person object> }
+
 /---------------------------------------------------------------------*/
 
 import React, { useState } from 'react';
@@ -40,11 +44,15 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
+import MainView from '../MainView';
 import './Dashboard.css';
 
 const Dashboard = () => {
 	const user = useSelector(state => state.session.user);
-	const [ selectedItem, setSelectedItem ] = useState();
+	const peopleObj = useSelector(state => state.people);
+	const people = Object.values(peopleObj);
+	const [selectedItemType, setSelectedItemType] = useState();
+	const [selectedItemId, setSelectedItemId] = useState();
 
 	if (user) {
 		return (
@@ -55,7 +63,7 @@ const Dashboard = () => {
 				
 				<div id="horizontal-panels">
 					<div className="horizontal-panel" id="container-navigation">
-						<NavPanel />
+						<NavPanel user={user} people={people} setSelectedItemType={setSelectedItemType} setSelectedItemId={setSelectedItemId}/>
 					</div>
 					
 					<div className="horizontal-panel" id="container-entries">
@@ -64,7 +72,7 @@ const Dashboard = () => {
 					</div>
 
 					<div className="horizontal-panel" id="container-main-view">
-						Main View
+						<MainView selectedItemType={selectedItemType} selectedItemId={selectedItemId} peopleObj={peopleObj}/>
 					</div>
 				</div>
 			</div>

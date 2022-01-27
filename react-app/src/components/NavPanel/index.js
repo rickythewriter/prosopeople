@@ -6,13 +6,13 @@ made.
 /---------------------------------------------------------------------*/
 
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
 
-function NavPanel() {
-	const user = useSelector(state => state.session.user);
-	const peopleObj = useSelector(state => state.people)
-	const people = Object.values(peopleObj)
+const NavPanel = ({user, people, setSelectedItemType, setSelectedItemId }) => {
+	// const user = useSelector(state => state.session.user);
+	// const peopleObj = useSelector(state => state.people)
+	// const people = Object.values(peopleObj)
 	const dispatch = useDispatch()
 	
 	useEffect(() => {
@@ -25,7 +25,15 @@ function NavPanel() {
 			<ul>
 				{people.map( person => {
 					return (
-						<li key={person.id} >{person.name}</li>
+						<li 
+							key={person.id} 
+							onClick={()=> {
+								setSelectedItemType("person");
+								setSelectedItemId(person.id);
+							}}
+						>
+							{person.name}
+						</li>
 					)
 				})}
 			</ul>
