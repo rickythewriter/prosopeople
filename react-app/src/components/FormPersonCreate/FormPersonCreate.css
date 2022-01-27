@@ -1,6 +1,9 @@
 #person-form-create {
 	margin-top: 21.28px;
 	max-width: 460px;
+	/*display: flex;*/
+	/*flex-direction: column;*/
+	text-align: center;
 }
 
 #person-form-create label {
@@ -11,9 +14,41 @@
 }
 
 #person-form-create input {
-	margin-top: 21.28px;
+	margin: 21.28px 0;
 	width: 100%;
 	outline: none;
 	border: none;
 	border-bottom: 1px solid #bec8b3;
 }
+
+#person-form-create input[type="text"] {
+	font-family: inherit;
+	text-align: center;
+}
+
+#button-add-person {
+	/*background-color: transparent;
+	color: #61714d;*/
+	/*float: right;*/
+	font-family: inherit;
+	background-color: #61714d;
+	color: #fff;
+	height: 40px;
+	min-width: 120px;
+	font-size: 14px;
+	line-height: 37px;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: .5px;
+	border-radius: 3px;
+	border: 2px solid #61714d;
+	padding: 0 10px;
+}
+
+#button-add-person:hover {
+	/*color: #465237;*/
+	/*font-weight: 530;*/
+	/*background-color: #bec8b3;*/
+	background-color: #465237;
+	border-color: #465237;
+} 

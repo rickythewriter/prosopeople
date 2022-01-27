@@ -53,7 +53,7 @@ const FormPersonCreate = ({user}) => {
 			        />
 			    </div>
 			    {errors.map((error, idx) => <div id="new-name-error" key={idx}>{error}</div>)}
-			    <button type="submit">Confirm</button>
+			    <button type="submit" id="button-add-person">Confirm</button>
 			</form>
 		</div>
 	)

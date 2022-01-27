@@ -39,6 +39,7 @@ const FormPersonRU = (selectedPerson) => {
 		        <div id="input-description">
 			        <textarea
 			          value={description || ""}
+			          placeholder="How would you describe this person?"
 			          onChange={(e) => setDescription(e.target.value)}
 			        />
 			    </div>
