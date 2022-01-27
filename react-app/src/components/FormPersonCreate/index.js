@@ -6,18 +6,21 @@ import { createPerson, loadPeople } from '../../store/people'
 const FormPersonCreate = ({user}) => {
 	const [name, setName] = useState()
 	const [description, setDescription] = useState()
+	const [errors, setErrors] = useState([])
 
 	const dispatch = useDispatch()
 
 	const handleSubmit = async e => {
 		e.preventDefault();
 
-		// if (errors.length > 0) return
-        // else if (taskName.length === 0) {
-            // setErrors(["Name is required."])
-            // return
-        // }
-        // else {
+		if (name.length === 0) {
+            setErrors(["Please enter a name."])
+            return
+        } else if (name.length > 100) {
+        	setErrors(["A name must be 100 characters or fewer"])
+        	return
+        }
+        else {
         	const userIdString = `${user.id}`
             const payload = {
                 name: name,
@@ -26,15 +29,16 @@ const FormPersonCreate = ({user}) => {
             }
             console.log(payload)
             const newPerson = await dispatch(createPerson(payload, user))
-            	// .catch(async(res)=> {
-                	// const data = await res.json()
-                // if (data && data.errors) setErrors(data.errors)
-	            // }
-	        // )
+            	.catch(async(res)=> {
+                	const data = await res.json()
+                	if (data && data.errors) setErrors(data.errors)
+            	}
+            )
             dispatch(loadPeople(user));
-            console.log("I have loaded the user's people")
             setName('');
+            setErrors([])
         // }
+	    }
     }
 
 	return (
@@ -48,6 +52,7 @@ const FormPersonCreate = ({user}) => {
 			          onChange={(e) => setName(e.target.value)}
 			        />
 			    </div>
+			    {errors.map((error, idx) => <div id="new-name-error" key={idx}>{error}</div>)}
 			    <button type="submit">Confirm</button>
 			</form>
 		</div>

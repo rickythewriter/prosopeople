@@ -61,7 +61,6 @@ export const peopleReducer = (state = initialState, action) => {
         	})
         	return {...state, ...people}
         case ADD_PERSON:
-            console.log("This is action.people :", action.person)
             newState[action.person.id] = action.person
             return newState;
         default:

@@ -33,7 +33,6 @@ def get_people(id):
 @user_routes.route('/<int:id>/people', methods=['POST'])
 @login_required
 def create_person(id):
-    print("I'm here")
     user = User.query.get(id)
     form = PersonForm()
     form['csrf_token'].data = request.cookies['csrf_token']
