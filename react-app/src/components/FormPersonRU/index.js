@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import { updatePerson, loadPeople } from '../../store/people'
+import { updatePerson, deletePerson, loadPeople } from '../../store/people'
 import './FormPersonRU.css'
 
 const FormPersonRU = (selectedPerson, {user}) => {
@@ -48,6 +48,12 @@ const FormPersonRU = (selectedPerson, {user}) => {
 	    }
     }
 
+    const handleDelete = async e => {
+    	e.preventDefault();
+        setErrors([]);
+        await dispatch(deletePerson(person));
+    }
+
 	return (
 		<div id="person-form-read-edit">
 
@@ -77,6 +83,8 @@ const FormPersonRU = (selectedPerson, {user}) => {
 			    <button type="submit" id="button-update">Revise</button>
 
 			</form>
+
+			<button id="button-delete" onClick={handleDelete}>Discard</button>
 
 		</div>
 	)
