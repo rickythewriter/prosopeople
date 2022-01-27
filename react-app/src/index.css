@@ -1,9 +1,14 @@
 html {
 	background-color: #bec8b3;
 	height: 100vh;
+	font-size: 100%;
 }
 
 body {
+    font-family: 'PT Serif', serif;
+    /*font-family: 'Source Serif Pro', serif;*/
+    font-style: normal;
+    font-weight: 400;
 }
 
 #homepage {

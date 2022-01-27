@@ -1,0 +1,38 @@
+#person-form-read-edit {
+	margin-top: 21.28px;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+#person-form-read-edit #label-name {
+	display: none;
+}
+
+#input-name input[type="text"] {
+	font-family: 'PT Serif', serif;
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+.person-form-read-update-input input{
+	border: none;
+	outline: none;
+}
+
+#label-description {
+	font-size: 0.85rem;
+}
+
+#input-description textarea{
+	font-family: 'PT Serif', serif;
+	border: none;
+	outline: none;
+	border-top: 1px solid #bec8b3;
+	width: 100%;
+	height: 50vh;
+	overflow: scroll;
+	resize: none;
+}
+

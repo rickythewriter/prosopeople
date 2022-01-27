@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './FormPersonRU.css'
 
 const FormPersonRU = (selectedPerson) => {
 	
@@ -23,21 +24,24 @@ const FormPersonRU = (selectedPerson) => {
 
 			<form>
 
-				<label>{name}</label>
-		        <br />
-		        <input 
-		          type="text"
-		          value={name || ""}
-		          onChange={(e) => setName(e.target.value)}
-		        />
+				<label id="label-name">{name}</label>
+				<div className="person-form-read-update-input" id="input-name">
+			        <input 
+			          type="text"
+			          value={name || ""}
+			          onChange={(e) => setName(e.target.value)}
+			        />
+			    </div>
 		        <br />
 
-				<label>Description</label>
+				<label id="label-description">Description</label>
 		        <br />
-		        <textarea
-		          value={description || ""}
-		          onChange={(e) => setDescription(e.target.value)}
-		        />
+		        <div id="input-description">
+			        <textarea
+			          value={description || ""}
+			          onChange={(e) => setDescription(e.target.value)}
+			        />
+			    </div>
 		        <br />
 
 			</form>
