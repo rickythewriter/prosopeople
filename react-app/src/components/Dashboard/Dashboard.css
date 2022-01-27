@@ -1,10 +1,13 @@
-
 #dashboard {
 	width: 100vw;
 	height: 100vh;
 	display: grid;
 	grid-template-rows: 50px 1fr;
 	background-color: #bec8b3;
+}
+
+.panel-heading {
+	text-shadow: -1px 2px rgb(0 0 0 / 10%);
 }
 
 #container-top-nav {
@@ -40,11 +43,40 @@
 	padding: 0 40px;
 	height: 100vh;
 	overflow: scroll;
+	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
 }
 
 .horizontal-panel-R {
 	background-color: #fff;
 	border-radius: 7px;
+}
+
+.horizontal-panel-R button {
+	/*background-color: transparent;
+	color: #61714d;*/
+	/*float: right;*/
+	font-family: inherit;
+	background-color: #61714d;
+	color: #eee;
+	height: 40px;
+	min-width: 120px;
+	font-size: 14px;
+	line-height: 37px;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: .5px;
+	border-radius: 3px;
+	border: 2px solid #61714d;
+	padding: 0 10px;
+}
+
+.horizontal-panel-R button:hover {
+	/*color: #465237;*/
+	/*font-weight: 530;*/
+	/*background-color: #bec8b3;*/
+	background-color: #465237;
+	border-color: #465237;
+	cursor: pointer;
 }
 
 #container-navigation {
@@ -81,4 +113,10 @@
 	background-color: #61714d;
 	border-color: #61714d;
 	cursor: pointer;
+	/*box-shadow: 0px 4px 5px 4px rgb(0 0 0 / 10%);*/
 } 
+
+#dashboard button {
+	box-shadow: -1px 2px 7px 1px rgb(0 0 0 / 10%);
+	text-shadow: -1px 2px rgb(0 0 0 / 10%);
+}

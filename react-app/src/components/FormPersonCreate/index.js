@@ -4,7 +4,7 @@ import './FormPersonCreate.css'
 import { createPerson, loadPeople } from '../../store/people'
 
 const FormPersonCreate = ({user}) => {
-	const [name, setName] = useState()
+	const [name, setName] = useState("")
 	const [description, setDescription] = useState()
 	const [errors, setErrors] = useState([])
 
@@ -44,7 +44,7 @@ const FormPersonCreate = ({user}) => {
 	return (
 		<div id="person-form-create">
 			<form onSubmit={handleSubmit}>
-				<label>Add a Person</label>
+				<label className="panel-heading">Add a Person</label>
 				<div>
 			        <input 
 			          type="text"
@@ -52,7 +52,7 @@ const FormPersonCreate = ({user}) => {
 			          onChange={(e) => setName(e.target.value)}
 			        />
 			    </div>
-			    {errors.map((error, idx) => <div id="new-name-error" key={idx}>{error}</div>)}
+			    {errors.map((error, idx) => <div className="error-message" id="new-name-error" key={idx}>{error}</div>)}
 			    <button type="submit" id="button-add-person">Confirm</button>
 			</form>
 		</div>

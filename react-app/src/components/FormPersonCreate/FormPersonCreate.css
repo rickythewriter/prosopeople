@@ -24,37 +24,14 @@
 #person-form-create input[type="text"] {
 	font-family: inherit;
 	text-align: center;
+	text-shadow: -1px 2px rgb(0 0 0 / 10%);
+}
+
+#person-form-create input:hover {
+	cursor: pointer;
 }
 
 #new-name-error {
 	margin-bottom: 21.28px;
-	color: grey;
-	font-size: 0.875rem;
 }
 
-#button-add-person {
-	/*background-color: transparent;
-	color: #61714d;*/
-	/*float: right;*/
-	font-family: inherit;
-	background-color: #61714d;
-	color: #fff;
-	height: 40px;
-	min-width: 120px;
-	font-size: 14px;
-	line-height: 37px;
-	text-align: center;
-	text-decoration: none;
-	letter-spacing: .5px;
-	border-radius: 3px;
-	border: 2px solid #61714d;
-	padding: 0 10px;
-}
-
-#button-add-person:hover {
-	/*color: #465237;*/
-	/*font-weight: 530;*/
-	/*background-color: #bec8b3;*/
-	background-color: #465237;
-	border-color: #465237;
-} 

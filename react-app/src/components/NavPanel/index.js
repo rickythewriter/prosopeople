@@ -23,6 +23,7 @@ const NavPanel = ({user, people, setSelectedItemType, setSelectedItemId }) => {
 	return (
 		<nav id='nav-panel'>
 			<h4 
+				className="panel-heading"
 				onClick={()=> {
 					setSelectedItemType("people")
 					setSelectedItemId(null)

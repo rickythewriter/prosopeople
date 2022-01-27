@@ -6,13 +6,19 @@ html {
 
 body {
     font-family: 'PT Serif', serif;
-    /*font-family: 'Source Serif Pro', serif;*/
     font-style: normal;
     font-weight: 400;
+    color: #151515;
 }
 
 #homepage {
 	display: grid;
 	grid-template-rows: 80px 1fr 100px;
 	height: 97vh;
+}
+
+.error-message {
+	color: #5c5c5c;
+	font-size: 0.875rem;
+	font-family: 'PT Sans', sans-serif;
 }

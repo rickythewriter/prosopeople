@@ -16,11 +16,12 @@
 	font-weight: bold;
 	font-size: 1rem;
 	width: 100%;
+	padding: 0;
 }
 
 #input-name input:hover {
 	box-shadow: 0 1px #bec8b3;
-	cursor: default;
+	cursor: pointer;
 }
 
 #input-name input:focus {
@@ -45,5 +46,9 @@
 	height: 50vh;
 	overflow: scroll;
 	resize: none;
+}
+
+#input-description textarea:hover{
+	cursor: pointer;
 }
 
