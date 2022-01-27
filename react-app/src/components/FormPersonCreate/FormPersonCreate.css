@@ -26,6 +26,12 @@
 	text-align: center;
 }
 
+#new-name-error {
+	margin-bottom: 21.28px;
+	color: grey;
+	font-size: 0.875rem;
+}
+
 #button-add-person {
 	/*background-color: transparent;
 	color: #61714d;*/
