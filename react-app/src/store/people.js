@@ -94,7 +94,7 @@ export const peopleReducer = (state = initialState, action) => {
             newState[action.person.id] = action.person
             return newState;
         case REMOVE_PERSON:
-            delete newState[action.people.id]
+            delete newState[action.person.id]
             return newState;
         default:
             return state;
