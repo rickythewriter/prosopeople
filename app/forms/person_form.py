@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, DateField
+from wtforms import StringField, TextAreaField, IntegerField
 from wtforms.validators import DataRequired, Email, Length, URL, ValidationError
 from app.models import Person
 
@@ -20,11 +20,12 @@ Form Classes
 """
 
 class PersonForm(FlaskForm):	
-"""
-	Create a new person
-		accepting only a name field
-	Update a person
-		accepting non-required fields
-"""
+	"""
+		Create a new person
+			accepting only a name field
+		Update a person
+			accepting non-required fields
+	"""
 	name = StringField('name', validators=[DataRequired(), name_is_not_too_long])
 	description = TextAreaField('description', validators=None)
+	user_id = IntegerField('user_id', validators=[DataRequired()])

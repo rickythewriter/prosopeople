@@ -80,7 +80,7 @@ const Dashboard = () => {
 						 	className="horizontal-panel-R horizontal-panel"
 						 	id="container-main-view"
 						 >
-						 	<FormPersonCreate />
+						 	<FormPersonCreate user={user}/>
 						</div>
 					</div>
 				)
