@@ -1,0 +1,19 @@
+#person-form-create {
+	margin-top: 21.28px;
+	max-width: 460px;
+}
+
+#person-form-create label {
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 21.28px;
+	width: 100%;
+}
+
+#person-form-create input {
+	margin-top: 21.28px;
+	width: 100%;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid #bec8b3;
+}

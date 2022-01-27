@@ -45,6 +45,7 @@ import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
 import MainView from '../MainView';
+import FormPersonCreate from '../FormPersonCreate'
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -76,8 +77,10 @@ const Dashboard = () => {
 						id="horizontal-panel-large-R"
 					>
 						 <div 
-						 	className="horizontal-panel-R horizontal-panel" 
-						 	id="container-main-view">
+						 	className="horizontal-panel-R horizontal-panel"
+						 	id="container-main-view"
+						 >
+						 	<FormPersonCreate />
 						</div>
 					</div>
 				)
