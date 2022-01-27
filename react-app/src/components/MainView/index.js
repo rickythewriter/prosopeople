@@ -7,6 +7,7 @@
 
 import React from 'react'
 // import { useDispatch } from 'react-redux';
+import FormPersonRU from '../FormPersonRU'
 
 const MainView = ({selectedItemType, selectedItemId, peopleObj}) => {
 
@@ -14,11 +15,9 @@ const MainView = ({selectedItemType, selectedItemId, peopleObj}) => {
 	switch(selectedItemType){
 		case 'person':
 			const selectedPerson = peopleObj[selectedItemId];
+			console.log("This is the selected person: ", selectedPerson)
 			return (
-				<>
-					{/*<p>You have selected {selectedPerson.name}</p>
-					<p>{selectedPerson.description}</p>*/}
-				</>
+				<FormPersonRU selectedPerson={selectedPerson} />
 			)
 			break;
 		// case 'entry':
