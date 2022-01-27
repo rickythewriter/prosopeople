@@ -3,8 +3,14 @@
 }
 
 #nav-panel h4:hover {
-	box-shadow: 0 1px #bec8b3;
+	/*box-shadow: 0 1px #bec8b3;*/
+	text-decoration: underline solid #bec8b3;
 	cursor: pointer;
+}
+
+.selected-people {
+	/*color: #eee;*/
+	/*text-decoration: underline solid #000;	*/
 }
 
 .dossier-name {
@@ -26,10 +32,14 @@
 	white-space: nowrap;
 	/*display: block;*/
 	text-overflow: ellipsis;
-	color: #191919;
+	/*color: #191919;*/
 	text-shadow: -1px 2px rgb(0 0 0 / 5%);
 }
 
 #list-people li:hover {
+	color: #bec8b3;
+}
+
+.selected-person li {
 	color: #eee;
 }

@@ -101,7 +101,14 @@ const Dashboard = () => {
 				
 				<div id="horizontal-panels-LR">
 					<div className="horizontal-panel" id="container-navigation">
-						<NavPanel user={user} people={people} setSelectedItemType={setSelectedItemType} setSelectedItemId={setSelectedItemId}/>
+						<NavPanel 
+							user={user} 
+							people={people} 
+							selectedItemType={selectedItemType}
+							selectedItemId={selectedItemId}
+							setSelectedItemType={setSelectedItemType} 
+							setSelectedItemId={setSelectedItemId}
+						/>
 					</div>
 					
 					{horizontalPanelsRight(selectedItemType)}
