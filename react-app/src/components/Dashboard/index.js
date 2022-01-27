@@ -66,7 +66,7 @@ const Dashboard = () => {
 						</div>
 
 						<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-							<MainView selectedItemType={selectedItemType} selectedItemId={selectedItemId} peopleObj={peopleObj}/>
+							<MainView user={user} selectedItemType={selectedItemType} selectedItemId={selectedItemId} peopleObj={peopleObj}/>
 						</div>
 					</div>
 				)

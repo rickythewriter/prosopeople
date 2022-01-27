@@ -28,17 +28,30 @@ export const loadPeople = user => async dispatch => {
 }
 
 export const createPerson = (newPerson, user) =>  async dispatch => {
-    console.log("This is the newPerson: ", newPerson)
     const res = await fetch(`/api/users/${user.id}/people`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newPerson)
     });
     const data = await res.json();
-    console.log("This is the data: ", data);
     if(res.ok) {
         dispatch(addPerson(data))
         return data
+    }
+}
+
+export const updatePerson = person => async dispatch => {
+    const res = await fetch(`/api/people/${person.id}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(person)
+    })
+    if(res.ok){
+        const data = await res.json();
+        dispatch(addPerson(data))
+        return data;
     }
 }
 
