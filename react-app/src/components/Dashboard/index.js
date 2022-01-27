@@ -61,18 +61,20 @@ const Dashboard = () => {
 					<TopNav />
 				</div>
 				
-				<div id="horizontal-panels">
+				<div id="horizontal-panels-LR">
 					<div className="horizontal-panel" id="container-navigation">
 						<NavPanel user={user} people={people} setSelectedItemType={setSelectedItemType} setSelectedItemId={setSelectedItemId}/>
 					</div>
 					
-					<div className="horizontal-panel" id="container-entries">
-						{/*<SecondaryNavPanel />*/}
-						SecondaryNavPanel
-					</div>
+					<div id="horizontal-panels-R">
+						<div className="horizontal-panel-R horizontal-panel" id="container-entries">
+							{/*<SecondaryNavPanel />*/}
+							SecondaryNavPanel
+						</div>
 
-					<div className="horizontal-panel" id="container-main-view">
-						<MainView selectedItemType={selectedItemType} selectedItemId={selectedItemId} peopleObj={peopleObj}/>
+						<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
+							<MainView selectedItemType={selectedItemType} selectedItemId={selectedItemId} peopleObj={peopleObj}/>
+						</div>
 					</div>
 				</div>
 			</div>

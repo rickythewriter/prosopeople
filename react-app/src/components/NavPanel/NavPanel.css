@@ -2,6 +2,11 @@
 	color: #000;
 }
 
+#nav-panel h4:hover {
+	box-shadow: 0 1px #bec8b3;
+	cursor: default;
+}
+
 .dossier-name {
 	list-style: none;
 	width: 100%;
