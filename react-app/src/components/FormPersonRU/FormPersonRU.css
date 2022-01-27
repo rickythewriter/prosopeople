@@ -4,6 +4,7 @@
 	width: 100%;
 	flex-direction: column;
 	align-items: stretch;
+	max-width: 460px;
 }
 
 #person-form-read-edit #label-name {
