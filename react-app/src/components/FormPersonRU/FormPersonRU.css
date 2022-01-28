@@ -52,3 +52,29 @@
 	cursor: pointer;
 }
 
+#container-formpersonru-buttons {
+	/*display: inline-block;*/
+	width: 100%;
+	/*flex-direction: row;*/
+	/*justify-content: flex-start;*/
+	display: inline-grid;
+	margin-bottom: 21.28px;
+	grid-template-columns: 1fr 1fr;
+}
+
+.formpersonru-buttons {
+	overflow: scroll;
+	/*white-space: nowrap;*/
+	/*overflow: auto;*/
+
+}
+
+#container-formpersonru-buttons #button-update {
+	margin-right: 21.28px;
+	margin-bottom: 21.28px;
+}
+
+#container-formpersonru-buttons #button-delete {
+	margin-right: 21.28px;
+	max-width: auto;
+}

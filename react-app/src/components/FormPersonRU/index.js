@@ -83,11 +83,14 @@ const FormPersonRU = (user) => {
 			    </div>
 		        <br />
 		        {errors.map((error, idx) => <div className="error-message" id="new-name-error" key={idx}>{error}</div>)}
-			    <button type="submit" id="button-update">Revise</button>
+
+		        <div id="container-formpersonru-buttons">
+				    <button className="formpersonru-buttons" type="submit" id="button-update">Revise</button>
+				    <button className="formpersonru-buttons" id="button-delete" onClick={handleDelete}>Discard Dossier</button>
+			    </div>
 
 			</form>
 
-			<button id="button-delete" onClick={handleDelete}>Discard</button>
 
 		</div>
 	)
