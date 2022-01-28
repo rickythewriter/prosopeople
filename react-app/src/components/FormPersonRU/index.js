@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updatePerson, deletePerson, loadPeople } from '../../store/people'
-import { removePerson } from '../../store/person'
+import { loadPerson, removePerson } from '../../store/person'
 import MainView from '../MainView'
 import './FormPersonRU.css'
 
@@ -15,11 +15,12 @@ const FormPersonRU = (user) => {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		/* If there is no longer a person, keep it as it was */
+		/* Clear errors when clicking away */
 		if (person) {
 			setName(person.name);
 			setDescription(person.description || "");
 		}
+		setErrors([]);
 	}, [person])
 
 	const handleSubmit = async e => {
@@ -44,6 +45,8 @@ const FormPersonRU = (user) => {
                 	if (data && data.errors) setErrors(data.errors)
             	}
             )
+            setErrors([]);
+            dispatch(loadPerson(person));
 	    }
     }
 

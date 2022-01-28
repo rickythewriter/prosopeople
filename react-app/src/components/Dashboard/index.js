@@ -57,31 +57,36 @@ const Dashboard = () => {
 	const personValues = Object.values(person);
 	const [ personIsSelected, setPersonIsSelected ] = useState(false)
 
-	// useEffect(()=> {
-	// 	if (personValues.length === 0){
-	// 		setPersonIsSelected(false)
-	// 	} else {
-	// 		setPersonIsSelected(true)
-	// 	}
-	// }, [person]);
-
 	useEffect(()=> {
 		setPersonIsSelected(personValues.length)
 	}, [person]);
 
 	const horizontalPanelsRight = (person) => {
 		if ( personIsSelected ) {
-			return (
-				<div id="horizontal-panels-R">
-					<div className="horizontal-panel-R horizontal-panel" id="container-entries">
-						{/*<SecondaryNavPanel />*/}
-					</div>
+			// return (
+			// 	<div id="horizontal-panels-R">
+			// 		<div className="horizontal-panel-R horizontal-panel" id="container-entries">
+			// 			{/*<SecondaryNavPanel />*/}
+			// 		</div>
 
-					<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-						{/*<MainView 
-							user={user}
-							peopleObj={peopleObj}/>*/}
-						<FormPersonRU />
+			// 		<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
+			// 			{/*<MainView 
+			// 				user={user}
+			// 				peopleObj={peopleObj}/>*/}
+			// 			<FormPersonRU user={user}/>
+			// 		</div>
+			// 	</div>
+			// )
+
+			return (
+				<div 
+					id="horizontal-panel-large-R"
+				>
+					 <div 
+					 	className="horizontal-panel-R horizontal-panel"
+					 	id="container-main-view"
+					 >
+					 	<FormPersonRU user={user}/>
 					</div>
 				</div>
 			)
