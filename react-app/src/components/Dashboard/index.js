@@ -44,7 +44,6 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
-import MainView from '../MainView';
 import FormPersonRU from '../FormPersonRU'
 import FormPersonCreate from '../FormPersonCreate'
 import './Dashboard.css';
@@ -63,10 +62,19 @@ const Dashboard = () => {
 
 	const horizontalPanelsRight = (person) => {
 		if ( personIsSelected ) {
+			// return (
+			// 	<div id="horizontal-panels-R">	
+			// 		{/*<EntriesMenu />*/}
+
+			// 		<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
+			// 			<FormPersonRU user={user}/>
+			// 		</div>
+			// 	</div>
+			// )
 			return (
 				<div id="horizontal-panels-R">
 					<div className="horizontal-panel-R horizontal-panel" id="container-entries">
-						{/*<SecondaryNavPanel />*/}
+						{/*<EntriesMenu />*/}
 					</div>
 
 					<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
