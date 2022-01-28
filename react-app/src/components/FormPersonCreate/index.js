@@ -43,7 +43,7 @@ const FormPersonCreate = ({user}) => {
 	return (
 		<div id="person-form-create">
 			<form onSubmit={handleSubmit}>
-				<label className="panel-heading">Add a Person</label>
+				<label className="panel-heading">Who Would You Like to Write About?</label>
 				<div>
 			        <input 
 			          type="text"
@@ -52,7 +52,7 @@ const FormPersonCreate = ({user}) => {
 			        />
 			    </div>
 			    {errors.map((error, idx) => <div className="error-message" id="new-name-error" key={idx}>{error}</div>)}
-			    <button type="submit" id="button-add-person">Confirm</button>
+			    <button type="submit" id="button-add-person">Create Dossier</button>
 			</form>
 		</div>
 	)
