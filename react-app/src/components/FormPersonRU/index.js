@@ -51,7 +51,7 @@ const FormPersonRU = (user) => {
     	e.preventDefault();
         setErrors([]);
         await dispatch(deletePerson(person));
-        // dispatch(removePerson());
+        dispatch(removePerson());
     }
 
 	return (
