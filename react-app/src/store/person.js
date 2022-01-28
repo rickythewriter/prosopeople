@@ -1,5 +1,6 @@
 //constants
 const LOAD_PERSON = 'people/LOAD_PERSON'
+const CLEAR_PERSON = 'people/CLEAR_PERSON'
 
 /*---------------------------------------------------------------------/
     Actions
@@ -9,6 +10,12 @@ const getPerson = (person) => ({
     type: LOAD_PERSON,
     person
 })
+
+export const removePerson = () => {
+    return {
+        type: CLEAR_PERSON
+    }
+}
 
 /*---------------------------------------------------------------------/
     Dispatch Functions
@@ -33,6 +40,8 @@ export const personReducer = (state = initialState, action) => {
         case LOAD_PERSON:
             const person = action.person;
             return {...newState, ...person};
+        case CLEAR_PERSON:
+            return {};
         default:
             return state;
     }
