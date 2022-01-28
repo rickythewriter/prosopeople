@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import { updatePerson, deletePerson, loadPeople } from '../../store/people'
+import MainView from '../MainView'
 import './FormPersonRU.css'
 
 const FormPersonRU = (selectedPerson, {user}) => {
@@ -17,8 +18,11 @@ const FormPersonRU = (selectedPerson, {user}) => {
     }, [selectedPerson])
 
 	useEffect(() => {
-	    setName(person.name);
-		setDescription(person.description || "");
+		/* If there is no longer a person, keep it as it was */
+		if (person) {
+			setName(person.name);
+			setDescription(person.description || "");
+		}
 	}, [person])
 
 	const handleSubmit = async e => {

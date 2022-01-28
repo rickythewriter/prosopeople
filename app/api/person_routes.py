@@ -5,6 +5,12 @@ from app.forms import PersonForm
 
 person_routes = Blueprint('people', __name__)
 
+@person_routes.route('/<int:id>')
+@login_required
+def person(id):
+	person=Person.query.get(id)
+	return person.to_dict()
+
 @person_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_person(id):

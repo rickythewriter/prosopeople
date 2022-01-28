@@ -8,6 +8,7 @@ made.
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
+import { loadPerson } from '../../store/person'
 import './NavPanel.css'
 
 const NavPanel = ({user, people, selectedItemType, selectedItemId, setSelectedItemType, setSelectedItemId }) => {
@@ -59,6 +60,7 @@ const NavPanel = ({user, people, selectedItemType, selectedItemId, setSelectedIt
 										setSelectedItemType("person");
 										setSelectedItemId(person.id);
 										dispatch(loadPeople(user))	//refill form fields after alterations
+										dispatch(loadPerson(person))
 									}}
 								>
 									{person.name}
