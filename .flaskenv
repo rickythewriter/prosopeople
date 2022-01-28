@@ -1,1 +1,4 @@
 FLASK_APP=app
+FLASK_ENV=development
+SECRET_KEY=a9f078d271a6498e47b7c810782138724dc664d50e69562d906e72b1c07cdd7c
+DATABASE_URL=postgresql://prosopeople_dev:qKnCVWVLafvQtYeY@localhost/prosopeople_app
