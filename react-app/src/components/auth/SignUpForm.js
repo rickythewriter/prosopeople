@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import LoginSignupLogo from '../LoginSignupLogo';
+import './LoginSignupForm.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -43,51 +45,128 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className='minimal-frame'>
+
+      <div className='minimal-wrapper'>
+
+        <div className='minimal-body'>
+
+          <div className='heading'>
+
+            <LoginSignupLogo />
+
+          </div>
+
+          <div className='minimal-form'>
+
+            <form onSubmit={onSignUp}>
+
+              <ol>
+
+                <li className='Row'>
+                  <div>
+                    {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                    ))}
+                  </div>
+                </li>
+
+                <li className='Row'>
+                  <div className='input-wrapper'>
+                    <label>Username</label>
+                    <input
+                      type='text'
+                      name='username'
+                      className='TextInput TextInput_large'
+                      placeholder='Username'
+                      onChange={updateUsername}
+                      value={username}
+                    ></input>
+                  </div>
+                </li>
+
+                <li className='Row'>
+                  <div className='input-wrapper'>
+                    <label>Email</label>
+                    <input
+                      type='text'
+                      name='email'
+                      className='TextInput TextInput_large'
+                      placeholder='Email'
+                      onChange={updateEmail}
+                      value={email}
+                    ></input>
+                    </div>
+                  </li>
+
+                  <li className='Row'>
+                    <div className='input-wrapper'>
+                      <label>Password</label>
+                      <input
+                        type='password'
+                        name='password'
+                        className='TextInput TextInput_large'
+                        placeholder='Password'
+                        onChange={updatePassword}
+                        value={password}
+                      ></input>
+                    </div>
+                  </li>
+
+                  <li className='Row'>
+                    <div className='input-wrapper'>
+                      <label>Repeat Password</label>
+                      <input
+                        type='password'
+                        name='repeat_password'
+                        className='TextInput TextInput_large'
+                        placeholder='Confirm Password'
+                        onChange={updateRepeatPassword}
+                        value={repeatPassword}
+                        required={true}
+                      ></input>
+                    </div>
+                  </li>
+
+                  <li className='Row'>
+                    <div>
+                      <input 
+                        name='sign-up'
+                        id='sign-up'
+                        type='submit'
+                        className='Btn Btn_emph Btn_super'
+                        value='Sign Up'
+                      />
+                    </div>
+                  </li>
+
+                </ol>
+
+              </form>
+            </div>
+
+            <div id="context-switch">
+            <div className='context-switch-explanation'>
+                <p> Already have an account? </p>
+              </div>
+              <div className="switch">
+                <NavLink 
+                  to="/login" 
+                  exact={true}
+                  style={
+                    {textDecoration: 'none', color: '#61714d'}
+                  }
+                  >
+                  <p>
+                   Sign In
+                  </p>
+                </NavLink>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
   );
 };
 

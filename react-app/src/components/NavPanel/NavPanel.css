@@ -1,0 +1,47 @@
+#nav-panel {
+	color: #151515;
+}
+
+#nav-panel h4:hover {
+	/*box-shadow: 0 1px #bec8b3;*/
+	text-decoration: underline solid #f7f8b4;
+	cursor: pointer;
+}
+
+.selected-people {
+	/*color: #eee;*/
+	text-decoration: underline solid #f7f8b4;
+}
+
+.dossier-name {
+	list-style: none;
+	width: 100%;
+}
+
+.dossier-name:hover {
+	/*box-shadow: 0 1px #bec8b3;*/
+	cursor: pointer;
+}
+
+#list-people {
+	padding: 0 1em;
+}
+
+#list-people li {
+	overflow-x: hidden;
+	white-space: nowrap;
+	/*display: block;*/
+	text-overflow: ellipsis;
+	/*color: #191919;*/
+	text-shadow: -1px 2px rgb(0 0 0 / 5%);
+}
+
+#list-people li:hover {
+	/*color: #ffffc0;*/
+	color: #f7f8b4;
+}
+
+.selected-person li {
+	/*color: #f7f8b4;*/
+	color: #ffffc0;
+}

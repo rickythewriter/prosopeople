@@ -1,0 +1,80 @@
+#person-form-read-edit {
+	margin-top: 21.28px;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: stretch;
+	max-width: 460px;
+}
+
+#person-form-read-edit #label-name {
+	display: none;
+}
+
+#input-name input[type="text"] {
+	font-family: 'PT Serif', serif;
+	font-weight: bold;
+	font-size: 1rem;
+	width: 100%;
+	padding: 0;
+}
+
+#input-name input:hover {
+	box-shadow: 0 1px #bec8b3;
+	cursor: pointer;
+}
+
+#input-name input:focus {
+	box-shadow: 0 1px #bec8b3;
+}
+
+.person-form-read-update-input input{
+	border: none;
+	outline: none;
+}
+
+#label-description {
+	font-size: 0.85rem;
+}
+
+#input-description textarea{
+	font-family: 'PT Serif', serif;
+	border: none;
+	outline: none;
+	border-top: 1px solid #bec8b3;
+	width: 100%;
+	height: 50vh;
+	overflow: scroll;
+	resize: none;
+}
+
+#input-description textarea:hover{
+	cursor: pointer;
+}
+
+#container-formpersonru-buttons {
+	/*display: inline-block;*/
+	width: 100%;
+	/*flex-direction: row;*/
+	/*justify-content: flex-start;*/
+	display: inline-grid;
+	margin-bottom: 21.28px;
+	grid-template-columns: 1fr 1fr;
+}
+
+.formpersonru-buttons {
+	overflow: scroll;
+	/*white-space: nowrap;*/
+	/*overflow: auto;*/
+
+}
+
+#container-formpersonru-buttons #button-update {
+	margin-right: 21.28px;
+	margin-bottom: 21.28px;
+}
+
+#container-formpersonru-buttons #button-delete {
+	margin-right: 21.28px;
+	max-width: auto;
+}
