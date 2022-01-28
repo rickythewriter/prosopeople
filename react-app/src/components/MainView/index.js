@@ -1,43 +1,43 @@
-/*---------------------------------------------------------------------/
+// /*---------------------------------------------------------------------/
 
-	Decides which menu to open depending on the item that was selected.
+// 	Decides which menu to open depending on the item that was selected.
 
-/---------------------------------------------------------------------*/
+// /---------------------------------------------------------------------*/
 
 
-import React, { useState } from 'react'
-// import { useDispatch } from 'react-redux';
-import FormPersonRU from '../FormPersonRU'
+// import React, { useState } from 'react'
+// // import { useDispatch } from 'react-redux';
+// import FormPersonRU from '../FormPersonRU'
 
-const MainView = ({user, selectedItemType, selectedItemId, peopleObj}) => {
+// const MainView = ({user, peopleObj}) => {
 
-	/* Choose view component based on the item type I receive*/
-	switch(selectedItemType){
-		case 'person':
-			const selectedPerson = peopleObj[selectedItemId];
-			// console.log("This is the selected person: ", selectedPerson)
-			return (
-				<FormPersonRU selectedPerson={selectedPerson} user={user} />
-			);
-			break;
-		// case 'entry':
-		// 	return (
-		// 		<p>Entry form here</p>
-		// 	)
-		// 	break;
-		// case 'group':
-		// 	return (
-		// 		<p>Group information form here</p>
-		// 	)
-		// 	break;
-		default:
-			return (
-				<p>Fear me, for I am THE MAIN VIEW</p>	
-			)
-	}
+// 	/* Choose view component based on the item type I receive*/
+// 	switch(selectedItemType){
+// 		case 'person':
+// 			const selectedPerson = peopleObj[selectedItemId];
+// 			// console.log("This is the selected person: ", selectedPerson)
+// 			return (
+// 				<FormPersonRU selectedPerson={selectedPerson} user={user} />
+// 			);
+// 			break;
+// 		// case 'entry':
+// 		// 	return (
+// 		// 		<p>Entry form here</p>
+// 		// 	)
+// 		// 	break;
+// 		// case 'group':
+// 		// 	return (
+// 		// 		<p>Group information form here</p>
+// 		// 	)
+// 		// 	break;
+// 		default:
+// 			return (
+// 				<p>Fear me, for I am THE MAIN VIEW</p>	
+// 			)
+// 	}
 
 
 	
-}
+// }
 
-export default MainView
+// export default MainView

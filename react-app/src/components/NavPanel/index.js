@@ -8,10 +8,10 @@ made.
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
-import { loadPerson } from '../../store/person'
+import { loadPerson, removePerson } from '../../store/person'
 import './NavPanel.css'
 
-const NavPanel = ({user, people, selectedItemType, selectedItemId, setSelectedItemType, setSelectedItemId }) => {
+const NavPanel = ({user, people}) => {
 	// const user = useSelector(state => state.session.user);
 	// const peopleObj = useSelector(state => state.people)
 	// const people = Object.values(peopleObj)
@@ -36,36 +36,33 @@ const NavPanel = ({user, people, selectedItemType, selectedItemId, setSelectedIt
 
 	return (
 		<nav id='nav-panel'>
-			<div className={(selectedItemType === "people") ? "selected-people" : ""}>
+			{/*<div className={(selectedItemType === "people") ? "selected-people" : ""}>*/}
 				<h4 
 					className="panel-heading"
 					onClick={()=> {
-						setSelectedItemType("people")
-						setSelectedItemId(null)
-					}
+						dispatch(removePerson());
+					}	
 				}>
 					People
 				</h4>
-			</div>
+			{/* </div> */}
 
 
 			<ul id="list-people">
 				{people.map( person => {
 					return (
 						<div className="dossier-name">
-							<div className={(person.id === selectedItemId && selectedItemType === "person") ? "selected-person" : ""}>
+							{/*<div className={(person.id === selectedItemId && selectedItemType === "person") ? "selected-person" : ""}>*/}
 								<li 
 									key={person.id} 
 									onClick={()=> {
-										setSelectedItemType("person");
-										setSelectedItemId(person.id);
 										dispatch(loadPeople(user))	//refill form fields after alterations
 										dispatch(loadPerson(person))
 									}}
 								>
 									{person.name}
 								</li>
-							</div>
+							{/*</div>*/}
 						</div>
 					)
 				})}

@@ -39,12 +39,13 @@ The peopleObj follows the following format:
 
 /---------------------------------------------------------------------*/
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
 import MainView from '../MainView';
+import FormPersonRU from '../FormPersonRU'
 import FormPersonCreate from '../FormPersonCreate'
 import './Dashboard.css';
 
@@ -52,44 +53,51 @@ const Dashboard = () => {
 	const user = useSelector(state => state.session.user);
 	const peopleObj = useSelector(state => state.people);
 	const people = Object.values(peopleObj);
-	const [selectedItemType, setSelectedItemType] = useState('people');
-	const [selectedItemId, setSelectedItemId] = useState();
+	const person = useSelector(state => state.person);
+	const personValues = Object.values(person);
+	const [ personIsSelected, setPersonIsSelected ] = useState(false)
 
-	const horizontalPanelsRight = (selectedItemType) => {
-		switch(selectedItemType){
-			case 'person':
-				return (
-					<div id="horizontal-panels-R">
-						<div className="horizontal-panel-R horizontal-panel" id="container-entries">
-							{/*<SecondaryNavPanel />*/}
-						</div>
+	// useEffect(()=> {
+	// 	if (personValues.length === 0){
+	// 		setPersonIsSelected(false)
+	// 	} else {
+	// 		setPersonIsSelected(true)
+	// 	}
+	// }, [person]);
 
-						<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-							<MainView 
-								user={user} 
-								selectedItemType={selectedItemType} 
-								selectedItemId={selectedItemId} 
-								peopleObj={peopleObj}/>
-						</div>
+	useEffect(()=> {
+		setPersonIsSelected(personValues.length)
+	}, [person]);
+
+	const horizontalPanelsRight = (person) => {
+		if ( personIsSelected ) {
+			return (
+				<div id="horizontal-panels-R">
+					<div className="horizontal-panel-R horizontal-panel" id="container-entries">
+						{/*<SecondaryNavPanel />*/}
 					</div>
-				)
-				break;
-			case 'people':
-				return (
-					<div 
-						id="horizontal-panel-large-R"
-					>
-						 <div 
-						 	className="horizontal-panel-R horizontal-panel"
-						 	id="container-main-view"
-						 >
-						 	<FormPersonCreate user={user}/>
-						</div>
+
+					<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
+						{/*<MainView 
+							user={user}
+							peopleObj={peopleObj}/>*/}
+						<FormPersonRU />
 					</div>
-				)
-				break;
-			default:
-				return null
+				</div>
+			)
+		} else {
+			return (
+				<div 
+					id="horizontal-panel-large-R"
+				>
+					 <div 
+					 	className="horizontal-panel-R horizontal-panel"
+					 	id="container-main-view"
+					 >
+					 	<FormPersonCreate user={user}/>
+					</div>
+				</div>
+			)
 		}
 	}
 
@@ -107,14 +115,10 @@ const Dashboard = () => {
 						<NavPanel 
 							user={user} 
 							people={people} 
-							selectedItemType={selectedItemType}
-							selectedItemId={selectedItemId}
-							setSelectedItemType={setSelectedItemType} 
-							setSelectedItemId={setSelectedItemId}
 						/>
 					</div>
 					
-					{horizontalPanelsRight(selectedItemType)}
+					{horizontalPanelsRight(person)}
 					
 				</div>
 			</div>

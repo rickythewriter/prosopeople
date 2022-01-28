@@ -1,21 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { updatePerson, deletePerson, loadPeople } from '../../store/people'
+import { removePerson } from '../../store/person'
 import MainView from '../MainView'
 import './FormPersonRU.css'
 
-const FormPersonRU = (selectedPerson, {user}) => {
+const FormPersonRU = (user) => {
 
-	const [ person, setPerson ] = useState(selectedPerson.selectedPerson);
+	const person = useSelector(state=>state.person);
 	const [ name, setName] = useState()
 	const [ description, setDescription ] = useState()
 	const [errors, setErrors] = useState([])
 
 	const dispatch = useDispatch()
-
-	useEffect(() => {
-		setPerson(selectedPerson.selectedPerson);
-    }, [selectedPerson])
 
 	useEffect(() => {
 		/* If there is no longer a person, keep it as it was */
@@ -54,6 +51,7 @@ const FormPersonRU = (selectedPerson, {user}) => {
     	e.preventDefault();
         setErrors([]);
         await dispatch(deletePerson(person));
+        // dispatch(removePerson());
     }
 
 	return (
