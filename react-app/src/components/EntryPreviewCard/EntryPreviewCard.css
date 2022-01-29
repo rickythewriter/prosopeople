@@ -9,6 +9,7 @@
 	overflow: hidden;
 	padding: 0.33em 1em;
 	background-color: #fff;
+	margin-bottom: 16px;
 }
 
 .card-entry-preview:hover {

@@ -17,15 +17,6 @@ const FormEntryCreate = () => {
 
 	const dispatch = useDispatch()
 
-	// useEffect(() => {
-		/* Clear errors when clicking away */
-		// if (entry) {
-		// 	setTitle(entry.title || "");
-		// 	setBody(entry.body || "");
-		// }
-		// setErrors([]);
-	// }, [entry])
-
 	const handleSubmit = async e => {
 		e.preventDefault();
 
