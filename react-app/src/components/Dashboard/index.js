@@ -45,6 +45,7 @@ import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
 import EntriesMenu from '../EntriesMenu';
+import SmallMainView from '../SmallMainView';
 import FormPersonRU from '../FormPersonRU'
 import FormPersonCreate from '../FormPersonCreate'
 import './Dashboard.css';
@@ -63,13 +64,11 @@ const Dashboard = () => {
 
 	const horizontalPanelsRight = () => {
 		if ( personIsSelected ) {
+			
 			return (
 				<div id="horizontal-panels-R">	
 					<EntriesMenu />
-
-					<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-						<FormPersonRU user={user}/>
-					</div>
+					<SmallMainView />
 				</div>
 			)
 		} else {
