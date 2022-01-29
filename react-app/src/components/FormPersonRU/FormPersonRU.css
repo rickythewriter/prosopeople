@@ -63,7 +63,7 @@
 }
 
 .formpersonru-buttons {
-	overflow: scroll;
+	overflow: hidden;
 	/*white-space: nowrap;*/
 	/*overflow: auto;*/
 
