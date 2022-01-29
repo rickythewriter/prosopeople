@@ -10,13 +10,21 @@
 /---------------------------------------------------------------------*/
 
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { loadEntry } from '../../store/entry'
 import './EntryPreviewCard.css'
 
 
 
 const EntryPreviewCard = ({entry}) => {
+	const dispatch = useDispatch()
+
+	console.log("This is a loaded entry: ", entry)
 	return(
-		<div className='card-entry-preview'>
+		<div 
+			className='card-entry-preview'
+			onClick={() => {dispatch(loadEntry(entry))}}
+		>
 			<h4>
 				{entry.title}
 			</h4>
