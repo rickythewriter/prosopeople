@@ -6,7 +6,7 @@ made.
 /---------------------------------------------------------------------*/
 
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { loadEntries } from '../../store/entries'
@@ -16,6 +16,7 @@ const NavPanel = ({user, people}) => {
 	// const user = useSelector(state => state.session.user);
 	// const peopleObj = useSelector(state => state.people)
 	// const people = Object.values(peopleObj)
+	const selectedPerson = useSelector(state => state.person);
 	const dispatch = useDispatch();
 	
 	useEffect(() => {
@@ -53,7 +54,7 @@ const NavPanel = ({user, people}) => {
 				{people.map( person => {
 					return (
 						<div className="dossier-name">
-							{/*<div className={(person.id === selectedItemId && selectedItemType === "person") ? "selected-person" : ""}>*/}
+							<div className={(person.id === selectedPerson.id) ? "selected-person" : ""}>
 								<li 
 									key={person.id} 
 									onClick={()=> {
@@ -64,7 +65,7 @@ const NavPanel = ({user, people}) => {
 								>
 									{person.name}
 								</li>
-							{/*</div>*/}
+							</div>
 						</div>
 					)
 				})}

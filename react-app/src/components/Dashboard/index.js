@@ -61,7 +61,7 @@ const Dashboard = () => {
 		setPersonIsSelected(personValues.length)
 	}, [person]);
 
-	const horizontalPanelsRight = (person) => {
+	const horizontalPanelsRight = () => {
 		if ( personIsSelected ) {
 			return (
 				<div id="horizontal-panels-R">	
