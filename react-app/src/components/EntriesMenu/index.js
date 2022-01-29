@@ -21,7 +21,7 @@ import EntryPreviewCard from '../EntryPreviewCard';
 import './EntriesMenu.css'
 
 
-const EntriesMenu = () => {
+const EntriesMenu = ({setNewEntrySelected}) => {
 	const entriesObj = useSelector(state => state.entries)
 	const person = useSelector(state => state.person)
 	const entries = Object.values(entriesObj);
@@ -38,6 +38,7 @@ const EntriesMenu = () => {
 				className='panel-heading'
 				onClick={()=> {
 					dispatch(removeEntry());
+					setNewEntrySelected(true);
 				}	
 			}>
 				Entries
@@ -47,10 +48,6 @@ const EntriesMenu = () => {
 				{entries.map( entry => {
 					return (
 						<EntryPreviewCard entry={entry}/>
-						// <div>
-						// 	<p>{entry.title}</p>
-						// 	<p>{entry.body}</p>
-						// </div>
 					)
 				})}
 			</div>

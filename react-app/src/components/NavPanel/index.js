@@ -12,7 +12,7 @@ import { loadPerson, removePerson } from '../../store/person'
 import { loadEntries } from '../../store/entries'
 import './NavPanel.css'
 
-const NavPanel = ({user, people}) => {
+const NavPanel = ({user, people, setNewEntrySelected} ) => {
 	// const user = useSelector(state => state.session.user);
 	// const peopleObj = useSelector(state => state.people)
 	// const people = Object.values(peopleObj)
@@ -58,9 +58,10 @@ const NavPanel = ({user, people}) => {
 								<li 
 									key={person.id} 
 									onClick={()=> {
-										dispatch(loadPeople(user))	//refill form fields after alterations
-										dispatch(loadPerson(person))
-										dispatch(loadEntries(person))
+										dispatch(loadPeople(user));	//refill form fields after alterations
+										dispatch(loadPerson(person));
+										dispatch(loadEntries(person));
+										setNewEntrySelected(false);
 									}}
 								>
 									{person.name}

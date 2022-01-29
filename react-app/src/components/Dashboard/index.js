@@ -57,6 +57,7 @@ const Dashboard = () => {
 	const person = useSelector(state => state.person);
 	const personValues = Object.values(person);
 	const [ personIsSelected, setPersonIsSelected ] = useState(false)
+	const [ newEntrySelected, setNewEntrySelected ] = useState(false)
 
 	useEffect(()=> {
 		setPersonIsSelected(personValues.length)
@@ -64,11 +65,10 @@ const Dashboard = () => {
 
 	const horizontalPanelsRight = () => {
 		if ( personIsSelected ) {
-			
 			return (
 				<div id="horizontal-panels-R">	
-					<EntriesMenu />
-					<SmallMainView />
+					<EntriesMenu setNewEntrySelected={setNewEntrySelected} />
+					<SmallMainView newEntrySelected={newEntrySelected}/>
 				</div>
 			)
 		} else {
@@ -100,7 +100,8 @@ const Dashboard = () => {
 					<div className="horizontal-panel" id="container-navigation">
 						<NavPanel 
 							user={user} 
-							people={people} 
+							people={people}
+							setNewEntrySelected={setNewEntrySelected}
 						/>
 					</div>
 					
