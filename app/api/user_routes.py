@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, User, Person
-from app.forms import PersonForm
+from app.models import db, User, Person, Entry
+from app.forms import PersonForm, EntryForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -42,4 +42,30 @@ def create_person(id):
         db.session.add(person)
         db.session.commit()
         return person.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+# Get entries
+@user_route.route('/<int:id>/people/<person_id>/entries')
+@login_required
+def get_entries(id, person_id):
+    user = User.query.get(id)
+    person = Person.query.get(person_id)
+    entries = Entry.query.filter(Entry.user_id == user.id && Entry.person_id == person.id).all()
+    obj = {"entries":[entry.to_dict() for entry in entries]}
+    return obj;
+
+# Create entry
+@user_route.route('/<int:id>/people/<person_id>/entries', methods=['POST'])
+@login_required
+def create_entry(id, person_id):
+    user = User.query.get(id)
+    person = Person.query.get(person_id)
+    form = EntryForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        entry = Entry()
+        form.populate_obj(entry)
+        db.session.add(entry)
+        db.session.commit()
+        return entry.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
