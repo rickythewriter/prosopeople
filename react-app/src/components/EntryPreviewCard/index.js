@@ -19,9 +19,52 @@ import './EntryPreviewCard.css'
 const EntryPreviewCard = ({entry}) => {
 	const dispatch = useDispatch()
 
-	const adjustTimeZone = (dateString) => {
-		const date = new Date(`${dateString} UTC`);
-		return date.toString();
+	// const adjustTimeZone = (dateString) => {
+	// 	const date = new Date(`${dateString} UTC`);
+	// 	return date.toString();
+	// }
+
+	const convertToTwelveHour = (timeStringMilitary) => {
+		const timeUnits = timeStringMilitary.split(':')
+		const hour = timeUnits[0];
+		const minutes = timeUnits[1];
+		const hourInt = parseInt(hour);
+		if ( hourInt > 12) {
+			return `${hourInt-12}:${minutes} pm`;
+		} else {
+			return `${hour}:${minutes} am`;
+		}
+	}
+
+	const formatTime = (dateString) => {
+
+		/* Adjust Time Zone */
+
+		// const dateStringUTC = adjustTimeZone(dateString);
+		// const dateWordArray = dateStringUTC.split(' ');
+		// const dayOfWeekShort = dateWordArray[0]
+		// const monthShort = dateWordArray[1]
+		// const dayOfMonthWithZero = dateWordArray[2]
+		// const yearFull = dateWordArray[3]
+		// const time = dateWordArray[4]
+
+		/* 
+			Change from 
+				short day of week + short month + two-digit day + full year
+			to
+				short day of week, short month two-digit day, full year at time
+		*/
+		const dateWordArray = dateString.split(' ');
+		const dayOfWeekShort = dateWordArray[0]
+		const monthShort = dateWordArray[2]
+		const dayOfMonthWithZero = dateWordArray[1]
+		const yearFull = dateWordArray[3]
+		const time = dateWordArray[4]
+		
+		const timeTwelveHour = convertToTwelveHour(time);
+
+		const formattedTime = `${dayOfWeekShort} ${monthShort} ${dayOfMonthWithZero}, ${yearFull} at ${timeTwelveHour}`
+		return formattedTime
 	}
 
 	console.log("This is a loaded entry: ", entry)
@@ -35,7 +78,9 @@ const EntryPreviewCard = ({entry}) => {
 			</h4>
 			<div id='preview-date'>
 				<p>
-					{adjustTimeZone(entry.updated_at)}
+					{/*{entry.updated_at}<br/>*/}
+					{/*{adjustTimeZone(entry.updated_at)}<br/>*/}
+					{formatTime(entry.updated_at)}<br/>
 				</p>
 			</div>
 			<div id='preview-text'>
