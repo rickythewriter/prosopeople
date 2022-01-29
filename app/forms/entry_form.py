@@ -14,7 +14,7 @@ class EntryForm(FlaskForm):
 		Update a person
 			accepting non-required fields
 	"""
-	title = StringField('name', validators=[DataRequired(), Length(min=1,max=100,message="Name must be 100 characters or shorter.")])
+	title = StringField('name', validators=[Length(min=1,max=100,message="Title must be 100 characters or shorter.")])
 	body = TextAreaField('body', validators=None)
 	person_id = IntegerField('person_id', validators=[DataRequired()])
 	user_id = IntegerField('user_id', validators=[DataRequired()])

@@ -23,7 +23,7 @@ def update_entry(id):
 		entry.body = form.body.data
 		updated_at = func.now()
 		db.session.commit()
-		return person.to_dict()
+		return entry.to_dict()
 	return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @entry_routes.route('/<int:id>', methods=['DELETE'])
