@@ -45,7 +45,7 @@ def create_person(id):
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # Get entries
-@user_route.route('/<int:id>/people/<person_id>/entries')
+@user_routes.route('/<int:id>/people/<person_id>/entries')
 @login_required
 def get_entries(id, person_id):
     user = User.query.get(id)
@@ -55,7 +55,7 @@ def get_entries(id, person_id):
     return obj;
 
 # Create entry
-@user_route.route('/<int:id>/people/<person_id>/entries', methods=['POST'])
+@user_routes.route('/<int:id>/people/<person_id>/entries', methods=['POST'])
 @login_required
 def create_entry(id, person_id):
     user = User.query.get(id)
