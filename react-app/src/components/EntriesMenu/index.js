@@ -33,8 +33,7 @@ const EntriesMenu = () => {
 
 	/* This component iterates each entry into an EntryPreviewCard */
 	return (
-
-		<div id='menu-entries'>
+		<div className="horizontal-panel-R horizontal-panel" id="container-entries">
 			<h4 
 				className='panel-heading'
 				onClick={()=> {
@@ -55,7 +54,6 @@ const EntriesMenu = () => {
 					)
 				})}
 			</div>
-
 		</div>
 	)
 }

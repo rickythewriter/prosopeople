@@ -63,20 +63,9 @@ const Dashboard = () => {
 
 	const horizontalPanelsRight = (person) => {
 		if ( personIsSelected ) {
-			// return (
-			// 	<div id="horizontal-panels-R">	
-			// 		{/*<EntriesMenu />*/}
-
-			// 		<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-			// 			<FormPersonRU user={user}/>
-			// 		</div>
-			// 	</div>
-			// )
 			return (
-				<div id="horizontal-panels-R">
-					<div className="horizontal-panel-R horizontal-panel" id="container-entries">
-						<EntriesMenu />
-					</div>
+				<div id="horizontal-panels-R">	
+					<EntriesMenu />
 
 					<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
 						<FormPersonRU user={user}/>
