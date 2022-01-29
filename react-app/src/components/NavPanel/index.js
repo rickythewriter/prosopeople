@@ -9,6 +9,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
+import { loadEntries } from '../../store/entries'
 import './NavPanel.css'
 
 const NavPanel = ({user, people}) => {
@@ -58,6 +59,7 @@ const NavPanel = ({user, people}) => {
 									onClick={()=> {
 										dispatch(loadPeople(user))	//refill form fields after alterations
 										dispatch(loadPerson(person))
+										dispatch(loadEntries(person))
 									}}
 								>
 									{person.name}

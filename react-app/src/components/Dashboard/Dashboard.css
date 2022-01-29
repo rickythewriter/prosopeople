@@ -16,11 +16,23 @@
 
 	box-sizing: border-box;
     /*width: 100%;*/
-    padding: 0 40px;
+    padding: 0 16px;
     align-items: center;
     display: flex;
     justify-content: space-between;
     position: relative;
+}
+
+#container-navigation {
+	background-color: #909D88;
+	border-radius: 7px;
+}
+
+#container-entries {
+	background-color: #ACB6A6;
+}
+
+#container-main-view {
 }
 
 #horizontal-panels-LR {
@@ -40,7 +52,7 @@
 	border: 1px solid #bec8b3;
 	/*border-radius: 7px;*/
 	background-color: #bec8b3;
-	padding: 0 40px;
+	padding: 0 16px;
 	height: 100vh;
 	overflow: scroll;
 	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
@@ -77,11 +89,6 @@
 	background-color: #465237;
 	border-color: #465237;
 	cursor: pointer;
-}
-
-#container-navigation {
-	background-color: #61714d;
-	border-radius: 7px;
 }
 
 #horizontal-panel-large-R {

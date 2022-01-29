@@ -44,6 +44,7 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
+import EntriesMenu from '../EntriesMenu';
 import FormPersonRU from '../FormPersonRU'
 import FormPersonCreate from '../FormPersonCreate'
 import './Dashboard.css';
@@ -74,7 +75,7 @@ const Dashboard = () => {
 			return (
 				<div id="horizontal-panels-R">
 					<div className="horizontal-panel-R horizontal-panel" id="container-entries">
-						{/*<EntriesMenu />*/}
+						<EntriesMenu />
 					</div>
 
 					<div className="horizontal-panel-R horizontal-panel" id="container-main-view">

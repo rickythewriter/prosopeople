@@ -27,8 +27,8 @@ const removeEntry = (entry) => ({
 	Dispatch Functions
 /---------------------------------------------------------------------*/
 
-export const loadEntries = (user, person) => async dispatch => {
-    const res = await fetch(`/api/users/${user.id}/people/${person.id}/entries`)
+export const loadEntries = (person) => async dispatch => {
+    const res = await fetch(`/api/people/${person.id}/entries`)
     const data = await res.json();
     dispatch(getEntries(data));
     return data;
@@ -80,7 +80,7 @@ export const deleteEntry = (entry) => async dispatch => {
 
 const initialState = { }
 
-export const peopleReducer = (state = initialState, action) => {
+export const entriesReducer = (state = initialState, action) => {
     const newState = {...state}
     switch (action.type) {
         case LOAD_ENTRIES:
@@ -88,7 +88,7 @@ export const peopleReducer = (state = initialState, action) => {
         	const allEntries = action.entries.entries;
         	allEntries.forEach(entry => {entries[entry.id] = entry
         	})
-        	return {...state, ...entries}
+        	return {...entries}
         case ADD_ENTRY:
             newState[action.entry.id] = action.entry
             return newState;

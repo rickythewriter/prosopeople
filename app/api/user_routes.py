@@ -44,16 +44,6 @@ def create_person(id):
         return person.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-# Get entries
-@user_routes.route('/<int:id>/people/<person_id>/entries')
-@login_required
-def get_entries(id, person_id):
-    user = User.query.get(id)
-    person = Person.query.get(person_id)
-    entries = Entry.query.filter(Entry.user_id == user.id and Entry.person_id == person.id).all()
-    obj = {"entries":[entry.to_dict() for entry in entries]}
-    return obj;
-
 # Create entry
 @user_routes.route('/<int:id>/people/<person_id>/entries', methods=['POST'])
 @login_required

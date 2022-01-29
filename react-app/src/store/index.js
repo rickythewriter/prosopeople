@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import session from './session'
 import { peopleReducer } from './people'
 import { personReducer } from './person'
+import { entriesReducer } from './entries'
+import { entryReducer } from './entry'
 
 const rootReducer = combineReducers({
   session,
   people: peopleReducer,
   person: personReducer,
+  entries: entriesReducer,
+  entry: entryReducer
 });
 
 

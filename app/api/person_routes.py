@@ -1,6 +1,6 @@
 from flask import Blueprint, request, session
 from flask_login import login_required
-from app.models import db, Person
+from app.models import db, Person, Entry
 from app.forms import PersonForm
 
 person_routes = Blueprint('people', __name__)
@@ -33,3 +33,12 @@ def delete_person(id):
 	return person.to_dict();
 	# Delete task from database
 	# return success message
+
+# Get entries
+@person_routes.route('/<int:id>/entries')
+@login_required
+def get_entries(id):
+    person = Person.query.get(id)
+    entries = Entry.query.filter(Entry.person_id == person.id).all()
+    obj = {"entries":[entry.to_dict() for entry in entries]}
+    return obj;
