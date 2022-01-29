@@ -47,7 +47,7 @@ const NavPanel = ({user, people, setNewEntrySelected} ) => {
 						dispatch(removePerson());
 					}	
 				}>
-					People
+					Dossiers
 				</h4>
 			{/* </div> */}
 
