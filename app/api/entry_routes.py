@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, Entry
 from app.forms import EntryForm
-from .sqlalchemy.sql import func
+from sqlalchemy.sql import func
 
 entry_routes = Blueprint('entries', __name__)
 
