@@ -50,7 +50,7 @@ def create_person(id):
 def get_entries(id, person_id):
     user = User.query.get(id)
     person = Person.query.get(person_id)
-    entries = Entry.query.filter(Entry.user_id == user.id && Entry.person_id == person.id).all()
+    entries = Entry.query.filter(Entry.user_id == user.id and Entry.person_id == person.id).all()
     obj = {"entries":[entry.to_dict() for entry in entries]}
     return obj;
 
