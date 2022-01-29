@@ -21,7 +21,7 @@ def update_entry(id):
 	if form.validate_on_submit:
 		entry.title = form.title.data
 		entry.body = form.body.data
-		updated_at = func.now()
+		entry.updated_at = func.now()
 		db.session.commit()
 		return entry.to_dict()
 	return {'errors': validation_errors_to_error_messages(form.errors)}, 401
