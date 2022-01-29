@@ -11,6 +11,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import FormPersonRU from '../FormPersonRU'
+import FormEntryCreate from '../FormEntryCreate'
 import FormEntryRUD from '../FormEntryRUD'
 
 const SmallMainView = ({newEntrySelected}) => {
@@ -34,9 +35,9 @@ const SmallMainView = ({newEntrySelected}) => {
 				<FormEntryRUD />
 			)
 		} else if (newEntrySelected){
-			console.log("newEntrySelected is ",newEntrySelected)
 			return (
-				<p>New Entry</p>
+				// <p>New Entry</p>
+				<FormEntryCreate />
 			)
 		} else {
 			return (<FormPersonRU user={user} />)
