@@ -11,6 +11,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import FormPersonRU from '../FormPersonRU'
+import FormEntryRUD from '../FormEntryRUD'
 
 const SmallMainView = ({newEntrySelected}) => {
 	const user = useSelector(state => state.session.user);
@@ -29,7 +30,8 @@ const SmallMainView = ({newEntrySelected}) => {
 	const smallMainView = (entryIsSelected,newEntrySelected) => {
 		if (entryIsSelected){
 			return (
-				<p>Edit Entry</p>
+				// <p>Edit Entry</p>
+				<FormEntryRUD />
 			)
 		} else if (newEntrySelected){
 			console.log("newEntrySelected is ",newEntrySelected)

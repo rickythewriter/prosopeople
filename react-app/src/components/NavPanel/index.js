@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { loadEntries } from '../../store/entries'
+import { removeEntry } from '../../store/entry'
 import './NavPanel.css'
 
 const NavPanel = ({user, people, setNewEntrySelected} ) => {
@@ -17,6 +18,7 @@ const NavPanel = ({user, people, setNewEntrySelected} ) => {
 	// const peopleObj = useSelector(state => state.people)
 	// const people = Object.values(peopleObj)
 	const selectedPerson = useSelector(state => state.person);
+	const entry = useSelector(state => state.entry);
 	const dispatch = useDispatch();
 	
 	useEffect(() => {
@@ -62,6 +64,7 @@ const NavPanel = ({user, people, setNewEntrySelected} ) => {
 										dispatch(loadPerson(person));
 										dispatch(loadEntries(person));
 										setNewEntrySelected(false);
+										dispatch(removeEntry(entry));
 									}}
 								>
 									{person.name}
