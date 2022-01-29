@@ -54,7 +54,9 @@ def create_entry(id, person_id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         entry = Entry()
+        print("entry got initialized")
         form.populate_obj(entry)
+        print("form got populated")
         db.session.add(entry)
         db.session.commit()
         return entry.to_dict()
