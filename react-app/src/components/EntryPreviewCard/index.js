@@ -19,6 +19,11 @@ import './EntryPreviewCard.css'
 const EntryPreviewCard = ({entry}) => {
 	const dispatch = useDispatch()
 
+	const adjustTimeZone = (dateString) => {
+		const date = new Date(`${dateString} UTC`);
+		return date.toString();
+	}
+
 	console.log("This is a loaded entry: ", entry)
 	return(
 		<div 
@@ -30,7 +35,7 @@ const EntryPreviewCard = ({entry}) => {
 			</h4>
 			<div id='preview-date'>
 				<p>
-					{entry.updated_at}
+					{adjustTimeZone(entry.updated_at)}
 				</p>
 			</div>
 			<div id='preview-text'>
