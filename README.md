@@ -90,7 +90,7 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
    ```
 
 ## Wiki Docs
--[Wiki Docs] https://github.com/rickythewriter/prosopeople/wiki
+https://github.com/rickythewriter/prosopeople/wiki
 
 ## Challenges
 
