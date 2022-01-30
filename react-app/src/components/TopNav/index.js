@@ -32,6 +32,11 @@ const TopNav = () => {
         <img 
           src='https://github.com/rickythewriter/prosopeople/blob/main/react-app/public/favicon.png?raw=true'
           alt='prosopeople-logo'
+          onClick={ () => {
+            dispatch(removePerson());
+            dispatch(removeEntries());
+            dispatch(removeEntry());
+          }}
         />
       </div>
       <div id='top-nav-right'>
