@@ -1,6 +1,7 @@
 //constants
 
 const LOAD_ENTRIES = 'entries/LOAD_ENTRIES'
+const CLEAR_ENTRIES = 'entries/CLEAR_ENTRIES'
 const ADD_ENTRY = 'entries/ADD_ENTRY'
 const REMOVE_ENTRY = 'entries/REMOVE_ENTRY'
 
@@ -11,6 +12,12 @@ const getEntries = (entries) => ({
 	type: LOAD_ENTRIES,
 	entries
 });
+
+const removeEntries = () => {
+    return {
+        type: CLEAR_ENTRIES,
+    }
+}
 
 const addEntry = (entry) => ({
     type: ADD_ENTRY,
@@ -63,6 +70,17 @@ export const updateEntry = entry => async dispatch => {
     }
 }
 
+export const deleteEntries = (person) => async dispatch => {
+    const res = await fetch(`/api/people/${person.id}/entries`, {
+        method: 'DELETE'
+    });
+    const data = await res.json();
+    if(res.ok) {
+        dispatch(removeEntries())
+        return data
+    }
+}
+
 export const deleteEntry = (entry) => async dispatch => {
     const res = await fetch(`/api/entries/${entry.id}`, {
         method: 'DELETE'
@@ -90,6 +108,8 @@ export const entriesReducer = (state = initialState, action) => {
         	allEntries.forEach(entry => {entries[entry.id] = entry
         	})
         	return {...entries}
+        case CLEAR_ENTRIES:
+            return {};
         case ADD_ENTRY:
             newState[action.entry.id] = action.entry
             return newState;

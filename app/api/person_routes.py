@@ -31,8 +31,6 @@ def delete_person(id):
 	db.session.delete(person)
 	db.session.commit()
 	return person.to_dict();
-	# Delete task from database
-	# return success message
 
 # Get entries
 @person_routes.route('/<int:id>/entries')
@@ -42,3 +40,17 @@ def get_entries(id):
     entries = Entry.query.filter(Entry.person_id == person.id).all()
     obj = {"entries":[entry.to_dict() for entry in entries]}
     return obj;
+
+# Delete all of a person's entries
+@person_routes.route('/<int:id>/entries', methods=['DELETE'])
+@login_required
+def delete_entries(id):
+	person = Person.query.get(id)
+	entries = Entry.query.filter(Entry.person_id == person.id).delete()
+	# print("These are the entries: ", entries)
+	# db.session.delete(entries)
+	db.session.commit()
+	return {"message" : "entries deleted"}
+
+
+
