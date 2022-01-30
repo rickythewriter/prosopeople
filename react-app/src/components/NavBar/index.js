@@ -39,7 +39,7 @@ const NavBar = () => {
                 activeClassName='active'
                 style={{textDecoration: 'none', color: 'inherit'}}
               >
-                <p>Login</p>
+                <p>Log In</p>
               </NavLink>
             </li>
     {/*        <li>
