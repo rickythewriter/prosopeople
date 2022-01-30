@@ -89,6 +89,22 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
    flask run
    ```
 
+## Wiki Docs
+-[Wiki Docs] https://github.com/rickythewriter/prosopeople/wiki
+
+## Challenges
+
+I had originally intended for the People feature to come with a contact-information form as well. Formatting phone numbers, inputting addresses, accepting multiple inputs for email addresses--these are all challenging, as the form input would require more research to grasp, or the database would hold many many-to-many tables.
+
+## Cool Code Snippets
+
+### Modular State-Based View Management
+![Dashboard](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/snippets/snippets-changing_panels-dashboard.png?raw=true)
+![Small Main View](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/snippets/snippets-changing_panels.png?raw=true)
+
+### Sorting Panel Elements
+![Entries by Date](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/snippets/snippets-sort_by_date.png?raw=true)
+
 ## Contributors
 
 - [Ricky Thang](https://github.com/rickythewriter)
