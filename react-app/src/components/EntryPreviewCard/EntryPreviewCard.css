@@ -22,7 +22,7 @@
 
 .card-entry-preview #preview-date {
 	font-size: 10px;
-	white-space: nowrap;
+	/*white-space: nowrap;*/
 }
 
 .card-entry-preview #preview-text {
