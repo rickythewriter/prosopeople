@@ -30,12 +30,33 @@ def seed_entries():
         user_id = 1,
         person_id = 5
         )
+    entry6 = Entry(
+        title = "Big Bear Trip",
+        body = "As the oldest members of the group, we were able to plan and complete logistal tasks the most efficiently.\n\nHe complimented my streamlined dinner plans: \n\t(1) Throw everything into the oven for one hour\n\t(2) Take everything out of the oven\n\t(3) Eat.\n\nSadly, I couldn't join them for skiing. My team was putting finishing touches on a Remember the Milk clone.",
+        user_id = 1,
+        person_id = 1
+        )
+    entry7 = Entry(
+        title = "Wedding",
+        body = "I was invited to be a groomsman at the last minute. The pink tuxedo fit.\n\nVia special request, I will be performing this song: https://www.youtube.com/watch?v=z9zMcvn_xkI",
+        user_id = 1,
+        person_id = 1
+        )
+    entry8 = Entry(
+        title = "Technical Interview Prep and Boot Camp",
+        body = "He lent me \"Programming Interviews Exposed,\" where authors, Morgan, Kindler, and Giguére wrote:\n\n\"Know Yourself. Stereotypes to the contrary, all programmers are not alike. Knowing what kind of programmer you are is crucial to finding the right kind of job.\"\n\nDoes he feel like he's made the right move working as a productivity specialist?",
+        user_id = 1,
+        person_id = 1
+        )
 
     db.session.add(entry1)
     db.session.add(entry2)
     db.session.add(entry3)
     db.session.add(entry4)
     db.session.add(entry5)
+    db.session.add(entry6)
+    db.session.add(entry7)
+    db.session.add(entry8)
 
     db.session.commit()
 
