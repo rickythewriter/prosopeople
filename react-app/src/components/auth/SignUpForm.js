@@ -9,6 +9,8 @@ const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -17,12 +19,27 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, firstName, lastName, password));
       if (data) {
         setErrors(data)
       }
+    } else if (password !== repeatPassword) {
+        setErrors(['repeat_password : Passwords must match.'])
     }
   };
+
+  const formatError = (errorsArr, fieldName) => {
+    /* 
+      Returns error message associated with field. 
+      Assumes 
+        there is only one error returned per field 
+        that the error element is formatted <fieldName> : <error>
+    */
+    const errorWithFieldNameArr = errorsArr.filter(error => error.includes(fieldName));
+    const errorWithFieldNameStr = errorWithFieldNameArr.toString();
+    const errorWithoutFieldName = errorWithFieldNameStr.split(': ')[1];
+    return errorWithoutFieldName;
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -30,6 +47,14 @@ const SignUpForm = () => {
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateFirstName = e => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -59,15 +84,13 @@ const SignUpForm = () => {
 
           <div className='minimal-form'>
 
-            <form onSubmit={onSignUp}>
+            <form className='form-authentication' onSubmit={onSignUp}>
 
               <ol>
 
                 <li className='Row'>
                   <div>
-                    {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
-                    ))}
+
                   </div>
                 </li>
 
@@ -82,6 +105,43 @@ const SignUpForm = () => {
                       onChange={updateUsername}
                       value={username}
                     ></input>
+                    <div className='error-message'>
+                      {formatError(errors, 'username')}
+                    </div>
+                  </div>
+                </li>
+
+                <li className='Row'>
+                  <div className='input-wrapper'>
+                    <label>First Name</label>
+                    <input
+                      type='text'
+                      name='firstName'
+                      className='TextInput TextInput_large'
+                      placeholder='First Name'
+                      onChange={updateFirstName}
+                      value={firstName}
+                    ></input>
+                    <div className='error-message'>
+                      {formatError(errors, 'first_name')}
+                    </div>
+                  </div>
+                </li>
+
+                <li className='Row'>
+                  <div className='input-wrapper'>
+                    <label>Last Name</label>
+                    <input
+                      type='text'
+                      name='lastName'
+                      className='TextInput TextInput_large'
+                      placeholder='Last Name (Optional)'
+                      onChange={updateLastName}
+                      value={lastName}
+                    ></input>
+                    <div className='error-message'>
+                      {formatError(errors, 'last_name')}
+                    </div>
                   </div>
                 </li>
 
@@ -96,6 +156,9 @@ const SignUpForm = () => {
                       onChange={updateEmail}
                       value={email}
                     ></input>
+                    <div className='error-message'>
+                      {formatError(errors, 'email')}
+                    </div>
                     </div>
                   </li>
 
@@ -110,6 +173,9 @@ const SignUpForm = () => {
                         onChange={updatePassword}
                         value={password}
                       ></input>
+                      <div className='error-message'>
+                        {formatError(errors, 'password')}
+                      </div>
                     </div>
                   </li>
 
@@ -125,6 +191,9 @@ const SignUpForm = () => {
                         value={repeatPassword}
                         required={true}
                       ></input>
+                      <div className='error-message'>
+                        {formatError(errors, 'repeat_password')}
+                      </div>
                     </div>
                   </li>
 

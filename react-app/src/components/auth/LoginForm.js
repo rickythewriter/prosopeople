@@ -20,6 +20,19 @@ const LoginForm = () => {
     }
   };
 
+  const formatError = (errorsArr, fieldName) => {
+    /* 
+      Returns error message associated with field. 
+      Assumes 
+        there is only one error returned per field 
+        that the error element is formatted <fieldName> : <error>
+    */
+    const errorWithFieldNameArr = errorsArr.filter(error => error.includes(fieldName));
+    const errorWithFieldNameStr = errorWithFieldNameArr.toString();
+    const errorWithoutFieldName = errorWithFieldNameStr.split(': ')[1];
+    return errorWithoutFieldName;
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -47,14 +60,14 @@ const LoginForm = () => {
           </div>
 
           <div className='minimal-form'>
-            <form onSubmit={onLogin}>
+            <form className='form-authentication' onSubmit={onLogin}>
               <ol>
 
                 <li className='Row'>
                   <div>
-                    {errors.map((error, ind) => (
+                    {/*{errors.map((error, ind) => (
                       <div key={ind}>{error}</div>
-                    ))}
+                    ))}*/}
                   </div>
                 </li>
 
@@ -73,6 +86,9 @@ const LoginForm = () => {
                       onChange={updateEmail}
                     />
                     {/*<div className="error-status FieldState-message FieldState_error-message qa-ValidationError-email"> Email address is a required field </div>*/}
+                      <div className='error-message'>
+                        {formatError(errors, 'email')}
+                      </div>
                   </div>
 
 
@@ -92,6 +108,9 @@ const LoginForm = () => {
                       onChange={updatePassword}
                     />
                   {/*<div className="passMsg badPass"> A strong password is blah blah blah </div>*/}
+                    <div className='error-message'>
+                      {formatError(errors, 'password')}
+                    </div>
                   </div>
 
                 </li>
