@@ -1,16 +1,18 @@
 #nav-panel {
-	color: #151515;
+	/*color: #151515;*/
 }
 
 #nav-panel h4:hover {
 	/*box-shadow: 0 1px #bec8b3;*/
-	text-decoration: underline solid #f7f8b4;
+	/*text-decoration: underline solid #f7f8b4;*/
+	text-decoration: underline solid #fff;
 	cursor: pointer;
 }
 
 .selected-people {
 	/*color: #eee;*/
-	text-decoration: underline solid #f7f8b4;
+	/*text-decoration: underline solid #f7f8b4;*/
+	text-decoration: underline solid #fff;
 }
 
 .dossier-name {
@@ -38,10 +40,12 @@
 
 #list-people li:hover {
 	/*color: #ffffc0;*/
-	color: #f7f8b4;
+	/*color: #f7f8b4;*/
+	color: #fff;
 }
 
 .selected-person li {
 	/*color: #f7f8b4;*/
-	color: #ffffc0;
+	/*color: #ffffc0;*/
+	color: #fff;
 }

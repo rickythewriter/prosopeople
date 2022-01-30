@@ -1,0 +1,4 @@
+.panel-heading:hover {
+	cursor: pointer;
+	text-decoration: underline solid #fff;
+}

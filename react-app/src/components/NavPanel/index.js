@@ -6,15 +6,19 @@ made.
 /---------------------------------------------------------------------*/
 
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
+import { loadEntries } from '../../store/entries'
+import { removeEntry } from '../../store/entry'
 import './NavPanel.css'
 
-const NavPanel = ({user, people}) => {
+const NavPanel = ({user, people, setNewEntrySelected} ) => {
 	// const user = useSelector(state => state.session.user);
 	// const peopleObj = useSelector(state => state.people)
 	// const people = Object.values(peopleObj)
+	const selectedPerson = useSelector(state => state.person);
+	const entry = useSelector(state => state.entry);
 	const dispatch = useDispatch();
 	
 	useEffect(() => {
@@ -43,7 +47,7 @@ const NavPanel = ({user, people}) => {
 						dispatch(removePerson());
 					}	
 				}>
-					People
+					Dossiers
 				</h4>
 			{/* </div> */}
 
@@ -52,17 +56,20 @@ const NavPanel = ({user, people}) => {
 				{people.map( person => {
 					return (
 						<div className="dossier-name">
-							{/*<div className={(person.id === selectedItemId && selectedItemType === "person") ? "selected-person" : ""}>*/}
+							<div className={(person.id === selectedPerson.id) ? "selected-person" : ""}>
 								<li 
 									key={person.id} 
 									onClick={()=> {
-										dispatch(loadPeople(user))	//refill form fields after alterations
-										dispatch(loadPerson(person))
+										dispatch(loadPeople(user));	//refill form fields after alterations
+										dispatch(loadPerson(person));
+										dispatch(loadEntries(person));
+										setNewEntrySelected(false);
+										dispatch(removeEntry(entry));
 									}}
 								>
 									{person.name}
 								</li>
-							{/*</div>*/}
+							</div>
 						</div>
 					)
 				})}

@@ -44,7 +44,8 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
-import MainView from '../MainView';
+import EntriesMenu from '../EntriesMenu';
+import SmallMainView from '../SmallMainView';
 import FormPersonRU from '../FormPersonRU'
 import FormPersonCreate from '../FormPersonCreate'
 import './Dashboard.css';
@@ -56,38 +57,18 @@ const Dashboard = () => {
 	const person = useSelector(state => state.person);
 	const personValues = Object.values(person);
 	const [ personIsSelected, setPersonIsSelected ] = useState(false)
+	const [ newEntrySelected, setNewEntrySelected ] = useState(false)
 
 	useEffect(()=> {
 		setPersonIsSelected(personValues.length)
 	}, [person]);
 
-	const horizontalPanelsRight = (person) => {
+	const horizontalPanelsRight = () => {
 		if ( personIsSelected ) {
-			// return (
-			// 	<div id="horizontal-panels-R">
-			// 		<div className="horizontal-panel-R horizontal-panel" id="container-entries">
-			// 			{/*<SecondaryNavPanel />*/}
-			// 		</div>
-
-			// 		<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-			// 			{/*<MainView 
-			// 				user={user}
-			// 				peopleObj={peopleObj}/>*/}
-			// 			<FormPersonRU user={user}/>
-			// 		</div>
-			// 	</div>
-			// )
-
 			return (
-				<div 
-					id="horizontal-panel-large-R"
-				>
-					 <div 
-					 	className="horizontal-panel-R horizontal-panel"
-					 	id="container-main-view"
-					 >
-					 	<FormPersonRU user={user}/>
-					</div>
+				<div id="horizontal-panels-R">	
+					<EntriesMenu setNewEntrySelected={setNewEntrySelected} />
+					<SmallMainView newEntrySelected={newEntrySelected}/>
 				</div>
 			)
 		} else {
@@ -119,7 +100,8 @@ const Dashboard = () => {
 					<div className="horizontal-panel" id="container-navigation">
 						<NavPanel 
 							user={user} 
-							people={people} 
+							people={people}
+							setNewEntrySelected={setNewEntrySelected}
 						/>
 					</div>
 					

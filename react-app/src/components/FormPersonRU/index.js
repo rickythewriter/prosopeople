@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updatePerson, deletePerson, loadPeople } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
-import MainView from '../MainView'
+import { deleteEntries } from '../../store/entries'
 import './FormPersonRU.css'
 
 const FormPersonRU = (user) => {
@@ -53,6 +53,7 @@ const FormPersonRU = (user) => {
     const handleDelete = async e => {
     	e.preventDefault();
         setErrors([]);
+        await dispatch(deleteEntries(person));
         await dispatch(deletePerson(person));
         dispatch(removePerson());
     }

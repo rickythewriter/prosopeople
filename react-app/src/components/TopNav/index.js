@@ -14,7 +14,7 @@ const TopNav = () => {
           activeClassName='active'
           style={{textDecoration: 'none', color: 'inherit'}}
         >
-              <h2>PROSOPEOPLE</h2>
+              <h2>Prosopeople</h2>
         </NavLink>
       </div>
       <div id='top-nav-right'>

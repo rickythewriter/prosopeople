@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now())
     people = db.relationship("Person", back_populates="user")
+    entries = db.relationship("Entry", back_populates="user")
 
     @property
     def password(self):

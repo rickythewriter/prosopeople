@@ -1,4 +1,4 @@
-#person-form-read-edit {
+#entry-form-r-u-d {
 	margin-top: 21.28px;
 	display: flex;
 	width: 100%;
@@ -7,11 +7,11 @@
 	max-width: 31em;
 }
 
-#person-form-read-edit #label-name {
+#entry-form-r-u-d #label-title {
 	display: none;
 }
 
-#input-name input[type="text"] {
+#input-title input[type="text"] {
 	font-family: 'PT Serif', serif;
 	font-weight: bold;
 	font-size: 1rem;
@@ -19,25 +19,25 @@
 	padding: 0;
 }
 
-#input-name input:hover {
+#input-title input:hover {
 	box-shadow: 0 1px #bec8b3;
 	cursor: pointer;
 }
 
-#input-name input:focus {
+#input-title input:focus {
 	box-shadow: 0 1px #bec8b3;
 }
 
-.person-form-read-update-input input{
+.entry-form-r-u-d input{
 	border: none;
 	outline: none;
 }
 
-#label-description {
+#label-body {
 	font-size: 0.85rem;
 }
 
-#input-description textarea{
+#input-body textarea{
 	font-family: 'PT Serif', serif;
 	border: none;
 	outline: none;
@@ -48,11 +48,11 @@
 	resize: none;
 }
 
-#input-description textarea:hover{
+#input-body textarea:hover{
 	cursor: pointer;
 }
 
-#container-formpersonru-buttons {
+#container-formentryrud-buttons {
 	/*display: inline-block;*/
 	width: 100%;
 	/*flex-direction: row;*/
@@ -62,19 +62,19 @@
 	grid-template-columns: 1fr 1fr;
 }
 
-.formpersonru-buttons {
+.formentryrud-buttons {
 	overflow: hidden;
 	/*white-space: nowrap;*/
 	/*overflow: auto;*/
 
 }
 
-#container-formpersonru-buttons #button-update {
+#container-formentryrud-buttons #button-update-entry {
 	margin-right: 21.28px;
 	margin-bottom: 21.28px;
 }
 
-#container-formpersonru-buttons #button-delete {
+#container-formentryrud-buttons #button-delete-entry {
 	margin-right: 21.28px;
 	max-width: auto;
 }
