@@ -13,7 +13,7 @@ const getEntries = (entries) => ({
 	entries
 });
 
-const removeEntries = () => {
+export const removeEntries = () => {
     return {
         type: CLEAR_ENTRIES,
     }
