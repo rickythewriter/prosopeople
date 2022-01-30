@@ -39,7 +39,7 @@ def name_is_not_too_long(form, field):
     # Checking if first name has fewer than fifty characters
     name = field.data
     if len(name) > 50:
-        raise ValidationError('First Name must be 50 characters or fewer.')
+        raise ValidationError('Name must be 50 characters or fewer.')
 
 
 class SignUpForm(FlaskForm):
