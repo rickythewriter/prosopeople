@@ -28,6 +28,12 @@ const TopNav = () => {
               <h2>Prosopeople</h2>
         </NavLink>
       </div>
+      <div id='top-nav-mid'>
+        <img 
+          src='https://github.com/rickythewriter/prosopeople/blob/main/react-app/public/favicon.png?raw=true'
+          alt='prosopeople-logo'
+        />
+      </div>
       <div id='top-nav-right'>
         <LogoutButton />
       </div>

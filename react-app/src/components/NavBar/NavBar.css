@@ -11,7 +11,7 @@
 .top {
     box-sizing: border-box;
     width: 100%;
-    padding: 0 40px;
+    padding: 0 16px;
     height: 80px;
     align-items: center;
     display: flex;
@@ -41,12 +41,12 @@ ul, ol, table {
 
 .top .utility-nav li:first-child {
     margin-left: 0;
+    margin-right: 16px;
 }
 
 .top .utility-nav li {
     font-size: 14px;
     display: inline-block;
-    margin:  0 5px;
     position: relative;
     /*vertical-align: middle;*/
 }
@@ -54,4 +54,13 @@ ul, ol, table {
 .utility-nav p:hover {
     color: #465237;
     font-weight: 500;
+}
+
+.top img {
+    height: 21px;
+    width: auto;
+    margin-right: 16px;
+    margin-left: 16px;
+    /*margin-right: 16px;*/
+    /*margin-left: 16px;*/
 }

@@ -9,6 +9,17 @@ const NavBar = () => {
   return (
     <div className='global-header'>
       <div className='top'>
+        <NavLink 
+          to='/' 
+          exact={true} 
+          activeClassName='active'
+          style={{textDecoration: 'none', color: 'inherit'}}
+        >
+          <img 
+            src='https://github.com/rickythewriter/prosopeople/blob/main/react-app/public/favicon.png?raw=true'
+            alt='prosopeople-logo'
+          />
+        </NavLink>
         <div className='global-logo'>
           <NavLink 
             to='/' 
@@ -16,7 +27,7 @@ const NavBar = () => {
             activeClassName='active'
             style={{textDecoration: 'none', color: 'inherit'}}
           >
-                <h2>PROSOPEOPLE</h2>
+            <h2>PROSOPEOPLE</h2>
           </NavLink>
         </div>
         <nav className='utility-nav'>
