@@ -20,7 +20,10 @@ const FormEntryCreate = () => {
 	const handleSubmit = async e => {
 		e.preventDefault();
 
-		if (title.length > 100) {
+		if (title.length === 0 && body.length === 0) {
+			setErrors(["Please enter a title or a body for your entry."])
+			return
+		} else if (title.length > 100) {
         	setErrors(["Entry title must be 100 characters or fewer"])
         	return
         } else {
