@@ -20,19 +20,22 @@ const FormEntryCreate = () => {
 		e.preventDefault();
 
 		if (title.length === 0 && body.length === 0) {
+			/* Error Handler (front end): There must be a title or body */
 			setErrors(["Please enter a title or a body for your entry."])
 			return
 		} else if (title.length > 100) {
+			/* Error Handler (front end): Entry title must not exceed 100 characters */
         	setErrors(["Entry title must be 100 characters or fewer"])
         	return
         } else {
+        	/* Create new Entry */
             const payload = {
             	title: title,
                 body: body,
                 user_id: user.id,
                 person_id: person.id,
             }
-            console.log(payload)
+            // console.log(payload)
             const newEntry = await dispatch(createEntry(payload, user, person))
             	// .catch(async(res)=> {
                 	// const data = await res.json();

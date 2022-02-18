@@ -1,10 +1,13 @@
 /*---------------------------------------------------------------------/
 
-	If there is no entry selected and no new entry selected, show person edit view.
+	If there is no entry selected and no new entry selected, 
+		show person edit view.
 
-	If there is new entry selectd, show new entry form.
+	If there is new entry selectd, 
+		show new entry form.
 
-	If there is an entry selected, show entry edit view.
+	If there is an entry selected, 
+		show entry edit view.
 
 /---------------------------------------------------------------------*/
 
@@ -24,19 +27,13 @@ const SmallMainView = ({newEntrySelected}) => {
 		setEntryIsSelected(entry.length)
 	}, [entryObj, entry.length]);
 
-	// useEffect(()=> {
-
-	// })
-
 	const smallMainView = (entryIsSelected,newEntrySelected) => {
 		if (entryIsSelected){
 			return (
-				// <p>Edit Entry</p>
 				<FormEntryRUD />
 			)
 		} else if (newEntrySelected){
 			return (
-				// <p>New Entry</p>
 				<FormEntryCreate />
 			)
 		} else {

@@ -27,18 +27,21 @@ const FormPersonRU = (user) => {
 		e.preventDefault();
 
 		if (name.length === 0) {
+			/* Error Handler (front end): There must be a name */
             setErrors(["Please enter a name."])
             return
         } else if (name.length > 100) {
+        	/* Error Handler (front end): Name must not exceed 100 characters */
         	setErrors(["A name must be 100 characters or fewer"])
         	return
         } else {
+        	/* Update Person */
             const payload = {
             	id: person.id,
                 name: name,
                 description: description,
             }
-            console.log(payload)
+            // console.log(payload)
             const newPerson = await dispatch(updatePerson(payload, user))
             	.catch(async(res)=> {
                 	const data = await res.json()
@@ -50,6 +53,7 @@ const FormPersonRU = (user) => {
 	    }
     }
 
+    /* Delete Person, and associated Entries; clear Person and Entries from state */
     const handleDelete = async e => {
     	e.preventDefault();
         setErrors([]);

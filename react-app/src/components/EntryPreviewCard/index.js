@@ -1,11 +1,25 @@
 /*---------------------------------------------------------------------/
+	
 	Layout
 
 	<title />
 	<last updated /> //need to format this
 	<body preview />
 
-	
+	Reference Code Snippets:
+
+		const adjustTimeZone = (dateString) => {
+			const date = new Date(`${dateString} UTC`);
+			return date.toString();
+		}
+
+		const dateStringUTC = adjustTimeZone(dateString);
+		const dateWordArray = dateStringUTC.split(' ');
+		const dayOfWeekShort = dateWordArray[0]
+		const monthShort = dateWordArray[1]
+		const dayOfMonthWithZero = dateWordArray[2]
+		const yearFull = dateWordArray[3]
+		const time = dateWordArray[4]
 
 /---------------------------------------------------------------------*/
 
@@ -19,10 +33,7 @@ import './EntryPreviewCard.css'
 const EntryPreviewCard = ({entry}) => {
 	const dispatch = useDispatch()
 
-	// const adjustTimeZone = (dateString) => {
-	// 	const date = new Date(`${dateString} UTC`);
-	// 	return date.toString();
-	// }
+	
 
 	const convertToTwelveHour = (timeStringMilitary) => {
 		const timeUnits = timeStringMilitary.split(':')
@@ -39,14 +50,6 @@ const EntryPreviewCard = ({entry}) => {
 	const formatTime = (dateString) => {
 
 		/* Adjust Time Zone */
-
-		// const dateStringUTC = adjustTimeZone(dateString);
-		// const dateWordArray = dateStringUTC.split(' ');
-		// const dayOfWeekShort = dateWordArray[0]
-		// const monthShort = dateWordArray[1]
-		// const dayOfMonthWithZero = dateWordArray[2]
-		// const yearFull = dateWordArray[3]
-		// const time = dateWordArray[4]
 
 		/* 
 			Change from 
@@ -67,7 +70,7 @@ const EntryPreviewCard = ({entry}) => {
 		return formattedTime
 	}
 
-	console.log("This is a loaded entry: ", entry)
+	// console.log("This is a loaded entry: ", entry)
 	return(
 		<div 
 			className='card-entry-preview'

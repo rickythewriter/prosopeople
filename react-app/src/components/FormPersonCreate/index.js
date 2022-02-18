@@ -13,19 +13,22 @@ const FormPersonCreate = ({user}) => {
 		e.preventDefault();
 
 		if (name.length === 0) {
+			/* Error Handler (front end): There must be a name */
             setErrors(["Please enter a name."])
             return
         } else if (name.length > 100) {
+        	/* Error Handler (front end): Name must not exceed 100 characters */
         	setErrors(["A name must be 100 characters or fewer"])
         	return
         }
         else {
+        	/* Create new Person */
             const payload = {
                 name: name,
                 description: null,
                 user_id: user.id
             }
-            console.log(payload)
+            // console.log(payload)
             const newPerson = await dispatch(createPerson(payload, user))
             	.catch(async(res)=> {
                 	const data = await res.json()

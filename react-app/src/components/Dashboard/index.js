@@ -1,41 +1,33 @@
 /*---------------------------------------------------------------------/
+App Dashboard Blueprint
+(Includes planned additonal features)
 
-There is one top bar
-	- Top bar
-		- logo
-		- search bar
-		- account menu
-			- log out
+There is one Top Nav bar
+	- logo
+	- search bar
+	- account menu
+		- settings
+		- log out
 
-There are three panels
+There are two vertical columns of panels
 
-	1. Leftmost - NavPanel
-	2. Left-mid - SecondaryNavPanel
-	3. Rightmost - MainView
-		Possible Components:
-		• Person's Information
-			• Create
-			• Edit
-		• Group's Information
-			- description of group
-			- functionality: add people 
-		• Edit Entry
+	1. Left - Nav Panel
+	2. Right - horizontalPanelsRight
+		- large main view, or
+		- secondary navigation + SmallMainView
 
 States:
 	- Person was selected from Navigation
-		• Main View shows Person's Information
-		• Entries Window shows Person's Entries
-	- Group was selected from Navigation
-		• Main View shows Group's Information
-		• Entries Window shows Group-Wide Entries
-		• Navigation shows People who are members of the group
+		• Small Main View shows Person's Information
+		• Entries Menu shows Person's Entries
 	- Entry was selected from Entries Window
 		• Main View shows Read/Edit Entry form
+		• Entries Menu shows Person's Entries
 
 
 Note: 
-The peopleObj follows the following format:
-	{ <person's id> : <person object> }
+	The peopleObj follows the following format:
+		{ <person's id> : <person object> }
 
 /---------------------------------------------------------------------*/
 
@@ -58,6 +50,7 @@ const Dashboard = () => {
 	const [ personIsSelected, setPersonIsSelected ] = useState(false)
 	const [ newEntrySelected, setNewEntrySelected ] = useState(false)
 
+	/* Listen for whether a dossier has been selected */
 	useEffect(()=> {
 		setPersonIsSelected(personValues.length)
 	}, [person, personValues.length]);
@@ -85,7 +78,6 @@ const Dashboard = () => {
 			)
 		}
 	}
-
 
 
 	if (user) {
