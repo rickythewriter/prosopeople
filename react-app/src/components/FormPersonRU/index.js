@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updatePerson, deletePerson, loadPeople } from '../../store/people'
+import { updatePerson, deletePerson } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { deleteEntries } from '../../store/entries'
 import './FormPersonRU.css'

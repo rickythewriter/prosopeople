@@ -55,7 +55,7 @@ const NavPanel = ({user, people, setNewEntrySelected} ) => {
 			<ul id="list-people">
 				{people.map( person => {
 					return (
-						<div className="dossier-name">
+						<div className="dossier-name" key={person.id}>
 							<div className={(person.id === selectedPerson.id) ? "selected-person" : ""}>
 								<li 
 									key={person.id} 

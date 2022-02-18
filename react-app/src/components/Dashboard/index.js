@@ -46,7 +46,6 @@ import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
 import EntriesMenu from '../EntriesMenu';
 import SmallMainView from '../SmallMainView';
-import FormPersonRU from '../FormPersonRU'
 import FormPersonCreate from '../FormPersonCreate'
 import './Dashboard.css';
 
@@ -61,7 +60,7 @@ const Dashboard = () => {
 
 	useEffect(()=> {
 		setPersonIsSelected(personValues.length)
-	}, [person]);
+	}, [person, personValues.length]);
 
 	const horizontalPanelsRight = () => {
 		if ( personIsSelected ) {

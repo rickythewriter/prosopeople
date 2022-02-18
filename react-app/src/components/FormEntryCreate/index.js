@@ -1,16 +1,15 @@
 /* after adding entry, turn it into edit page for entry */
 
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createEntry, updateEntry, deleteEntry } from '../../store/entries'
-import { loadEntry, removeEntry } from '../../store/entry'
+import { createEntry } from '../../store/entries'
+import { loadEntry } from '../../store/entry'
 import './FormEntryCreate.css'
 
 const FormEntryCreate = () => {
 
 	const user = useSelector(state=>state.session.user);
 	const person = useSelector(state=>state.person);
-	const entry = useSelector(state=>state.entry);
 	const [ title, setTitle] = useState("")
 	const [ body, setBody ] = useState("")
 	const [errors, setErrors] = useState([])

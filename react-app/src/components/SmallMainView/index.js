@@ -22,7 +22,7 @@ const SmallMainView = ({newEntrySelected}) => {
 
 	useEffect(()=> {
 		setEntryIsSelected(entry.length)
-	}, [entryObj]);
+	}, [entryObj, entry.length]);
 
 	// useEffect(()=> {
 

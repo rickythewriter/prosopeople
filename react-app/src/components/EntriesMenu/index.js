@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadEntries } from '../../store/entries'
-import { loadEntry, removeEntry } from '../../store/entry'
+import { removeEntry } from '../../store/entry'
 import EntryPreviewCard from '../EntryPreviewCard';
 import './EntriesMenu.css'
 
@@ -14,7 +14,7 @@ const EntriesMenu = ({setNewEntrySelected}) => {
 
 	useEffect(()=> {
 		dispatch(loadEntries(person))
-	}, [dispatch])
+	}, [dispatch, person])
 
 	/* Sort entries array by date */
 	entries.sort(function(a,b) {

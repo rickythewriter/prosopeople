@@ -5,7 +5,6 @@ import { createPerson, loadPeople } from '../../store/people'
 
 const FormPersonCreate = ({user}) => {
 	const [name, setName] = useState("")
-	const [description, setDescription] = useState()
 	const [errors, setErrors] = useState([])
 
 	const dispatch = useDispatch()
