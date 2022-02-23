@@ -1,19 +1,20 @@
 .splashpage-body-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
+    /*height: 100%;*/
+    /*width: 100%;*/
     align-items: center;
     background-color: #bec8b3;
+    max-height: 400px;
 }
 
-#splashpage-header {
+#splashpage-body {
     /*font-size: 40px;*/
     font-weight: 500;
     /*color: #fff;*/
-    margin: 120px 0 31px 0;
+    margin: 120px 16px 31px 16px;
     text-align: center;
-    max-width: 32em;
+    min-width: 520px;
 }
 
 #splashpage-signup-button {
@@ -52,7 +53,7 @@
     /*border-top: 1px solid #e8e8e8;*/
     /*padding: 50px 0;*/
     /*height: 8em;*/
-    width: 100%;
+    /*width: 100%;*/
     font-size: 16px;
     box-sizing: border-box;
     justify-content: center;
@@ -61,6 +62,7 @@
     background-color: #909D88;
     /*border: 2px solid #61714D;*/
     border-radius: 7px;
+    max-height: 50px;
 }
 
 .footer-nav-div {

@@ -1,4 +1,9 @@
 #dashboard {
+	position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
 	width: 98vw;
 	max-width: 1788px;
 	height: 98vh;
@@ -61,6 +66,7 @@
 	margin: 1px;
 	padding: 0 16px;
 	height: 84vh;
+	max-height: 1080px;
 	overflow: scroll;
 	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
 }
