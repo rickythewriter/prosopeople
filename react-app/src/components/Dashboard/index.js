@@ -51,9 +51,7 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
-import EntriesMenu from '../EntriesMenu';
 import SmallMainView from './SmallMainView.js';
-import FormPersonCreate from '../FormPersonCreate'
 import SecondaryNavPanel from './SecondaryNavPanel.js'
 import './Dashboard.css';
 
