@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadEntries } from '../../store/entries'
 import { removeEntry } from '../../store/entry'
 import EntryPreviewCard from '../EntryPreviewCard';
-import './EntriesMenu.css'
 
 
 const EntriesMenu = ({setNewEntrySelected}) => {

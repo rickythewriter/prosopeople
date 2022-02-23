@@ -1,28 +1,43 @@
 /*---------------------------------------------------------------------/
-App Dashboard Blueprint
-(Includes planned additonal features)
+App Dashboard
 
-There is one Top Nav bar
-	- logo
-	- search bar
-	- account menu
-		- settings
-		- log out
+Responsibilities:
+	- Render Dashboard components
+		- TopNavBar
+		- NavPanel (i.e. horizontal panel leftmost)
+		- right horizontal panels
+	- Manage variables 
+		- that affect two or more Dashboard components' views, or
+		- where one Dashboard component communicates to another.
+		- Note: 
+			if state
+				- affects one menu, and
+				- can be read from the state,
+			then it will be managed inside the component, and not here.
 
-There are two vertical columns of panels
+Blueprint
 
-	1. Left - Nav Panel
-	2. Right - horizontalPanelsRight
-		- large main view, or
-		- secondary navigation + SmallMainView
+	There is one Top Nav bar
+		- name of app
+		- logo
+		- account menu
+			- settings
+			- log out
 
-States:
-	- Person was selected from Navigation
-		• Small Main View shows Person's Information
-		• Entries Menu shows Person's Entries
-	- Entry was selected from Entries Window
-		• Main View shows Read/Edit Entry form
-		• Entries Menu shows Person's Entries
+	There are two vertical columns of panels
+
+		1. Left - Nav Panel
+		2. Right - horizontalPanelsRight
+			- large main view, or
+			- secondary navigation + SmallMainView
+
+	States:
+		- Person was selected from Navigation
+			• Small Main View shows Person's Information
+			• Entries Menu shows Person's Entries
+		- Entry was selected from Entries Window
+			• Main View shows Read/Edit Entry form
+			• Entries Menu shows Person's Entries
 
 
 Note: 
@@ -37,49 +52,60 @@ import { useSelector } from 'react-redux';
 import TopNav from '../TopNav';
 import NavPanel from '../NavPanel';
 import EntriesMenu from '../EntriesMenu';
-import SmallMainView from '../SmallMainView';
+import SmallMainView from './SmallMainView.js';
 import FormPersonCreate from '../FormPersonCreate'
+import SecondaryNavPanel from './SecondaryNavPanel.js'
 import './Dashboard.css';
 
 const Dashboard = () => {
+
+	/* Initialize User information */
 	const user = useSelector(state => state.session.user);
+
+	/* Initialize Dossiers */
 	const peopleObj = useSelector(state => state.people);
 	const people = Object.values(peopleObj);
+
+	/* 
+		Read newEntrySelected state from SecondaryNavPanel;
+		Affects SmallMainView
+	*/
+	const [ newEntrySelected, setNewEntrySelected ] = useState(false)
+
+	/* 
+		Listen for whether a Person has been selected. 
+		Affects both
+			SecondaryNavPanel, and
+			SmallMainView
+	*/
 	const person = useSelector(state => state.person);
 	const personValues = Object.values(person);
 	const [ personIsSelected, setPersonIsSelected ] = useState(false)
-	const [ newEntrySelected, setNewEntrySelected ] = useState(false)
-
-	/* Listen for whether a dossier has been selected */
 	useEffect(()=> {
 		setPersonIsSelected(personValues.length)
 	}, [person, personValues.length]);
 
+
+	/* 
+		Determine views right of the NavPanel.
+		Previously contained a LargeMainView option.
+	*/
 	const horizontalPanelsRight = () => {
-		if ( personIsSelected ) {
-			return (
-				<div id="horizontal-panels-R">	
-					<EntriesMenu setNewEntrySelected={setNewEntrySelected} />
-					<SmallMainView newEntrySelected={newEntrySelected}/>
-				</div>
-			)
-		} else {
-			return (
-				<div 
-					id="horizontal-panel-large-R"
-				>
-					 <div 
-					 	className="horizontal-panel-R horizontal-panel"
-					 	id="container-main-view"
-					 >
-					 	<FormPersonCreate user={user}/>
-					</div>
-				</div>
-			)
-		}
+		return (
+			<div id="horizontal-panels-R">	
+				<SecondaryNavPanel	
+					personIsSelected={personIsSelected}
+					setNewEntrySelected={setNewEntrySelected}
+				/>
+			 	<SmallMainView
+			 		personIsSelected={personIsSelected}
+			 		newEntrySelected={newEntrySelected}
+			 	/>
+			</div>
+		)
 	}
 
-
+	/*  Render the Dashboard view */
 	if (user) {
 		return (
 			<div id="dashboard">
@@ -96,7 +122,7 @@ const Dashboard = () => {
 						/>
 					</div>
 					
-					{horizontalPanelsRight(person)}
+					{horizontalPanelsRight()}
 					
 				</div>
 			</div>

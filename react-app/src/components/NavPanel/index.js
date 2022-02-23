@@ -40,16 +40,14 @@ const NavPanel = ({user, people, setNewEntrySelected} ) => {
 
 	return (
 		<nav id='nav-panel'>
-			{/*<div className={(selectedItemType === "people") ? "selected-people" : ""}>*/}
-				<h4 
-					className="panel-heading"
-					onClick={()=> {
-						dispatch(removePerson());
-					}	
-				}>
-					Dossiers
-				</h4>
-			{/* </div> */}
+			<h4 
+				className="panel-heading"
+				onClick={()=> {
+					dispatch(removePerson());
+				}	
+			}>
+				Dossiers
+			</h4>
 
 
 			<ul id="list-people">

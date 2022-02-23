@@ -2,6 +2,10 @@ html {
 	background-color: #bec8b3;
 	height: 100vh;
 	font-size: 100%;
+	position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 body {
@@ -14,7 +18,7 @@ body {
 #homepage {
 	display: grid;
 	grid-template-rows: 80px 1fr 100px;
-	height: 97vh;
+	height: 96vh;
 }
 
 .error-message {

@@ -47,11 +47,9 @@
 
 #horizontal-panels-LR {
 	width:  100%;
-	/*height: 84vh;*/
 	max-height: 700px;
 	display: grid;
 	grid-template-columns: 1fr 3fr;
-	/*background-color: #61714d;*/
 }
 
 #horizontal-panels-R{
@@ -60,8 +58,6 @@
 }
 
 .horizontal-panel {
-	/*border: 1px solid #bec8b3;*/
-	/*background-color: #bec8b3;*/
 	margin: 1px;
 	padding: 0 16px;
 	height: 84vh;
@@ -75,9 +71,6 @@
 }
 
 .horizontal-panel-R button {
-	/*background-color: transparent;
-	color: #61714d;*/
-	/*float: right;*/
 	font-family: inherit;
 	background-color: #61714d;
 	color: #eee;
@@ -94,9 +87,6 @@
 }
 
 .horizontal-panel-R button:hover {
-	/*color: #465237;*/
-	/*font-weight: 530;*/
-	/*background-color: #bec8b3;*/
 	background-color: #465237;
 	border-color: #465237;
 	cursor: pointer;
@@ -111,14 +101,10 @@
 	background-color: #fff;
 	color: #000;
 	font-family: inherit;
-	/*background-color: #61714d;*/
-	/*color: #bec8b3;*/
 	height: 40px;
-	/*height: 1.5em;*/
 	min-width: 120px;
 	font-size: 14px;
 	line-height: 37px;
-	/*line-height: 1.5em;*/
 	text-align: center;
 	text-decoration: none;
 	letter-spacing: .5px;
@@ -131,7 +117,6 @@
 	background-color: #61714d;
 	border-color: #61714d;
 	cursor: pointer;
-	/*box-shadow: 0px 4px 5px 4px rgb(0 0 0 / 10%);*/
 } 
 
 #dashboard button {
