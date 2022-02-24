@@ -74,6 +74,7 @@ const EntryPreviewCard = ({entry}) => {
 	return(
 		<div 
 			className='card-entry-preview'
+			key={entry.id}
 			onClick={() => {dispatch(loadEntry(entry))}}
 		>
 			<h4>

@@ -23,7 +23,7 @@ const TagsCRD = () => {
 			<ul id="list-tags">
 				{tags.map( tag => {
 					return (
-						<li>{tag.name}</li>
+						<li key={tag.id}>{tag.name}</li>
 
 						// <div className="dossier-name" key={person.id}>
 						// 	<div className={(person.id === selectedPerson.id) ? "selected-person" : ""}>
