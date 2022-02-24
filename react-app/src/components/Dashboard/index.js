@@ -79,10 +79,15 @@ const Dashboard = () => {
 	const person = useSelector(state => state.person);
 	const personValues = Object.values(person);
 	const [ personIsSelected, setPersonIsSelected ] = useState(false)
-	useEffect(()=> {
+	useEffect(() => {
 		setPersonIsSelected(personValues.length)
 	}, [person, personValues.length]);
 
+	/*
+		Read showTags state from SmallMainView FormPersonRU;
+		Determine whether SecondaryNavPanel displays TagsCRD.		
+	*/
+	const [ showTags, setShowTags ] = useState(false)
 
 	/* 
 		Determine views right of the NavPanel.
@@ -94,10 +99,13 @@ const Dashboard = () => {
 				<SecondaryNavPanel	
 					personIsSelected={personIsSelected}
 					setNewEntrySelected={setNewEntrySelected}
+					showTags={showTags}
 				/>
 			 	<SmallMainView
 			 		personIsSelected={personIsSelected}
 			 		newEntrySelected={newEntrySelected}
+			 		showTags={showTags}
+			 		setShowTags={setShowTags}
 			 	/>
 			</div>
 		)

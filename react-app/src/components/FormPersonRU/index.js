@@ -7,7 +7,7 @@ import './FormPersonRU.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTag } from '@fortawesome/free-solid-svg-icons'
 
-const FormPersonRU = (user) => {
+const FormPersonRU = ({user, showTags, setShowTags}) => {
 
 	const person = useSelector(state=>state.person);
 	const [ name, setName] = useState()
@@ -81,6 +81,9 @@ const FormPersonRU = (user) => {
 				    <FontAwesomeIcon 
 				    	icon={faTag} 
 				    	id="tag-icon"
+				    	onClick={()=> {
+				    		setShowTags(!showTags);
+				    	}}
 				    	/>
 				</div>
 		        <br />

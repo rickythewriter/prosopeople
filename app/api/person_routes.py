@@ -1,6 +1,6 @@
 from flask import Blueprint, request, session
 from flask_login import login_required
-from app.models import db, Person, Entry
+from app.models import db, Person, Entry, Tag, PersonTag
 from app.forms import PersonForm
 
 person_routes = Blueprint('people', __name__)
@@ -52,5 +52,11 @@ def delete_entries(id):
 	db.session.commit()
 	return {"message" : "entries deleted"}
 
-
-
+# Get all of a person's tags
+@person_routes.route('/<int:id>/tags')
+@login_required
+def get_tags(id):
+	person = Person.query.get(id)
+	people_tags = PersonTag.query.filter(PersonTag.person_id == person.id).all()
+	obj = {"tags":[person_tag.tag.to_dict() for person_tag in people_tags]}
+	return obj

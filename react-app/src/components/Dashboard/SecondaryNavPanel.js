@@ -21,11 +21,14 @@
 
 import React from 'react';
 import EntriesMenu from '../EntriesMenu';
+import TagsCRD from '../TagsCRD';
 
-const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected}) => {
+const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags}) => {
 
 	const secondaryNavPanel = () => {
-		if (personIsSelected) {
+		if (showTags && personIsSelected) {
+			return (<TagsCRD />)
+		} else if (personIsSelected) {
 			return (
 				<EntriesMenu 
 					setNewEntrySelected={setNewEntrySelected} 

@@ -11,6 +11,7 @@ import { loadPeople } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { loadEntries } from '../../store/entries'
 import { removeEntry } from '../../store/entry'
+import { loadPersonTags } from '../../store/tags'
 import './NavPanel.css'
 
 const NavPanel = ({user, people, setNewEntrySelected} ) => {
@@ -61,6 +62,7 @@ const NavPanel = ({user, people, setNewEntrySelected} ) => {
 										dispatch(loadPeople(user));	//refill form fields after alterations
 										dispatch(loadPerson(person));
 										dispatch(loadEntries(person));
+										dispatch(loadPersonTags(person));
 										setNewEntrySelected(false);
 										dispatch(removeEntry(entry));
 									}}

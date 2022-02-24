@@ -26,7 +26,7 @@ import FormPersonRU from '../FormPersonRU'
 import FormEntryCreate from '../FormEntryCreate'
 import FormEntryRUD from '../FormEntryRUD'
 
-const SmallMainView = ({personIsSelected, newEntrySelected}) => {
+const SmallMainView = ({personIsSelected, newEntrySelected, showTags, setShowTags}) => {
 
 	/* Initialize user information */
 	const user = useSelector(state => state.session.user);
@@ -61,7 +61,13 @@ const SmallMainView = ({personIsSelected, newEntrySelected}) => {
 				<FormEntryCreate />
 			)
 		} else {
-			return (<FormPersonRU user={user} />)
+			return (
+				<FormPersonRU 
+					user={user} 
+					showTags={showTags}
+					setShowTags={setShowTags}
+				/>
+			)
 		}
 	}
 
