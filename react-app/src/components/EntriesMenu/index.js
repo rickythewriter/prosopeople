@@ -12,8 +12,10 @@ const EntriesMenu = ({setNewEntrySelected}) => {
 	const entries = Object.values(entriesObj);
 	const dispatch = useDispatch();
 
+	/* Load entries only if state contains a selected person */
 	useEffect(()=> {
-		dispatch(loadEntries(person))
+		const personSelected = Object.values(person).length;
+		if (personSelected) {dispatch(loadEntries(person));}
 	}, [dispatch, person])
 
 	/* Sort entries array by date */
