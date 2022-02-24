@@ -4,6 +4,8 @@ import { updatePerson, deletePerson } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { deleteEntries } from '../../store/entries'
 import './FormPersonRU.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTag } from '@fortawesome/free-solid-svg-icons'
 
 const FormPersonRU = (user) => {
 
@@ -68,13 +70,19 @@ const FormPersonRU = (user) => {
 			<form onSubmit={handleSubmit}>
 
 				<label id="label-name">{name}</label>
-				<div className="person-form-read-update-input" id="input-name">
-			        <input 
-			          type="text"
-			          value={name || ""}
-			          onChange={(e) => setName(e.target.value)}
-			        />
-			    </div>
+				<div className="row-name-tag">
+					<div className="person-form-read-update-input" id="input-name">
+				        <input 
+				          type="text"
+				          value={name || ""}
+				          onChange={(e) => setName(e.target.value)}
+				        />
+				    </div>
+				    <FontAwesomeIcon 
+				    	icon={faTag} 
+				    	id="tag-icon"
+				    	/>
+				</div>
 		        <br />
 
 				<label id="label-description">Description</label>
