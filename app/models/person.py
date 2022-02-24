@@ -13,8 +13,11 @@ class Person(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     user = db.relationship("User", back_populates="people")
 
-    #entries
+    # entries
     entries = db.relationship("Entry", back_populates="person")
+
+    # tags
+    tags = db.relationship("PersonTag", back_populates="person")
 
     # database timekeeping
     created_at = db.Column(db.DateTime, server_default=func.now())
