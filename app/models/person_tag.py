@@ -5,7 +5,7 @@ class PersonTag(db.Model):
 	__tablename__ = 'people_tags'
 
 	# dossier(s)
-	person_id = db.Column(db.ForeignKey('people.id'), primary_key=True)
+	person_id = db.Column(db.ForeignKey('people.id', ondelete="CASCADE"), primary_key=True)
 	person = db.relationship("Person", back_populates="tags")
 
 	# tag(s)

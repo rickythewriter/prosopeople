@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updatePerson, deletePerson } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
-import { deleteEntries } from '../../store/entries'
+import { removeEntries } from '../../store/entries'
 import './FormPersonRU.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTag } from '@fortawesome/free-solid-svg-icons'
@@ -59,9 +59,9 @@ const FormPersonRU = ({user, showTags, setShowTags}) => {
     const handleDelete = async e => {
     	e.preventDefault();
         setErrors([]);
-        await dispatch(deleteEntries(person));
         await dispatch(deletePerson(person));
         dispatch(removePerson());
+        dispatch(removeEntries());
     }
 
 	return (

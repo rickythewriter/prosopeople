@@ -25,7 +25,7 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id']),
     sa.Column('person_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['person_id'], ['people.id']),
+    sa.ForeignKeyConstraint(['person_id'], ['people.id'], ondelete="CASCADE"),
     sa.Column('created_at', sa.DateTime(), server_default=sa.sql.func.now()),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.sql.func.now())
     )

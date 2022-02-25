@@ -27,7 +27,7 @@ def upgrade():
 
     op.create_table('people_tags',
     sa.Column('person_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['person_id'], ['people.id']),
+    sa.ForeignKeyConstraint(['person_id'], ['people.id'], ondelete="CASCADE"),
     sa.Column('tag_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['tag_id'], ['tags.id'], ondelete="CASCADE"),
     sa.PrimaryKeyConstraint('person_id','tag_id'),

@@ -10,7 +10,7 @@ class Entry(db.Model):
     body = db.Column(db.Text)
 
     # dossier
-    person_id = db.Column(db.Integer, db.ForeignKey("people.id"), nullable=False)
+    person_id = db.Column(db.Integer, db.ForeignKey("people.id", ondelete="CASCADE"), nullable=False)
     person = db.relationship("Person", back_populates="entries")
 
     # user
