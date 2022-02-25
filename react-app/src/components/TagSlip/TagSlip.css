@@ -11,19 +11,14 @@
 
 .tag-slip {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
-.right-half-tag-slip{
-	display: grid;
-	grid-template-columns: auto 24px;
-}
-
-.tag-slip p:hover{
-	cursor: pointer;
+	grid-template-columns: 10fr 1fr 24px;
 }
 
 .x-tag-slip{
 	justify-self: end;
 	font-family: 'PT Sans', sans-serif;
+}
+
+.x-tag-slip:hover{
+	cursor: pointer;
 }

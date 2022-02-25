@@ -47,7 +47,7 @@ const EntriesMenu = ({setNewEntrySelected}) => {
 			<div id='entries-window'>
 				{entries.map( entry => {
 					return (
-						<EntryPreviewCard entry={entry}/>
+						<EntryPreviewCard entry={entry} key={entry.id}/>
 					)
 				})}
 			</div>

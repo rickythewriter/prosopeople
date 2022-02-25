@@ -27,10 +27,10 @@ const TagsCRD = () => {
 				Tags
 			</h4>
 
-			<div id='tags-stack'>
+			<div className='tags-stack person-tags'>
 				{tags.map( tag => {
 					return (
-						<TagSlip tag={tag} />
+						<TagSlip tag={tag} key={tag.id} />
 					)
 				})}
 			</div>

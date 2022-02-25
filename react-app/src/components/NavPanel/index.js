@@ -59,12 +59,12 @@ const NavPanel = ({user, people, setNewEntrySelected} ) => {
 								<li 
 									key={person.id} 
 									onClick={()=> {
+										setNewEntrySelected(false);
 										dispatch(loadPeople(user));	//refill form fields after alterations
 										dispatch(loadPerson(person));
 										dispatch(loadEntries(person));
-										dispatch(loadPersonTags(person));
-										setNewEntrySelected(false);
 										dispatch(removeEntry(entry));
+										
 									}}
 								>
 									{person.name}

@@ -15,17 +15,15 @@ const TagSlip = ({tag}) => {
 			className='tag-slip'
 			// onClick={() => {dispatch(loadEntry(entry))}}
 		>
-			<p>
-				{tag.name}
-			</p>
-			<div
-				className='right-half-tag-slip'
-			>
-				<div>
-				</div>
-				<div className='x-tag-slip'>
-					<p>x</p>
-				</div>
+			<div className='name-tag-slip'>
+				<p>
+					{tag.name}
+				</p>
+			</div>
+			<div>
+			</div>
+			<div className='x-tag-slip'>
+				<p>x</p>
 			</div>
 		</div>
 	)

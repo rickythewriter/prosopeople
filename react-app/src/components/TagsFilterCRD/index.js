@@ -28,7 +28,7 @@ const TagsFilterCRD = () => {
 				Select the Relevant Tags
 			</h4>
 
-			<div id='tags-stack'>
+			<div className='tags-stack user-tags'>
 				{tags.map( tag => {
 					return (
 						<TagSlip tag={tag} key={tag.id}/>
