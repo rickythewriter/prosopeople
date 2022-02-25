@@ -1,0 +1,29 @@
+.tag-slip {
+	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
+	border-radius: 4px;
+	font-size: 13px;
+	/*font-size: 0.85rem;*/
+	background-color: #fff;
+	margin: 8px 0;
+	padding: 0 16px;
+	min-width: 108px;
+}
+
+.tag-slip {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.right-half-tag-slip{
+	display: grid;
+	grid-template-columns: auto 24px;
+}
+
+.tag-slip p:hover{
+	cursor: pointer;
+}
+
+.x-tag-slip{
+	justify-self: end;
+	font-family: 'PT Sans', sans-serif;
+}
