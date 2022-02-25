@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { dissociateTag } from '../../store/tags';
+import { dissociateTag, deleteTag } from '../../store/tags';
 import './TagSlip.css';
 
 const TagSlip = ({tag}) => {
@@ -29,6 +29,9 @@ const TagSlip = ({tag}) => {
 			If these are all the tags associated with the user,
 				delete the tag in a cascade.
 		*/
+		if (!personSelected) {
+			dispatch(deleteTag(tag));
+		}
 	}
 
 	return(

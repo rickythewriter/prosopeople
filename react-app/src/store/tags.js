@@ -52,6 +52,17 @@ export const dissociateTag = (person, tag) => async dispatch => {
     }
 }
 
+export const deleteTag = (tag) => async dispatch => {
+    const res = await fetch(`/api/tags/${tag.id}`, {
+        method: 'DELETE'
+    });
+    const data = await res.json();
+    if(res.ok) {
+        dispatch(removeTag(data))
+        return data
+    }
+}
+
 /*---------------------------------------------------------------------/
     Reducers
 /---------------------------------------------------------------------*/

@@ -12,7 +12,7 @@ class Tag(db.Model):
 	user = db.relationship("User", back_populates="tags")
 
     # people
-	people = db.relationship("PersonTag", back_populates="tag")
+	people = db.relationship("PersonTag", back_populates="tag", passive_deletes=True)
 
 	def to_dict(self):
 		return {

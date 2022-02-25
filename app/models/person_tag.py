@@ -9,7 +9,7 @@ class PersonTag(db.Model):
 	person = db.relationship("Person", back_populates="tags")
 
 	# tag(s)
-	tag_id = db.Column(db.ForeignKey('tags.id'), primary_key=True)
+	tag_id = db.Column(db.ForeignKey('tags.id', ondelete="CASCADE"), primary_key=True)
 	tag = db.relationship("Tag", back_populates="people")
 	
 
