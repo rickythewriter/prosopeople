@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, User, Person, Entry
+from app.models import db, User, Person, Entry, Tag
 from app.forms import PersonForm, EntryForm
 
 user_routes = Blueprint('users', __name__)
@@ -61,3 +61,13 @@ def create_entry(id, person_id):
         db.session.commit()
         return entry.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+# Get all of a user's tags
+@user_routes.route('/<int:id>/tags')
+@login_required
+def get_user_tags(id):
+    user = User.query.get(id)
+    user_tags = Tag.query.filter(Tag.user_id == user.id).all()
+    obj = {"tags":[user_tag.to_dict() for user_tag in user_tags]}
+    return obj
+

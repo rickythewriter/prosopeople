@@ -13,7 +13,6 @@ const TagSlip = ({tag}) => {
 	return(
 		<div 
 			className='tag-slip'
-			key={tag.id}
 			// onClick={() => {dispatch(loadEntry(entry))}}
 		>
 			<p>

@@ -22,10 +22,12 @@
 import React from 'react';
 import EntriesMenu from '../EntriesMenu';
 import TagsCRD from '../TagsCRD';
+import TagsFilterCRD from '../TagsFilterCRD';
 
 const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags}) => {
 
 	const secondaryNavPanel = () => {
+
 		if (showTags && personIsSelected) {
 			return (<TagsCRD />)
 		} else if (personIsSelected) {
@@ -36,14 +38,7 @@ const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags}) =>
 			)
 		} else {
 			return (
-			<div 
-				className="horizontal-panel-R horizontal-panel" 
-				id="container-tags"
-			>
-				<h4 className='panel-heading'>
-					Tags
-				</h4>
-			</div>
+				<TagsFilterCRD />
 			)
 		}	
 	}

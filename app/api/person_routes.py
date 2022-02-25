@@ -55,7 +55,7 @@ def delete_entries(id):
 # Get all of a person's tags
 @person_routes.route('/<int:id>/tags')
 @login_required
-def get_tags(id):
+def get_person_tags(id):
 	person = Person.query.get(id)
 	people_tags = PersonTag.query.filter(PersonTag.person_id == person.id).all()
 	obj = {"tags":[person_tag.tag.to_dict() for person_tag in people_tags]}

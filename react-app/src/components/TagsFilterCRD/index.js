@@ -1,36 +1,37 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPersonTags } from '../../store/tags'
+import { loadUserTags } from '../../store/tags'
 import TagSlip from '../TagSlip';
-import './TagsCRD.css'
+import './TagsFilterCRD.css'
 
-const TagsCRD = () => {
+const TagsFilterCRD = () => {
+	const user = useSelector(state => state.session.user)
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj);
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
-	/* Load a person's tags, when and only if a person is selected */
+	/* Load all of a user's tags, when no person is selected */
 	useEffect(() => {
 		const personSelected = Object.values(person).length;
-		if (personSelected) {dispatch(loadPersonTags(person));}
-	}, [dispatch, person])
+		if (!personSelected) {dispatch(loadUserTags(user));}
+	}, [dispatch, person, user])
 	
 	return (
 		<div 
 			className="horizontal-panel-R horizontal-panel" 
-			id="container-tags-person"
+			id="container-tags-user"
 		>
 			<h4
 				className='panel-heading'
 			>
-				Tags
+				Select the Relevant Tags
 			</h4>
 
 			<div id='tags-stack'>
 				{tags.map( tag => {
 					return (
-						<TagSlip tag={tag} />
+						<TagSlip tag={tag} key={tag.id}/>
 					)
 				})}
 			</div>
@@ -38,4 +39,4 @@ const TagsCRD = () => {
 	)
 }
 
-export default TagsCRD;
+export default TagsFilterCRD;
