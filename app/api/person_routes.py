@@ -60,3 +60,15 @@ def get_person_tags(id):
 	people_tags = PersonTag.query.filter(PersonTag.person_id == person.id).all()
 	obj = {"tags":[person_tag.tag.to_dict() for person_tag in people_tags]}
 	return obj
+
+# Dissociate a tag from a person
+@person_routes.route('/<int:id>/tags/<tag_id>', methods=['DELETE'])
+@login_required
+def dissociate_tag_from_person(id, tag_id):
+	tag = Tag.query.get(tag_id)
+	person_tag = PersonTag.query.filter(PersonTag.person_id == id, PersonTag.tag_id == tag.id).first()
+	print('persontag is: ', person_tag)
+	db.session.delete(person_tag)
+	db.session.commit()
+	return tag.to_dict()
+

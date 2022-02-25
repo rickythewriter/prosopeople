@@ -15,7 +15,7 @@ const TagsCRD = () => {
 		const personSelected = Object.values(person).length;
 		if (personSelected) {dispatch(loadPersonTags(person));}
 	}, [dispatch, person])
-	
+
 	return (
 		<div 
 			className="horizontal-panel-R horizontal-panel" 

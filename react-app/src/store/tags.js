@@ -1,6 +1,7 @@
 //constants
 const LOAD_TAGS = 'people/LOAD_TAGS'
 const CLEAR_TAGS = 'people/CLEAR_TAGS'
+const REMOVE_TAG = 'entries/REMOVE_TAG'
 
 /*---------------------------------------------------------------------/
     Actions
@@ -16,6 +17,11 @@ export const removeTags = () => {
         type: CLEAR_TAGS
     }
 }
+
+const removeTag = (tag) => ({
+    type: REMOVE_TAG,
+    tag
+})
 
 /*---------------------------------------------------------------------/
     Dispatch Functions
@@ -35,6 +41,17 @@ export const loadPersonTags = (person) => async dispatch => {
     return data;
 }
 
+export const dissociateTag = (person, tag) => async dispatch => {
+    const res = await fetch(`/api/people/${person.id}/tags/${tag.id}`, {
+        method: 'DELETE'
+    });
+    const data = await res.json();
+    if(res.ok) {
+        dispatch(removeTag(data))
+        return data
+    }
+}
+
 /*---------------------------------------------------------------------/
     Reducers
 /---------------------------------------------------------------------*/
@@ -51,6 +68,9 @@ export const tagsReducer = (state = initialState, action) => {
             return {...tags}
         case CLEAR_TAGS:
             return {};
+        case REMOVE_TAG:
+            delete newState[action.tag.id]
+            return newState;
         default:
             return state;
     }
