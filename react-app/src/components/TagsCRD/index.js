@@ -16,6 +16,19 @@ const TagsCRD = () => {
 		if (personSelected) {dispatch(loadPersonTags(person));}
 	}, [dispatch, person])
 
+	/* Sort tags array by alphabetical order */
+	tags.sort(function(a,b) {
+		const nameA = a.name.toLowerCase() 
+		const nameB = b.name.toLowerCase()
+		if (nameA < nameB) {
+			return -1;
+		}
+		if (nameA > nameB) {
+			return 1
+		}
+		return 0
+	});
+
 	return (
 		<div 
 			className="horizontal-panel-R horizontal-panel" 
