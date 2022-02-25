@@ -32,4 +32,4 @@ def delete_entry(id):
 	entry = Entry.query.get(id)
 	db.session.delete(entry)
 	db.session.commit()
-	return entry.to_dict();
+	return entry.to_dict()
