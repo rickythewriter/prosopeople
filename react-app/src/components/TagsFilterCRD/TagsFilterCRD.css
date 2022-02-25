@@ -5,3 +5,8 @@
 .user-tags .name-tag-slip:hover{
 	cursor: pointer;
 }
+
+.user-tags .tag-slip:hover{
+	color: #fff;
+	background-color: #909D88;
+}
