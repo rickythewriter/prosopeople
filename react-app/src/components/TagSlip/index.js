@@ -2,37 +2,26 @@
 	
 	Layout
 
-	[tag    x]
+		[tag    x]
+
+
+	Props:
+
+		- tag 
+			tag object with name and id
+
+		- handleDelete
+			callback function for x clicks
+
+		- deletionArgs
+			array of arguments for handleDelete
 
 /---------------------------------------------------------------------*/
 
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { dissociateTag, deleteTag } from '../../store/tags';
 import './TagSlip.css';
 
-const TagSlip = ({tag}) => {
-	const person = useSelector(state => state.person)
-	const dispatch = useDispatch()
-
-	/* Delete entry; clear from state */
-	const handleDelete = () => {
-		/* 
-			If these are tags associated with a person,
-				dissociate the tag.
-		*/
-		const personSelected = Object.values(person).length;
-		if (personSelected) {
-			dispatch(dissociateTag(person, tag));
-		}
-		/*
-			If these are all the tags associated with the user,
-				delete the tag in a cascade.
-		*/
-		if (!personSelected) {
-			dispatch(deleteTag(tag));
-		}
-	}
+const TagSlip = ({tag, handleDelete, deletionArgs}) => {
 
 	return(
 		<div 
@@ -48,7 +37,7 @@ const TagSlip = ({tag}) => {
 			<div 
 				className='x-tag-slip'
 				onClick={() => {
-					handleDelete()
+					handleDelete(...deletionArgs)
 				}}
 			>
 				<p>x</p>

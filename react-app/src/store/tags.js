@@ -1,7 +1,9 @@
 //constants
-const LOAD_TAGS = 'people/LOAD_TAGS'
-const CLEAR_TAGS = 'people/CLEAR_TAGS'
-const REMOVE_TAG = 'entries/REMOVE_TAG'
+const LOAD_TAGS = 'tags/LOAD_TAGS'
+const LOAD_DOSSIER_TAGS = 'tags/LOAD_DOSSIER_TAGS'
+const CLEAR_TAGS = 'tags/CLEAR_TAGS'
+const REMOVE_TAG = 'tags/REMOVE_TAG'
+const REMOVE_DOSSIER_TAG = 'tags/REMOVE_DOSSIER_TAG'
 
 /*---------------------------------------------------------------------/
     Actions
@@ -9,6 +11,11 @@ const REMOVE_TAG = 'entries/REMOVE_TAG'
 
 const getTags = (tags) => ({
     type: LOAD_TAGS,
+    tags
+})
+
+const getDossierTags = (tags) => ({
+    type: LOAD_DOSSIER_TAGS,
     tags
 })
 
@@ -20,6 +27,11 @@ export const removeTags = () => {
 
 const removeTag = (tag) => ({
     type: REMOVE_TAG,
+    tag
+})
+
+const removeDossierTag = (tag) => ({
+    type: REMOVE_DOSSIER_TAG,
     tag
 })
 
@@ -37,7 +49,7 @@ export const loadUserTags = (user) => async dispatch => {
 export const loadPersonTags = (person) => async dispatch => {
     const res = await fetch(`/api/people/${person.id}/tags`)
     const data = await res.json();
-    dispatch(getTags(data));
+    dispatch(getDossierTags(data));
     return data;
 }
 
@@ -47,7 +59,7 @@ export const dissociateTag = (person, tag) => async dispatch => {
     });
     const data = await res.json();
     if(res.ok) {
-        dispatch(removeTag(data))
+        dispatch(removeDossierTag(data))
         return data
     }
 }
@@ -67,7 +79,7 @@ export const deleteTag = (tag) => async dispatch => {
     Reducers
 /---------------------------------------------------------------------*/
 
-const initialState = { }
+const initialState = { user: {}, person: {} }
 
 export const tagsReducer = (state = initialState, action) => {
     const newState = {...state}
@@ -76,11 +88,22 @@ export const tagsReducer = (state = initialState, action) => {
             const tags = {}
             const allTags = action.tags.tags;
             allTags.forEach(tag => {tags[tag.id] = tag})
-            return {...tags}
+            newState.user = {...tags}
+            return newState
+        case LOAD_DOSSIER_TAGS:
+            const dossierTags = {}
+            const allDossierTags = action.tags.tags;
+            allDossierTags.forEach(tag => {dossierTags[tag.id] = tag})
+            newState.person = {...dossierTags}
+            return newState
         case CLEAR_TAGS:
-            return {};
+            newState.person = {}
+            return newState
         case REMOVE_TAG:
-            delete newState[action.tag.id]
+            delete newState.user[action.tag.id]
+            return newState;
+        case REMOVE_DOSSIER_TAG:
+            delete newState.person[action.tag.id]
             return newState;
         default:
             return state;
