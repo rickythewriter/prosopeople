@@ -2,8 +2,8 @@
 	Constants
 /---------------------------------------------------------------------*/
 
-const LOAD_ENTRY = 'people/LOAD_ENTRY'
-const CLEAR_ENTRY = 'people/CLEAR_ENTRY'
+const LOAD_ENTRY = 'entry/LOAD_ENTRY'
+const CLEAR_ENTRY = 'entry/CLEAR_ENTRY'
 
 /*---------------------------------------------------------------------/
 	Actions
