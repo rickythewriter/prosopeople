@@ -10,9 +10,7 @@ const TagsFilterCRD = () => {
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj.user)
-	// const [selectedTags, setSelectedTags] = useState([])
 	const [tagsFilter, setTagsFilter] = useState([])
-	// const bunchaTags = [tags[1]];
 	const dispatch = useDispatch()
 
 	/* Load all of a user's tags, when no person is selected */
@@ -72,6 +70,7 @@ const TagsFilterCRD = () => {
 		>
 			<h4
 				className='panel-heading'
+				onClick={()=>{setTagsFilter([])}}
 			>
 				Select the Relevant Tags
 			</h4>
@@ -80,10 +79,6 @@ const TagsFilterCRD = () => {
 
 			<div className='tags-stack user-tags'>
 			 	{tags.map( tag => {
-
-			 		/* If tag id contained in selected tags, tagSelected is true */
-			 		// console.log(`As ${tag.name} is rendering, these are the tags selected: `, tagsFilter);
-			 		// console.log(`tagsFilter contains tag: `, tagsFilter.includes(tag))
 
 			 		return (
 			 			<TagSlip 
