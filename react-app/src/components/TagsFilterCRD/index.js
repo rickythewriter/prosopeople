@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadUserTags, deleteTag } from '../../store/tags'
+import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import './TagsFilterCRD.css'
 
@@ -45,6 +46,8 @@ const TagsFilterCRD = () => {
 			>
 				Select the Relevant Tags
 			</h4>
+
+			<TagSearchCR />
 
 			<div className='tags-stack user-tags'>
 			 	{tags.map( tag => {

@@ -28,6 +28,7 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadPersonTags, dissociateTag } from '../../store/tags'
+import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import './TagsCRD.css'
 
@@ -74,6 +75,8 @@ const TagsCRD = () => {
 			>
 				Tags
 			</h4>
+
+			<TagSearchCR />
 
 			<div className='tags-stack person-tags'>
 				{tags.map( tag => {
