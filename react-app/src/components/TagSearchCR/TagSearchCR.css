@@ -1,4 +1,13 @@
 .tag-search-bar {
+	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
 	margin: 8px 2px 8px 0;
 	min-width: 138px;
+}
+
+.tag-search-bar .sc-hKwDye {
+	/* div containing search bar, input, x */
+}
+
+.tag-search-bar .search-icon{
+	margin: 0 0 0 12px;
 }

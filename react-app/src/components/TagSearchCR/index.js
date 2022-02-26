@@ -49,13 +49,10 @@ const TagSearchCR = () => {
 	            // formatResult={formatResult}
 	            styling={{
 	            	fontFamily: 'PT Serif',
-	            	margin: '8px 0px',
-	            	padding: '0 16px',
 					// height: "34px",
 					// border: "1px solid darkgreen",
 					borderRadius: "4px",
 					// backgroundColor: "white",
-					boxShadow: "none",
 					// hoverBackgroundColor: "lightgreen",
 					// color: "darkgreen",
 					fontSize: "13px",
