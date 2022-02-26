@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { removePerson } from '../../store/person'
 import { removeEntries } from '../../store/entries'
 import { removeEntry } from '../../store/entry'
+import { removeDossierTags, clearFilterTags } from '../../store/tags'
 import LogoutButton from '../auth/LogoutButton';
 import './TopNav.css'
 
@@ -23,6 +24,8 @@ const TopNav = () => {
             dispatch(removePerson());
             dispatch(removeEntries());
             dispatch(removeEntry());
+            dispatch(removeDossierTags());
+            dispatch(clearFilterTags());
           }}
         >
               <h2>Prosopeople</h2>
@@ -36,6 +39,8 @@ const TopNav = () => {
             dispatch(removePerson());
             dispatch(removeEntries());
             dispatch(removeEntry());
+            dispatch(removeDossierTags());
+            dispatch(clearFilterTags());
           }}
         />
       </div>

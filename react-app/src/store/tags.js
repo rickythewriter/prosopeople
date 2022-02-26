@@ -1,9 +1,14 @@
 //constants
 const LOAD_TAGS = 'tags/LOAD_TAGS'
-const LOAD_DOSSIER_TAGS = 'tags/LOAD_DOSSIER_TAGS'
-const CLEAR_TAGS = 'tags/CLEAR_TAGS'
 const REMOVE_TAG = 'tags/REMOVE_TAG'
+
+const LOAD_DOSSIER_TAGS = 'tags/LOAD_DOSSIER_TAGS'
+const CLEAR_DOSSIER_TAGS = 'tags/CLEAR_DOSSIER_TAGS'
 const REMOVE_DOSSIER_TAG = 'tags/REMOVE_DOSSIER_TAG'
+
+const CLEAR_FILTER_TAGS = 'tags/CLEAR_FILTER_TAGS'
+const ADD_FILTER_TAG = 'tags/ADD_FILTER_TAG'
+const REMOVE_FILTER_TAG = 'tags/REMOVE_FILTER_TAG'
 
 /*---------------------------------------------------------------------/
     Actions
@@ -14,26 +19,45 @@ const getTags = (tags) => ({
     tags
 })
 
-const getDossierTags = (tags) => ({
-    type: LOAD_DOSSIER_TAGS,
-    tags
-})
-
-export const removeTags = () => {
-    return {
-        type: CLEAR_TAGS
-    }
-}
-
 const removeTag = (tag) => ({
     type: REMOVE_TAG,
     tag
 })
 
+const getDossierTags = (tags) => ({
+    type: LOAD_DOSSIER_TAGS,
+    tags
+})
+
+export const removeDossierTags = () => {
+    return {
+        type: CLEAR_DOSSIER_TAGS
+    }
+}
+
 const removeDossierTag = (tag) => ({
     type: REMOVE_DOSSIER_TAG,
     tag
 })
+
+//add filter tag
+export const addFilterTag = (tag) => ({
+    type: ADD_FILTER_TAG,
+    tag
+})
+
+//remove filter tag
+export const removeFilterTag = (tag) => ({
+    type: REMOVE_FILTER_TAG,
+    tag
+})
+
+//clear filter tags
+export const clearFilterTags = () => {
+    return {
+        type: CLEAR_FILTER_TAGS
+    }
+}
 
 /*---------------------------------------------------------------------/
     Dispatch Functions
@@ -79,7 +103,7 @@ export const deleteTag = (tag) => async dispatch => {
     Reducers
 /---------------------------------------------------------------------*/
 
-const initialState = { user: {}, person: {} }
+const initialState = { user: {}, person: {}, filter: {} }
 
 export const tagsReducer = (state = initialState, action) => {
     const newState = {...state}
@@ -96,14 +120,23 @@ export const tagsReducer = (state = initialState, action) => {
             allDossierTags.forEach(tag => {dossierTags[tag.id] = tag})
             newState.person = {...dossierTags}
             return newState
-        case CLEAR_TAGS:
+        case CLEAR_DOSSIER_TAGS:
             newState.person = {}
             return newState
+        case CLEAR_FILTER_TAGS:
+            newState.filter = {}
+            return newState
+        case ADD_FILTER_TAG:
+            newState.filter[action.tag.id] = action.tag
+            return newState;
         case REMOVE_TAG:
             delete newState.user[action.tag.id]
             return newState;
         case REMOVE_DOSSIER_TAG:
             delete newState.person[action.tag.id]
+            return newState;
+        case REMOVE_FILTER_TAG:
+            delete newState.filter[action.tag.id]
             return newState;
         default:
             return state;

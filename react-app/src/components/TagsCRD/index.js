@@ -83,7 +83,6 @@ const TagsCRD = () => {
 					return (
 						<TagSlip 
 							tag={tag} 
-							forFiltering={false}
 							handleDelete={handleDelete}
 							deletionArgs={[person,tag]}
 							key={tag.id}

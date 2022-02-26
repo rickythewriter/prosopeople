@@ -5,19 +5,20 @@ made.
 
 /---------------------------------------------------------------------*/
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { loadEntries } from '../../store/entries'
 import { removeEntry } from '../../store/entry'
-import { loadUserTags, loadPersonTags, removeTags } from '../../store/tags'
+import { loadUserTags, loadPersonTags, removeDossierTags, clearFilterTags } from '../../store/tags'
 import './NavPanel.css'
 
 const NavPanel = ({setNewEntrySelected} ) => {
 	const user = useSelector(state => state.session.user);
 	const peopleObj = useSelector(state => state.people)
 	const people = Object.values(peopleObj)
+	// const [peopleDisplayed, setPeopleDisplayed] = useState([...people])
 	const selectedPerson = useSelector(state => state.person);
 	const entry = useSelector(state => state.entry);
 	const dispatch = useDispatch();
@@ -25,6 +26,27 @@ const NavPanel = ({setNewEntrySelected} ) => {
 	useEffect(() => {
         dispatch(loadPeople(user))
     }, [dispatch, user])
+
+	/* 
+		Filter people according to tags selected 
+			peopleFiltered
+			for each tag in tagsFiltered,
+				query a list of people with that tag.
+				compare peopleFiltered with that list
+
+
+	*/
+	const filterPeople = (peopleDisplayed) => {
+		// return [people[1]];
+		return [...people]
+	}
+
+
+	/* Update dossiers-displayed when there are filter tags */
+  //   useEffect(() => {
+		// if (tagsFilter.length > 0) setPeopleDisplayed(filterPeople(tagsFilter, peopleDisplayed));
+		// else setPeopleDisplayed([...people])
+  //   }, [tagsFilter])
 
 	/* Sort people array by alphabetical order */
 	people.sort(function(a,b) {
@@ -45,6 +67,8 @@ const NavPanel = ({setNewEntrySelected} ) => {
 				className="panel-heading"
 				onClick={()=> {
 					dispatch(removePerson());
+					dispatch(removeDossierTags());
+					dispatch(clearFilterTags());
 				}	
 			}>
 				Dossiers
@@ -63,7 +87,7 @@ const NavPanel = ({setNewEntrySelected} ) => {
 										dispatch(loadPeople(user));	//refill form fields after alterations
 										dispatch(loadPerson(person));
 										dispatch(removeEntry(entry));
-										
+										dispatch(clearFilterTags());
 									}}
 								>
 									{person.name}

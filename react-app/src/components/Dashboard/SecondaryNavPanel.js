@@ -38,10 +38,7 @@ const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags, tag
 			)
 		} else {
 			return (
-				<TagsFilterCRD 
-					tagsFilter={tagsFilter}
-					setTagsFilter={setTagsFilter}
-				/>
+				<TagsFilterCRD />
 			)
 		}	
 	}

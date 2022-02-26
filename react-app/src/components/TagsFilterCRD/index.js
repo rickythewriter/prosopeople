@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadUserTags, deleteTag } from '../../store/tags'
+import { loadUserTags, deleteTag, addFilterTag, removeFilterTag, clearFilterTags} from '../../store/tags'
 import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import './TagsFilterCRD.css'
 
-const TagsFilterCRD = ({tagsFilter, setTagsFilter}) => {
+const TagsFilterCRD = () => {
 	const user = useSelector(state => state.session.user)
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj.user)
-	// const [tagsFilter, setTagsFilter] = useState([])
+	const tagsFilter = Object.values(tagsObj.filter)
 	const dispatch = useDispatch()
 
 	/* Load all of a user's tags, when no person is selected */
@@ -19,29 +19,12 @@ const TagsFilterCRD = ({tagsFilter, setTagsFilter}) => {
 		if (!personSelected) {dispatch(loadUserTags(user));}
 	}, [dispatch, person, user])
 
-	/* Print filter tags when they update */
-	// useEffect(()=> {
-	// 	console.log('TagsFilterCRD has read the following tags as selected: ', tagsFilter)
-	// },[tagsFilter])
-
-	/* Handle Click */
+	/* Handle tag clicks - add/remove from filter */
 	const handleClick = (tag, tagSelected, tagsFilter) => {
 		if (tagSelected) {
-			/* 
-				If tag is selected, 
-					remove it from array, and
-					setTagSelected(false) 
-			*/
-			const i = tagsFilter.indexOf(tag)
-			tagsFilter.splice(i,1)
-			setTagsFilter([...tagsFilter]);
+			dispatch(removeFilterTag(tag))
 		} else if (!tagSelected) {
-			/* 
-				If tag is not selected, 
-					add it to array, and
-					setTagSelected(true) 
-			*/
-			setTagsFilter([...tagsFilter, tag])
+			dispatch(addFilterTag(tag))
 		}
 	}
 
@@ -70,7 +53,7 @@ const TagsFilterCRD = ({tagsFilter, setTagsFilter}) => {
 		>
 			<h4
 				className='panel-heading'
-				onClick={()=>{setTagsFilter([])}}
+				onClick={()=>{dispatch(clearFilterTags())}}
 			>
 				Select the Relevant Tags
 			</h4>
@@ -85,7 +68,6 @@ const TagsFilterCRD = ({tagsFilter, setTagsFilter}) => {
 			 				tag={tag}
 			 				clickable={true}
 			 				selected={tagsFilter.includes(tag)}
-			 				setTagsFilter={setTagsFilter}
 			 				handleClick={handleClick}
 			 				clickArgs={[tag, tagsFilter.includes(tag), tagsFilter]}
 			 				handleDelete={handleDelete}

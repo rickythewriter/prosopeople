@@ -18,9 +18,6 @@
 			'selected-tag-slip' class
 			'selected-tag-slip' styling handled by parent element
 
-		- setTagsFilter
-			state hook - handles filter tags for parent element.
-
 		- handleClick
 			callback - functionality for tag clicks, as specified by 
 			parent component
@@ -47,7 +44,7 @@
 import React, { useState } from 'react';
 import './TagSlip.css';
 
-const TagSlip = ({tag, clickable, selected, setTagsFilter, handleClick, clickArgs, handleDelete, deletionArgs}) => {
+const TagSlip = ({tag, clickable, selected, handleClick, clickArgs, handleDelete, deletionArgs}) => {
 
 	return(
 		<div className={(selected) ? "selected-tag-slip" : ""}>
@@ -58,29 +55,8 @@ const TagSlip = ({tag, clickable, selected, setTagsFilter, handleClick, clickArg
 				className='name-tag-slip'
 				onClick={()=>{
 					if (clickable) {
-						// handleClick(tag, selected)
 						handleClick(...clickArgs)	
 					}
-					
-					// if (tagSelected) {
-					// 	/* 
-					// 		If tag is selected, 
-					// 			remove it from array, and
-					// 			setTagSelected(false) 
-					// 	*/
-					// 	const i = tagsSelected.indexOf(tag)
-					// 	tagsSelected.splice(i,1)
-					// 	setTagsSelected([...tagsSelected]);
-					// 	setTagSelected(false)
-					// } else if (!tagSelected) {
-					// 	/* 
-					// 		If tag is not selected, 
-					// 			add it to array, and
-					// 			setTagSelected(true) 
-					// 	*/
-					// 	setTagsSelected([...tagsSelected, tag])
-					// 	setTagSelected(true)
-					// }
 				}}
 			>
 				<p>
