@@ -48,7 +48,6 @@ import React, { useState } from 'react';
 import './TagSlip.css';
 
 const TagSlip = ({tag, clickable, selected, setTagsFilter, handleClick, clickArgs, handleDelete, deletionArgs}) => {
-	// const [tagSelected, setTagSelected] = useState(false)
 
 	return(
 		<div className={(selected) ? "selected-tag-slip" : ""}>
