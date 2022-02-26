@@ -62,7 +62,6 @@ const NavPanel = ({user, people, setNewEntrySelected} ) => {
 										setNewEntrySelected(false);
 										dispatch(loadPeople(user));	//refill form fields after alterations
 										dispatch(loadPerson(person));
-										dispatch(loadEntries(person));
 										dispatch(removeEntry(entry));
 										
 									}}
