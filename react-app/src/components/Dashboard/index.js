@@ -60,10 +60,6 @@ const Dashboard = () => {
 	/* Initialize User information */
 	const user = useSelector(state => state.session.user);
 
-	/* Initialize Dossiers */
-	const peopleObj = useSelector(state => state.people);
-	const people = Object.values(peopleObj);
-
 	/* 
 		Read newEntrySelected state from SecondaryNavPanel;
 		Affects SmallMainView
@@ -122,8 +118,6 @@ const Dashboard = () => {
 				<div id="horizontal-panels-LR">
 					<div className="horizontal-panel" id="container-navigation">
 						<NavPanel 
-							user={user} 
-							people={people}
 							setNewEntrySelected={setNewEntrySelected}
 						/>
 					</div>

@@ -14,10 +14,10 @@ import { removeEntry } from '../../store/entry'
 import { loadUserTags, loadPersonTags, removeTags } from '../../store/tags'
 import './NavPanel.css'
 
-const NavPanel = ({user, people, setNewEntrySelected} ) => {
-	// const user = useSelector(state => state.session.user);
-	// const peopleObj = useSelector(state => state.people)
-	// const people = Object.values(peopleObj)
+const NavPanel = ({setNewEntrySelected} ) => {
+	const user = useSelector(state => state.session.user);
+	const peopleObj = useSelector(state => state.people)
+	const people = Object.values(peopleObj)
 	const selectedPerson = useSelector(state => state.person);
 	const entry = useSelector(state => state.entry);
 	const dispatch = useDispatch();
