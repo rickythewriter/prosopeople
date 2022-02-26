@@ -11,7 +11,8 @@ const TagsFilterCRD = () => {
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj.user)
 	// const [selectedTags, setSelectedTags] = useState([])
-	const [tagsSelected, setTagsSelected] = useState([])
+	const [tagsFilter, setTagsFilter] = useState([])
+	// const bunchaTags = [tags[1]];
 	const dispatch = useDispatch()
 
 	/* Load all of a user's tags, when no person is selected */
@@ -20,11 +21,31 @@ const TagsFilterCRD = () => {
 		if (!personSelected) {dispatch(loadUserTags(user));}
 	}, [dispatch, person, user])
 
-	useEffect(()=> {
-		console.log('TagsFilterCRD has read the following tags as selected: ', tagsSelected)
-	},[tagsSelected])
+	/* Print filter tags when they update */
+	// useEffect(()=> {
+	// 	console.log('TagsFilterCRD has read the following tags as selected: ', tagsFilter)
+	// },[tagsFilter])
 
-
+	/* Handle Click */
+	const handleClick = (tag, tagSelected, tagsFilter) => {
+		if (tagSelected) {
+			/* 
+				If tag is selected, 
+					remove it from array, and
+					setTagSelected(false) 
+			*/
+			const i = tagsFilter.indexOf(tag)
+			tagsFilter.splice(i,1)
+			setTagsFilter([...tagsFilter]);
+		} else if (!tagSelected) {
+			/* 
+				If tag is not selected, 
+					add it to array, and
+					setTagSelected(true) 
+			*/
+			setTagsFilter([...tagsFilter, tag])
+		}
+	}
 
 	/* Delete tag (in a cascade); clear from state */
 	const handleDelete = (tag) => {
@@ -61,12 +82,17 @@ const TagsFilterCRD = () => {
 			 	{tags.map( tag => {
 
 			 		/* If tag id contained in selected tags, tagSelected is true */
+			 		// console.log(`As ${tag.name} is rendering, these are the tags selected: `, tagsFilter);
+			 		// console.log(`tagsFilter contains tag: `, tagsFilter.includes(tag))
 
 			 		return (
 			 			<TagSlip 
-			 				tag={tag} 
-			 				tagsSelected={tagsSelected}
-			 				setTagsSelected={setTagsSelected}
+			 				tag={tag}
+			 				clickable={true}
+			 				selected={tagsFilter.includes(tag)}
+			 				setTagsFilter={setTagsFilter}
+			 				handleClick={handleClick}
+			 				clickArgs={[tag, tagsFilter.includes(tag), tagsFilter]}
 			 				handleDelete={handleDelete}
 			 				deletionArgs={[tag]}
 			 				key={tag.id}

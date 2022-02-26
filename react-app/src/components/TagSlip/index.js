@@ -8,10 +8,28 @@
 	Props:
 
 		- tag 
-			tag object with name and id
+			object - tag with name and id
+
+		- clickable
+			boolean - determines whether a click affects the tag slip
+
+		- selected
+			boolean - determines whether tag is styled as a 
+			'selected-tag-slip' class
+			'selected-tag-slip' styling handled by parent element
+
+		- setTagsFilter
+			state hook - handles filter tags for parent element.
+
+		- handleClick
+			callback - functionality for tag clicks, as specified by 
+			parent component
+
+		- clickArgs
+			array - arguments for handleClick
 
 		- handleDelete
-			callback function for x clicks
+			callback - functionality for x clicks
 
 		- deletionArgs
 			array of arguments for handleDelete
@@ -29,36 +47,41 @@
 import React, { useState } from 'react';
 import './TagSlip.css';
 
-const TagSlip = ({tag, tagsSelected, setTagsSelected, handleDelete, deletionArgs}) => {
-	const [tagSelected, setTagSelected] = useState(false)
+const TagSlip = ({tag, clickable, selected, setTagsFilter, handleClick, clickArgs, handleDelete, deletionArgs}) => {
+	// const [tagSelected, setTagSelected] = useState(false)
 
 	return(
-		<div className={(tagSelected) ? "selected-tag-slip" : ""}>
+		<div className={(selected) ? "selected-tag-slip" : ""}>
 		<div 
-			className='tag-slip'
+			className={'tag-slip'}
 		>
 			<div 
 				className='name-tag-slip'
 				onClick={()=>{
-					if (tagSelected) {
-						/* 
-							If tag is selected, 
-								remove it from array, and
-								setTagSelected(false) 
-						*/
-						const i = tagsSelected.indexOf(tag)
-						tagsSelected.splice(i,1)
-						setTagsSelected([...tagsSelected]);
-						setTagSelected(false)
-					} else if (!tagSelected) {
-						/* 
-							If tag is not selected, 
-								add it to array, and
-								setTagSelected(true) 
-						*/
-						setTagsSelected([...tagsSelected, tag])
-						setTagSelected(true)
+					if (clickable) {
+						// handleClick(tag, selected)
+						handleClick(...clickArgs)	
 					}
+					
+					// if (tagSelected) {
+					// 	/* 
+					// 		If tag is selected, 
+					// 			remove it from array, and
+					// 			setTagSelected(false) 
+					// 	*/
+					// 	const i = tagsSelected.indexOf(tag)
+					// 	tagsSelected.splice(i,1)
+					// 	setTagsSelected([...tagsSelected]);
+					// 	setTagSelected(false)
+					// } else if (!tagSelected) {
+					// 	/* 
+					// 		If tag is not selected, 
+					// 			add it to array, and
+					// 			setTagSelected(true) 
+					// 	*/
+					// 	setTagsSelected([...tagsSelected, tag])
+					// 	setTagSelected(true)
+					// }
 				}}
 			>
 				<p>
