@@ -10,3 +10,13 @@
 	color: #fff;
 	background-color: #909D88;
 }
+
+.user-tags .selected-tag-slip .tag-slip{
+	color: #fff;
+	background-color: #61714d;
+}
+
+.user-tags .selected-tag-slip .tag-slip:hover{
+	color: #fff;
+	background-color: #61714d;
+}

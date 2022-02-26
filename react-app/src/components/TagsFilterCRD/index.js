@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadUserTags, deleteTag } from '../../store/tags'
 import TagSearchCR from '../TagSearchCR';
@@ -9,14 +9,22 @@ const TagsFilterCRD = () => {
 	const user = useSelector(state => state.session.user)
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
-	const tags = Object.values(tagsObj.user);
-	const dispatch = useDispatch();
+	const tags = Object.values(tagsObj.user)
+	// const [selectedTags, setSelectedTags] = useState([])
+	const [tagsSelected, setTagsSelected] = useState([])
+	const dispatch = useDispatch()
 
 	/* Load all of a user's tags, when no person is selected */
 	useEffect(() => {
 		const personSelected = Object.values(person).length;
 		if (!personSelected) {dispatch(loadUserTags(user));}
 	}, [dispatch, person, user])
+
+	useEffect(()=> {
+		console.log('TagsFilterCRD has read the following tags as selected: ', tagsSelected)
+	},[tagsSelected])
+
+
 
 	/* Delete tag (in a cascade); clear from state */
 	const handleDelete = (tag) => {
@@ -51,9 +59,14 @@ const TagsFilterCRD = () => {
 
 			<div className='tags-stack user-tags'>
 			 	{tags.map( tag => {
+
+			 		/* If tag id contained in selected tags, tagSelected is true */
+
 			 		return (
 			 			<TagSlip 
 			 				tag={tag} 
+			 				tagsSelected={tagsSelected}
+			 				setTagsSelected={setTagsSelected}
 			 				handleDelete={handleDelete}
 			 				deletionArgs={[tag]}
 			 				key={tag.id}
