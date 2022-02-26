@@ -5,12 +5,12 @@ import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import './TagsFilterCRD.css'
 
-const TagsFilterCRD = () => {
+const TagsFilterCRD = ({tagsFilter, setTagsFilter}) => {
 	const user = useSelector(state => state.session.user)
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj.user)
-	const [tagsFilter, setTagsFilter] = useState([])
+	// const [tagsFilter, setTagsFilter] = useState([])
 	const dispatch = useDispatch()
 
 	/* Load all of a user's tags, when no person is selected */

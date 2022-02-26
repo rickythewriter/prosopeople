@@ -24,7 +24,7 @@ import EntriesMenu from '../EntriesMenu';
 import TagsCRD from '../TagsCRD';
 import TagsFilterCRD from '../TagsFilterCRD';
 
-const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags}) => {
+const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags, tagsFilter, setTagsFilter}) => {
 
 	const secondaryNavPanel = () => {
 
@@ -38,7 +38,10 @@ const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags}) =>
 			)
 		} else {
 			return (
-				<TagsFilterCRD />
+				<TagsFilterCRD 
+					tagsFilter={tagsFilter}
+					setTagsFilter={setTagsFilter}
+				/>
 			)
 		}	
 	}

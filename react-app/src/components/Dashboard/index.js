@@ -79,6 +79,14 @@ const Dashboard = () => {
 		setPersonIsSelected(personValues.length)
 	}, [person, personValues.length]);
 
+	/* Store filtering tags for  */
+	const [tagsFilter, setTagsFilter] = useState([])
+
+	/* Print filter tags when they update */
+	useEffect(()=> {
+		console.log('TagsFilterCRD has read the following tags as selected: ', tagsFilter)
+	},[tagsFilter])
+
 	/*
 		Read showTags state from SmallMainView FormPersonRU;
 		Determine whether SecondaryNavPanel displays TagsCRD.		
@@ -96,6 +104,8 @@ const Dashboard = () => {
 					personIsSelected={personIsSelected}
 					setNewEntrySelected={setNewEntrySelected}
 					showTags={showTags}
+					tagsFilter={tagsFilter}
+					setTagsFilter={setTagsFilter}
 				/>
 			 	<SmallMainView
 			 		personIsSelected={personIsSelected}
