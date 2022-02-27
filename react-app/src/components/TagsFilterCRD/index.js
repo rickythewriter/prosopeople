@@ -4,6 +4,8 @@ import { loadPeople, loadTaggedPeople, loadPeopleMultipleTags } from '../../stor
 import { loadUserTags, deleteTag, addFilterTag, removeFilterTag, clearFilterTags} from '../../store/tags'
 import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 import './TagsFilterCRD.css'
 
 const TagsFilterCRD = () => {
@@ -62,14 +64,20 @@ const TagsFilterCRD = () => {
 			className="horizontal-panel-R horizontal-panel" 
 			id="container-tags-user"
 		>
-			<h4
-				className='panel-heading'
-				onClick={()=>{dispatch(clearFilterTags())}}
-			>
-				Select the Relevant Tags
-			</h4>
-
-			<TagSearchCR />
+			<div className="row-name-clear">
+				<h4
+					className='panel-heading'
+				>
+					Select the Relevant Tags
+				</h4>
+				<div>
+					<FontAwesomeIcon 
+						icon={faDeleteLeft} 
+						id="clear-icon"
+						onClick={()=>{dispatch(clearFilterTags())}}
+					/>
+				</div>
+			</div>
 
 			<div className='tags-stack user-tags'>
 			 	{tags.map( tag => {
