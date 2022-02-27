@@ -1,11 +1,16 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import { associateTag, loadPersonTags } from '../../store/tags'
 import './TagSearchCR.css'
 
 const TagSearchCR = () => {
+	const user = useSelector(state => state.session.user)
+	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const userTags = Object.values(tagsObj.user)
+	const [errors, setErrors] = useState([])
+	const dispatch = useDispatch()
 
 	const handleOnSearch = (string, results) => {
 	    // onSearch will have as the first callback parameter
@@ -18,9 +23,19 @@ const TagSearchCR = () => {
 		console.log(result)
 	}
 
-	const handleOnSelect = (item) => {
+	const handleOnSelect = async (item) => {
 		// the item selected - i.e. the tag I clicked on
-		console.log(item)
+		// console.log(item)
+		const payload = {
+			person_id: person.id,
+			tag_id: item.id,
+			user_id: user.id
+		}
+		const newPersonTagAssoc = await dispatch(associateTag(payload, user, person, item))
+			// .catch(async(res)=> {
+				// const data = await res.json()
+            	// if (data && data.errors) setErrors(data.errors)
+			// })
 	}
 
 	const handleOnFocus = () => {
@@ -43,7 +58,7 @@ const TagSearchCR = () => {
 				items={userTags}
 	            // onSearch={handleOnSearch}
 	            // onHover={handleOnHover}
-	            // onSelect={handleOnSelect}
+	            onSelect={handleOnSelect}
 	            // onFocus={handleOnFocus}
 	            // autoFocus
 	            // formatResult={formatResult}

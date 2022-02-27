@@ -1,9 +1,11 @@
 //constants
 const LOAD_TAGS = 'tags/LOAD_TAGS'
+const ADD_TAG = 'tags/ADD_TAG'
 const REMOVE_TAG = 'tags/REMOVE_TAG'
 
 const LOAD_DOSSIER_TAGS = 'tags/LOAD_DOSSIER_TAGS'
 const CLEAR_DOSSIER_TAGS = 'tags/CLEAR_DOSSIER_TAGS'
+const ADD_DOSSIER_TAG = 'tags/ADD_DOSSIER_TAG'
 const REMOVE_DOSSIER_TAG = 'tags/REMOVE_DOSSIER_TAG'
 
 const CLEAR_FILTER_TAGS = 'tags/CLEAR_FILTER_TAGS'
@@ -17,6 +19,11 @@ const REMOVE_FILTER_TAG = 'tags/REMOVE_FILTER_TAG'
 const getTags = (tags) => ({
     type: LOAD_TAGS,
     tags
+})
+
+const addTag = (tag) => ({
+    type: ADD_TAG,
+    tag
 })
 
 const removeTag = (tag) => ({
@@ -35,24 +42,26 @@ export const removeDossierTags = () => {
     }
 }
 
+const addDossierTag = (tag) => ({
+    type: ADD_DOSSIER_TAG,
+    tag
+})
+
 const removeDossierTag = (tag) => ({
     type: REMOVE_DOSSIER_TAG,
     tag
 })
 
-//add filter tag
 export const addFilterTag = (tag) => ({
     type: ADD_FILTER_TAG,
     tag
 })
 
-//remove filter tag
 export const removeFilterTag = (tag) => ({
     type: REMOVE_FILTER_TAG,
     tag
 })
 
-//clear filter tags
 export const clearFilterTags = () => {
     return {
         type: CLEAR_FILTER_TAGS
@@ -75,6 +84,32 @@ export const loadPersonTags = (person) => async dispatch => {
     const data = await res.json();
     dispatch(getDossierTags(data));
     return data;
+}
+
+export const createTag = (newTag, user) =>  async dispatch => {
+    const res = await fetch(`/api/users/${user.id}/tags`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newTag)
+    });
+    const data = await res.json();
+    if(res.ok) {
+        dispatch(addTag(data))
+        return data
+    }
+}
+
+export const associateTag = (newPersonTagAssoc, user, person, tag) =>  async dispatch => {
+    const res = await fetch(`/api/users/${user.id}/people/${person.id}/tags/${tag.id}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newPersonTagAssoc)
+    });
+    const data = await res.json();
+    if(res.ok) {
+        dispatch(addDossierTag(data))
+        return data
+    }
 }
 
 export const dissociateTag = (person, tag) => async dispatch => {
@@ -120,6 +155,12 @@ export const tagsReducer = (state = initialState, action) => {
             allDossierTags.forEach(tag => {dossierTags[tag.id] = tag})
             newState.person = {...dossierTags}
             return newState
+        case ADD_TAG:
+            newState.user[action.tag.id] = action.tag
+            return newState;
+        case ADD_DOSSIER_TAG:
+            newState.person[action.tag.id] = action.tag
+            return newState;
         case CLEAR_DOSSIER_TAGS:
             newState.person = {}
             return newState
