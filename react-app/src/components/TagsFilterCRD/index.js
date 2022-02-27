@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadPeople, loadTaggedPeople, loadPeopleMultipleTags } from '../../store/people'
-import { loadUserTags, deleteTag, addFilterTag, removeFilterTag, clearFilterTags} from '../../store/tags'
+import { loadUserTags, createTag, deleteTag, addFilterTag, removeFilterTag, clearFilterTags} from '../../store/tags'
 import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -26,6 +26,39 @@ const TagsFilterCRD = () => {
 		if (!personSelected) {dispatch(loadUserTags(user));}
 	}, [dispatch, person, user])
 
+	/* Handle add tag submission */
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		if (tagName.length === 0) {
+			/* Error Handler (front end): There must be a name */
+            setErrors(["Please enter a name."])
+            return
+        } else if (tagName.length > 50) {
+        	/* Error Handler (front end): Name must not exceed 100 characters */
+        	setErrors(["A tag name must be 50 characters or fewer"])
+        	return
+        }
+        else {
+        	/* Create new Tag */
+            const payload = {
+                name: tagName,
+                user_id: user.id
+            }
+            // console.log(payload)
+            const newTag = await dispatch(createTag(payload, user))
+            	.catch(async(res)=> {
+                	const data = await res.json()
+                	if (data && data.errors) setErrors(data.errors)
+            	}
+            )
+            setTagName("");
+            setErrors([])
+        // }
+	    }
+    }
+
+
 	/* Handle tag clicks - add/remove from filter */
 	const handleClick = (tag, tagSelected, tagsFilter) => {
 		if (tagSelected) {
@@ -46,6 +79,7 @@ const TagsFilterCRD = () => {
 	/* Delete tag (in a cascade); clear from state */
 	const handleDelete = (tag) => {
 		dispatch(deleteTag(tag));
+		dispatch(removeFilterTag(tag));
 	}
 	
 	/* Sort tags array by alphabetical order */
@@ -76,7 +110,10 @@ const TagsFilterCRD = () => {
 					<FontAwesomeIcon 
 						icon={faDeleteLeft} 
 						id="clear-icon"
-						onClick={()=>{dispatch(clearFilterTags())}}
+						onClick={()=>{
+							dispatch(clearFilterTags())
+							setErrors([])
+						}}
 					/>
 				</div>
 			</div>
@@ -85,7 +122,7 @@ const TagsFilterCRD = () => {
 
 				<div id="tag-form-create">
 					<form 
-						// onSubmit={handleSubmit}
+						onSubmit={handleSubmit}
 					>
 						<label>Tag Name Form</label>
 						<div className="tag-form-create">
@@ -96,6 +133,7 @@ const TagsFilterCRD = () => {
 					        />
 					        <FontAwesomeIcon 
 					        	icon={faPlus} 
+					        	onClick={handleSubmit}
 					        	id="button-create-tag"
 					        />
 					    </div>

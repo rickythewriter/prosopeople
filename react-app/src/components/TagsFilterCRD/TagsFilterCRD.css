@@ -75,12 +75,22 @@
 
 #button-create-tag {
 	width: 24px;
-	padding: 17px 7px 17px 0;
+	margin: 7px 7px;
+	padding: 6px 0;
+	border-radius: 4px;
 	justify-self: end;
-	color: #61714d;
+	/*color: #61714d;*/
 	font-weight: bold;
+	background-color: #61714d;
+	color: #fff;
 }
 
 #button-create-tag:hover {
 	cursor: pointer;
+}
+
+#tag-form-create .error-message {
+	text-align: center;
+	margin-bottom: 8px;
+	color: #000;
 }
