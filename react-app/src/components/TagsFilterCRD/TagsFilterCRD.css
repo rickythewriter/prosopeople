@@ -39,3 +39,48 @@
 	cursor: default;
 	text-decoration: none;
 }
+
+.tag-form-create {
+	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
+	border-radius: 4px;
+	font-size: 13px;
+	/*font-size: 0.85rem;*/
+	background-color: #fff;
+	margin: 0 0 8px 0;
+	/*padding: 13px 16px 13px 0;*/
+	/*padding: 13px 0;*/
+	min-width: 123px;
+	display: grid;
+	grid-template-columns: auto 50px;
+}
+
+.tag-form-create input {
+	padding-left: 12px;
+	margin-left: 4px;
+	border-style: none;
+	width: 97%;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	font-family: 'PT serif', serif;
+}
+
+.tag-form-create input:hover {
+	cursor: pointer;
+}
+
+#tag-form-create form label {
+	display: none;
+}
+
+#button-create-tag {
+	width: 24px;
+	padding: 17px 7px 17px 0;
+	justify-self: end;
+	color: #61714d;
+	font-weight: bold;
+}
+
+#button-create-tag:hover {
+	cursor: pointer;
+}

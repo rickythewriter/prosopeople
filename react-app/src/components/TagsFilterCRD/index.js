@@ -5,7 +5,7 @@ import { loadUserTags, deleteTag, addFilterTag, removeFilterTag, clearFilterTags
 import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 import './TagsFilterCRD.css'
 
 const TagsFilterCRD = () => {
@@ -16,6 +16,8 @@ const TagsFilterCRD = () => {
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj.user)
 	const tagsFilter = Object.values(tagsObj.filter)
+	const [tagName, setTagName] = useState("")
+	const [errors, setErrors] = useState([])
 	const dispatch = useDispatch()
 
 	/* Load all of a user's tags, when no person is selected */
@@ -80,6 +82,26 @@ const TagsFilterCRD = () => {
 			</div>
 
 			<div className='tags-stack user-tags'>
+
+				<div id="tag-form-create">
+					<form 
+						// onSubmit={handleSubmit}
+					>
+						<label>Tag Name Form</label>
+						<div className="tag-form-create">
+					        <input 
+					          type="text"
+					          value={tagName || ""}
+					          onChange={(e) => setTagName(e.target.value)}
+					        />
+					        <FontAwesomeIcon 
+					        	icon={faPlus} 
+					        	id="button-create-tag"
+					        />
+					    </div>
+					    {errors.map((error, idx) => <div className="error-message" id="new-name-error" key={idx}>{error}</div>)}
+					</form>
+				</div>
 			 	{tags.map( tag => {
 
 			 		return (
