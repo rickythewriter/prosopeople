@@ -34,7 +34,7 @@
 
 /---------------------------------------------------------------------*/
 
-import React, { useState } from 'react';
+import React from 'react';
 import './TagSlip.css';
 
 const TagSlip = ({tag, clickable, selected, handleClick, clickArgs, handleDelete, deletionArgs}) => {

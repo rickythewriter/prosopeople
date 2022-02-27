@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPeople, loadTaggedPeople, loadPeopleMultipleTags } from '../../store/people'
+import { loadPeople, loadPeopleMultipleTags } from '../../store/people'
 import { loadUserTags, createTag, deleteTag, addFilterTag, removeFilterTag, clearFilterTags} from '../../store/tags'
-import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
@@ -10,8 +9,6 @@ import './TagsFilterCRD.css'
 
 const TagsFilterCRD = () => {
 	const user = useSelector(state => state.session.user)
-	const peopleObj = useSelector(state => state.people)
-	const people = Object.values(peopleObj)
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj.user)

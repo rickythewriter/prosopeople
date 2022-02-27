@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPeople, updatePerson, deletePerson } from '../../store/people'
+import { updatePerson, deletePerson } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { removeEntries } from '../../store/entries'
-import { removeDossierTags, clearFilterTags} from '../../store/tags'
+import { clearFilterTags} from '../../store/tags'
 import './FormPersonRU.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTag } from '@fortawesome/free-solid-svg-icons'

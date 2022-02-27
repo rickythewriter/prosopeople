@@ -9,7 +9,7 @@ const TagSearchCR = () => {
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const userTags = Object.values(tagsObj.user)
-	const [errors, setErrors] = useState([])
+	// const [errors, setErrors] = useState([])
 	const dispatch = useDispatch()
 
 	const handleOnSearch = (string, results) => {

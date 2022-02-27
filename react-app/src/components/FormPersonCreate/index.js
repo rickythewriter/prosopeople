@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createPerson, loadPeople } from '../../store/people'
+import { createPerson } from '../../store/people'
 import { associateTag } from '../../store/tags'
 import './FormPersonCreate.css'
 

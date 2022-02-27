@@ -25,7 +25,7 @@
 
 /---------------------------------------------------------------------*/
 
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadPersonTags, dissociateTag } from '../../store/tags'
 import TagSearchCR from '../TagSearchCR';
