@@ -66,10 +66,9 @@ const NavPanel = ({setNewEntrySelected} ) => {
 									key={person.id} 
 									onClick={()=> {
 										setNewEntrySelected(false);
-										dispatch(loadPeople(user));	//refill form fields after alterations
+										// dispatch(loadPeople(user));	//refill form fields after alterations
 										dispatch(loadPerson(person));
 										dispatch(removeEntry(entry));
-										dispatch(clearFilterTags());
 									}}
 								>
 									{person.name}
