@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, session
 from flask_login import login_required
-from app.models import db, Tag
+from app.models import db, Tag, PersonTag
 
 tag_routes = Blueprint('tags', __name__)
 
@@ -12,3 +12,12 @@ def delete_tag(id):
 	db.session.delete(tag)
 	db.session.commit()
 	return tag.to_dict();
+
+# Get all of a tag's people
+@tag_routes.route('/<int:id>/people')
+@login_required
+def get_tagged_people(id):
+	tag = Tag.query.get(id)
+	tagged_people = PersonTag.query.filter(PersonTag.tag_id == tag.id).all()
+	obj = {"people":[tagged_person.person.to_dict() for tagged_person in tagged_people]}
+	return obj

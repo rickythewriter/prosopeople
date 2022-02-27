@@ -18,35 +18,17 @@ const NavPanel = ({setNewEntrySelected} ) => {
 	const user = useSelector(state => state.session.user);
 	const peopleObj = useSelector(state => state.people)
 	const people = Object.values(peopleObj)
-	// const [peopleDisplayed, setPeopleDisplayed] = useState([...people])
+	const [peopleDisplayed, setPeopleDisplayed] = useState(people)
 	const selectedPerson = useSelector(state => state.person);
 	const entry = useSelector(state => state.entry);
+	const tagsObj = useSelector(state => state.tags)
+	const tags = Object.values(tagsObj.user)
+	const tagsFilter = Object.values(tagsObj.filter)
 	const dispatch = useDispatch();
 	
 	useEffect(() => {
         dispatch(loadPeople(user))
     }, [dispatch, user])
-
-	/* 
-		Filter people according to tags selected 
-			peopleFiltered
-			for each tag in tagsFiltered,
-				query a list of people with that tag.
-				compare peopleFiltered with that list
-
-
-	*/
-	const filterPeople = (peopleDisplayed) => {
-		// return [people[1]];
-		return [...people]
-	}
-
-
-	/* Update dossiers-displayed when there are filter tags */
-  //   useEffect(() => {
-		// if (tagsFilter.length > 0) setPeopleDisplayed(filterPeople(tagsFilter, peopleDisplayed));
-		// else setPeopleDisplayed([...people])
-  //   }, [tagsFilter])
 
 	/* Sort people array by alphabetical order */
 	people.sort(function(a,b) {

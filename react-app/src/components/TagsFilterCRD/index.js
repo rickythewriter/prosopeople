@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { loadPeople, loadTaggedPeople, loadPeopleMultipleTags } from '../../store/people'
 import { loadUserTags, deleteTag, addFilterTag, removeFilterTag, clearFilterTags} from '../../store/tags'
 import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
@@ -7,6 +8,8 @@ import './TagsFilterCRD.css'
 
 const TagsFilterCRD = () => {
 	const user = useSelector(state => state.session.user)
+	const peopleObj = useSelector(state => state.people)
+	const people = Object.values(peopleObj)
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj.user)
@@ -27,6 +30,14 @@ const TagsFilterCRD = () => {
 			dispatch(addFilterTag(tag))
 		}
 	}
+	/* Load tagged people every time the filter tags change */
+	useEffect(()=> {
+		if (tagsFilter.length === 0) {
+			dispatch(loadPeople(user))
+		} else {
+			dispatch(loadPeopleMultipleTags(user, tagsFilter))
+		}
+	}, [tagsObj])
 
 	/* Delete tag (in a cascade); clear from state */
 	const handleDelete = (tag) => {
