@@ -1,13 +1,26 @@
 import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
-import './FormPersonCreate.css'
+import { useSelector, useDispatch } from 'react-redux';
 import { createPerson, loadPeople } from '../../store/people'
+import { associateTag } from '../../store/tags'
+import './FormPersonCreate.css'
 
 const FormPersonCreate = ({user}) => {
+	const tagsObj = useSelector(state => state.tags)
+	const tagsFilter = Object.values(tagsObj.filter)
 	const [name, setName] = useState("")
 	const [errors, setErrors] = useState([])
 
 	const dispatch = useDispatch()
+
+	/* Helper Function - Associate tags to new dossier */
+	const handleTagAssociation = async (user, person, tag) => {
+		const payload = {
+			person_id: person.id,
+			tag_id: tag.id,
+			user_id: user.id
+		}
+		const newPersonTagAssoc = await dispatch(associateTag(payload, user, person, tag))
+	}
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -30,12 +43,18 @@ const FormPersonCreate = ({user}) => {
             }
             // console.log(payload)
             const newPerson = await dispatch(createPerson(payload, user))
+            	.then(async(res) => {
+            		tagsFilter.forEach( async tag => {
+            			const person = res
+            			handleTagAssociation(user, person, tag)
+            		})
+            	})
             	.catch(async(res)=> {
                 	const data = await res.json()
                 	if (data && data.errors) setErrors(data.errors)
             	}
             )
-            dispatch(loadPeople(user));
+            // dispatch(loadPeople(user));
             setName('');
             setErrors([])
         // }

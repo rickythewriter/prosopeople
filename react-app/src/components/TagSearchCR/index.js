@@ -24,8 +24,6 @@ const TagSearchCR = () => {
 	}
 
 	const handleOnSelect = async (item) => {
-		// the item selected - i.e. the tag I clicked on
-		// console.log(item)
 		const payload = {
 			person_id: person.id,
 			tag_id: item.id,
