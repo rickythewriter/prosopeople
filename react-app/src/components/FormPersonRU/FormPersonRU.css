@@ -86,6 +86,7 @@
 }
 
 #tag-icon {
+	margin: 3px 0 3px 0;
 	justify-self: end;
 	color: #61714d;
 }
