@@ -37,24 +37,26 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 ![Dossiers with Descriptions](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-person_and_entries.png?raw=true)
 
-#### Dossier - Create New
+#### Create a New Dossier
 
 ![Create Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-create_dossier.png?raw=true)
 
-#### Tags - Add to New Dossiers 
+#### Add Tags to New Dossier
 
 ![Add Tags to Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_tags.png?raw=true)
 
-#### Tags - Filter Dossiers by Commonalities
+#### Filter Dossiers with Tags
 
 ![Filter Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-tag_filters.png?raw=true)
 
-#### Tags - View Tags Associated with Dossier
+#### View Dossier Tags
 ![Dossier Tags](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-person_and_tags.png?raw=true)
 
-#### Entries - Create Entries; Revise Entries
+#### Create Entries
 
 ![Create Entries](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-create_entries.png?raw=true)
+
+#### Revise Entries
 
 ![Revise Entries](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-revise_entries.png?raw=true)
 
