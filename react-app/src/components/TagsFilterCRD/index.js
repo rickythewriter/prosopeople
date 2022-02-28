@@ -103,7 +103,7 @@ const TagsFilterCRD = () => {
 				<h4
 					className='panel-heading'
 				>
-					Select the Relevant Tags
+					Tags
 				</h4>
 				<div>
 					<FontAwesomeIcon 
