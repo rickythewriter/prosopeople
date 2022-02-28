@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updatePerson, deletePerson } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { removeEntries } from '../../store/entries'
-import { clearFilterTags} from '../../store/tags'
 import './FormPersonRU.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTag } from '@fortawesome/free-solid-svg-icons'
@@ -60,7 +59,6 @@ const FormPersonRU = ({user, showTags, setShowTags}) => {
     const handleDelete = async e => {
     	e.preventDefault();
         setErrors([]);
-        // dispatch(clearFilterTags());
         await dispatch(deletePerson(person));
         dispatch(removePerson());
         dispatch(removeEntries());
