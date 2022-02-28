@@ -43,7 +43,7 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 #### Add Tags to New Dossier
 
-![Add Tags to Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_dossier_tag.png?raw=true)
+![Add Tags to Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_tag_to_dossier.png?raw=true)
 
 #### Filter Dossiers with Tags
 
