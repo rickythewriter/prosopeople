@@ -41,9 +41,9 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 ![Create Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-create_dossier.png?raw=true)
 
-#### Add Tags to New Dossier
+#### Create a New Dossier with Tags
 
-![Add Tags to Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_tag_to_dossier.png?raw=true)
+![Create Dossier With Tags](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-create_dossier_with_tags.png?raw=true)
 
 #### Filter Dossiers with Tags
 
@@ -55,6 +55,12 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 #### View Dossier Tags
 ![Dossier Tags](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-person_and_tags.png?raw=true)
+
+#### Add Tags to Dossier
+
+![Add Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_tag_to_dossier.png?raw=true)
+
+![Added Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-added_dossier_tag.png?raw=true)
 
 #### Create Entries
 
