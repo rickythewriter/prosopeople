@@ -4,8 +4,9 @@ Website: [https://prosopeople.herokuapp.com/](https://prosopeople.herokuapp.com/
 
 ## What is Prosopeople?
 
-Prosopeople is a digital auto-prosoporaphy, a technology for managing your relationships, through record-keeping, inspired by the user interface of [Evernote.com](https://evernote.com/) and the relationship management utility of [Copper CRM](https://www.copper.com). You can:
+Prosopeople is a digital auto-prosoporaphy, a technology for managing your relationships, through record-keeping, inspired by the user interface of [Evernote.com](https://evernote.com/). You can:
 - create dossiers of people, with whom you want to build a deeper relationship,
+- add tags, to see your friends' traits, and who has what in common.
 - write entries about them, so you don't forget what you've done together, what they like, how you feel about them.
 
 ## Technologies Used
@@ -32,24 +33,41 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 ### User-Interface
 
-#### Dossiers
+#### Dossiers with Entries
 
 ![Dossiers with Descriptions](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-person_and_entries.png?raw=true)
 
-![Create Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-create_dossier.png?raw=true)
-
-#### Entries
+#### Create Entries
 
 ![Create Entries](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-create_entries.png?raw=true)
 
+#### Revise Entries
+
 ![Revise Entries](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-revise_entries.png?raw=true)
+
+#### Filter Dossiers with Tags
+
+![Filter Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-tag_filters.png?raw=true)
+
+#### Create a New Dossier with Tags
+
+![Create Dossier With Tags](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-create_dossier_with_tags.png?raw=true)
+
+#### Create a New Tag
+
+![Create a New Tag](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-add_tags.png?raw=true)
+
+#### View and Add Tags to Dossier
+![Dossier Tags](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-person_and_tags.png?raw=true)
+
+![Add Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-add_tag_to_dossier.png?raw=true)
+
+![Added Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-added_dossier_tag.png?raw=true)
 
 ### Upcoming Features
 
-- Groups (e.g. College Buddies, Karaoke Group)
-- Likes and Dislikes
-- Tags (Persons' Characteristics)
-- Search
+- Upload Images to Entries
+- Mobile Optimization and iOS Version
 - Events (plan events with groups of people)
 - Recommendations based on Tags (gifts, restaurants, hangout ideas etc.)
 

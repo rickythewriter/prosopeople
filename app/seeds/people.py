@@ -1,6 +1,6 @@
 from app.models import db, Person
 
-# Adds demo people to a demo user, you can add other users here if you want
+# Adds demo people
 def seed_people():
     ay = Person(
     	name = "Ashton Yeung",
@@ -20,7 +20,6 @@ def seed_people():
         description = "Talented. Good dancer.\n\nNever gonna give you up.\n\nAnd other stuff\n\n(credit: David Rogers)",
         user_id = 1
     )
-
 
     db.session.add(ay)
     db.session.add(bf)

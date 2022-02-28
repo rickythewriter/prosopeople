@@ -1,16 +1,15 @@
 /* after adding entry, turn it into edit page for entry */
 
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createEntry, updateEntry, deleteEntry } from '../../store/entries'
-import { loadEntry, removeEntry } from '../../store/entry'
+import { createEntry } from '../../store/entries'
+import { loadEntry } from '../../store/entry'
 import './FormEntryCreate.css'
 
 const FormEntryCreate = () => {
 
 	const user = useSelector(state=>state.session.user);
 	const person = useSelector(state=>state.person);
-	const entry = useSelector(state=>state.entry);
 	const [ title, setTitle] = useState("")
 	const [ body, setBody ] = useState("")
 	const [errors, setErrors] = useState([])
@@ -21,19 +20,22 @@ const FormEntryCreate = () => {
 		e.preventDefault();
 
 		if (title.length === 0 && body.length === 0) {
+			/* Error Handler (front end): There must be a title or body */
 			setErrors(["Please enter a title or a body for your entry."])
 			return
 		} else if (title.length > 100) {
+			/* Error Handler (front end): Entry title must not exceed 100 characters */
         	setErrors(["Entry title must be 100 characters or fewer"])
         	return
         } else {
+        	/* Create new Entry */
             const payload = {
             	title: title,
                 body: body,
                 user_id: user.id,
                 person_id: person.id,
             }
-            console.log(payload)
+            // console.log(payload)
             const newEntry = await dispatch(createEntry(payload, user, person))
             	// .catch(async(res)=> {
                 	// const data = await res.json();

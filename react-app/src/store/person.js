@@ -1,6 +1,6 @@
 //constants
-const LOAD_PERSON = 'people/LOAD_PERSON'
-const CLEAR_PERSON = 'people/CLEAR_PERSON'
+const LOAD_PERSON = 'person/LOAD_PERSON'
+const CLEAR_PERSON = 'person/CLEAR_PERSON'
 
 /*---------------------------------------------------------------------/
     Actions

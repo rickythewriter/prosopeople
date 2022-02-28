@@ -1,0 +1,12 @@
+#container-tags-person {
+	background-color: #ACB6A6;
+}
+
+.name-tag-slip:hover{
+	cursor: default;
+}
+
+#container-tags-person .panel-heading:hover{
+	cursor: default;
+	text-decoration: none;
+}

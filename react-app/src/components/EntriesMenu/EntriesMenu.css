@@ -1,4 +1,3 @@
-.panel-heading:hover {
-	cursor: pointer;
-	text-decoration: underline solid #fff;
+#container-entries {
+	background-color: #ACB6A6;
 }

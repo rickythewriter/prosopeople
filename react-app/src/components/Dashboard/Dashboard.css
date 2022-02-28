@@ -1,6 +1,13 @@
 #dashboard {
-	width: 100vw;
-	height: 100vh;
+	position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+	width: 98vw;
+	max-width: 1788px;
+	height: 98vh;
+	max-height: 1080px;
 	display: grid;
 	grid-template-rows: 50px 1fr;
 	background-color: #bec8b3;
@@ -10,17 +17,25 @@
 	text-shadow: -1px 2px rgb(0 0 0 / 10%);
 }
 
+.panel-heading:hover {
+	cursor: pointer;
+	text-decoration: underline solid #fff;
+}
+
 #container-top-nav {
 	background-color: #bec8b3;
+	height: 50px;
 	width: 100%;
-
 	box-sizing: border-box;
-    /*width: 100%;*/
-    padding: 0 16px;
+    padding: 0 1px 0 16px ;
     align-items: center;
     display: flex;
     justify-content: space-between;
     position: relative;
+}
+
+#container-tags {
+	background-color: #ACB6A6;
 }
 
 #container-navigation {
@@ -28,19 +43,14 @@
 	border-radius: 7px;
 }
 
-#container-entries {
-	background-color: #ACB6A6;
-}
-
 #container-main-view {
 }
 
 #horizontal-panels-LR {
 	width:  100%;
-	height: 100%;
+	max-height: 700px;
 	display: grid;
 	grid-template-columns: 1fr 3fr;
-	/*background-color: #61714d;*/
 }
 
 #horizontal-panels-R{
@@ -49,11 +59,10 @@
 }
 
 .horizontal-panel {
-	border: 1px solid #bec8b3;
-	/*border-radius: 7px;*/
-	background-color: #bec8b3;
+	margin: 1px;
 	padding: 0 16px;
-	height: 100vh;
+	height: 84vh;
+	max-height: 1080px;
 	overflow: scroll;
 	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
 }
@@ -64,9 +73,6 @@
 }
 
 .horizontal-panel-R button {
-	/*background-color: transparent;
-	color: #61714d;*/
-	/*float: right;*/
 	font-family: inherit;
 	background-color: #61714d;
 	color: #eee;
@@ -83,9 +89,6 @@
 }
 
 .horizontal-panel-R button:hover {
-	/*color: #465237;*/
-	/*font-weight: 530;*/
-	/*background-color: #bec8b3;*/
 	background-color: #465237;
 	border-color: #465237;
 	cursor: pointer;
@@ -100,14 +103,10 @@
 	background-color: #fff;
 	color: #000;
 	font-family: inherit;
-	/*background-color: #61714d;*/
-	/*color: #bec8b3;*/
 	height: 40px;
-	/*height: 1.5em;*/
 	min-width: 120px;
 	font-size: 14px;
 	line-height: 37px;
-	/*line-height: 1.5em;*/
 	text-align: center;
 	text-decoration: none;
 	letter-spacing: .5px;
@@ -120,7 +119,6 @@
 	background-color: #61714d;
 	border-color: #61714d;
 	cursor: pointer;
-	/*box-shadow: 0px 4px 5px 4px rgb(0 0 0 / 10%);*/
 } 
 
 #dashboard button {

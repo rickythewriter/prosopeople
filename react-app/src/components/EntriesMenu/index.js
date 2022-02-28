@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadEntries } from '../../store/entries'
-import { loadEntry, removeEntry } from '../../store/entry'
+import { removeEntry } from '../../store/entry'
 import EntryPreviewCard from '../EntryPreviewCard';
 import './EntriesMenu.css'
 
@@ -12,9 +12,11 @@ const EntriesMenu = ({setNewEntrySelected}) => {
 	const entries = Object.values(entriesObj);
 	const dispatch = useDispatch();
 
+	/* Load entries only if state contains a selected person */
 	useEffect(()=> {
-		dispatch(loadEntries(person))
-	}, [dispatch])
+		const personSelected = Object.values(person).length;
+		if (personSelected) {dispatch(loadEntries(person));}
+	}, [dispatch, person])
 
 	/* Sort entries array by date */
 	entries.sort(function(a,b) {
@@ -45,7 +47,7 @@ const EntriesMenu = ({setNewEntrySelected}) => {
 			<div id='entries-window'>
 				{entries.map( entry => {
 					return (
-						<EntryPreviewCard entry={entry}/>
+						<EntryPreviewCard entry={entry} key={entry.id}/>
 					)
 				})}
 			</div>

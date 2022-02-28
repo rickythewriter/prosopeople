@@ -26,18 +26,21 @@ const FormEntryRUD = () => {
 		e.preventDefault();
 
 		if (title.length === 0 && body.length === 0) {
+			/* Error Handler (front end): Entry must have title or body*/
 			setErrors(["Please enter a title or a body for your entry."])
 			return
 		} else if (title.length > 100) {
+			/* Error Handler (front end): Entry title must not exceed 100 characters */
         	setErrors(["Entry title must be 100 characters or fewer"])
         	return
         } else {
+        	/* Update Entry */
             const payload = {
             	id: entry.id,
             	title: title,
                 body: body,
             }
-            console.log(payload)
+            // console.log(payload)
             const newEntry = await dispatch(updateEntry(payload))
             	.catch(async(res)=> {
                 	const data = await res.json();
@@ -49,6 +52,7 @@ const FormEntryRUD = () => {
 	    }
     }
 
+    /* Delete entry; clear from state */
     const handleDelete = async e => {
     	e.preventDefault();
         setErrors([]);

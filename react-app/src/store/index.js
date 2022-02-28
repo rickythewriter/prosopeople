@@ -5,13 +5,15 @@ import { peopleReducer } from './people'
 import { personReducer } from './person'
 import { entriesReducer } from './entries'
 import { entryReducer } from './entry'
+import { tagsReducer } from './tags'
 
 const rootReducer = combineReducers({
   session,
   people: peopleReducer,
   person: personReducer,
   entries: entriesReducer,
-  entry: entryReducer
+  entry: entryReducer,
+  tags: tagsReducer
 });
 
 

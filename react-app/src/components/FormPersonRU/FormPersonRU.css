@@ -17,6 +17,7 @@
 	font-size: 1rem;
 	width: 100%;
 	padding: 0;
+	justify-self: stretch;
 }
 
 #input-name input:hover {
@@ -77,4 +78,19 @@
 #container-formpersonru-buttons #button-delete {
 	margin-right: 21.28px;
 	max-width: auto;
+}
+
+.row-name-tag {
+	display: grid;
+	grid-template-columns: auto 20px;
+}
+
+#tag-icon {
+	margin: 3px 0 3px 0;
+	justify-self: end;
+	color: #61714d;
+}
+
+#tag-icon:hover {
+	cursor: pointer;
 }

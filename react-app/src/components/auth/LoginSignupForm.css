@@ -3,7 +3,6 @@ div {
 }
 
 .minimal-frame {
-    height: 100vh;
     position: absolute;
     top:50%;
     left:50%;

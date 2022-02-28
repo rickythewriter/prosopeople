@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updatePerson, deletePerson, loadPeople } from '../../store/people'
+import { updatePerson, deletePerson } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
-import { deleteEntries } from '../../store/entries'
+import { removeEntries } from '../../store/entries'
 import './FormPersonRU.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTag } from '@fortawesome/free-solid-svg-icons'
 
-const FormPersonRU = (user) => {
+const FormPersonRU = ({user, showTags, setShowTags}) => {
 
 	const person = useSelector(state=>state.person);
 	const [ name, setName] = useState()
@@ -27,18 +29,21 @@ const FormPersonRU = (user) => {
 		e.preventDefault();
 
 		if (name.length === 0) {
+			/* Error Handler (front end): There must be a name */
             setErrors(["Please enter a name."])
             return
         } else if (name.length > 100) {
+        	/* Error Handler (front end): Name must not exceed 100 characters */
         	setErrors(["A name must be 100 characters or fewer"])
         	return
         } else {
+        	/* Update Person */
             const payload = {
             	id: person.id,
                 name: name,
                 description: description,
             }
-            console.log(payload)
+            // console.log(payload)
             const newPerson = await dispatch(updatePerson(payload, user))
             	.catch(async(res)=> {
                 	const data = await res.json()
@@ -50,12 +55,13 @@ const FormPersonRU = (user) => {
 	    }
     }
 
+    /* Delete Person, and associated Entries; clear Person and Entries from state */
     const handleDelete = async e => {
     	e.preventDefault();
         setErrors([]);
-        await dispatch(deleteEntries(person));
         await dispatch(deletePerson(person));
         dispatch(removePerson());
+        dispatch(removeEntries());
     }
 
 	return (
@@ -64,13 +70,22 @@ const FormPersonRU = (user) => {
 			<form onSubmit={handleSubmit}>
 
 				<label id="label-name">{name}</label>
-				<div className="person-form-read-update-input" id="input-name">
-			        <input 
-			          type="text"
-			          value={name || ""}
-			          onChange={(e) => setName(e.target.value)}
-			        />
-			    </div>
+				<div className="row-name-tag">
+					<div className="person-form-read-update-input" id="input-name">
+				        <input 
+				          type="text"
+				          value={name || ""}
+				          onChange={(e) => setName(e.target.value)}
+				        />
+				    </div>
+				    <FontAwesomeIcon 
+				    	icon={faTag} 
+				    	id="tag-icon"
+				    	onClick={()=> {
+				    		setShowTags(!showTags);
+				    	}}
+				    	/>
+				</div>
 		        <br />
 
 				<label id="label-description">Description</label>
