@@ -29,11 +29,11 @@ const TagsFilterCRD = () => {
 
 		if (tagName.length === 0) {
 			/* Error Handler (front end): There must be a name */
-            setErrors(["Please enter a name."])
+            setErrors(["Please name your tag."])
             return
         } else if (tagName.length > 50) {
         	/* Error Handler (front end): Name must not exceed 100 characters */
-        	setErrors(["A tag name must be 50 characters or fewer"])
+        	setErrors(["A tag name must be 50 characters or fewer."])
         	return
         }
         else {
@@ -141,13 +141,22 @@ const TagsFilterCRD = () => {
 				</div>
 			 	{tags.map( tag => {
 
+
+			 		
+			 		let isSelected = false
+
+					if(tagsObj.filter[tag.id]) {
+						isSelected = true	
+					}
+
 			 		return (
 			 			<TagSlip 
 			 				tag={tag}
 			 				clickable={true}
-			 				selected={tagsFilter.includes(tag)}
+			 				// selected={tagsFilter.includes(tag)}
+			 				selected={isSelected}
 			 				handleClick={handleClick}
-			 				clickArgs={[tag, tagsFilter.includes(tag), tagsFilter]}
+			 				clickArgs={[tag, isSelected, tagsFilter]}
 			 				handleDelete={handleDelete}
 			 				deletionArgs={[tag]}
 			 				key={tag.id}

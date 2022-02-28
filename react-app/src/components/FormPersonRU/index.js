@@ -60,7 +60,7 @@ const FormPersonRU = ({user, showTags, setShowTags}) => {
     const handleDelete = async e => {
     	e.preventDefault();
         setErrors([]);
-        dispatch(clearFilterTags());
+        // dispatch(clearFilterTags());
         await dispatch(deletePerson(person));
         dispatch(removePerson());
         dispatch(removeEntries());

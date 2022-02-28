@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadPeople } from '../../store/people'
 import { loadPerson, removePerson } from '../../store/person'
 import { removeEntry } from '../../store/entry'
-import { removeDossierTags, clearFilterTags } from '../../store/tags'
+import { removeDossierTags } from '../../store/tags'
 import './NavPanel.css'
 
 const NavPanel = ({setNewEntrySelected} ) => {
@@ -45,7 +45,6 @@ const NavPanel = ({setNewEntrySelected} ) => {
 				onClick={()=> {
 					dispatch(removePerson());
 					dispatch(removeDossierTags());
-					dispatch(clearFilterTags());
 				}	
 			}>
 				Dossiers
