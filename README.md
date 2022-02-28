@@ -123,7 +123,10 @@ I had originally intended for the People feature to come with a contact-informat
 ### Sorting Panel Elements
 ![Entries by Date](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/snippets/snippets-sort_by_date.png?raw=true)
 
-## Contributors
+## Creator - Ricky Thang
 
-- [Ricky Thang](https://github.com/rickythewriter)
+- [GitHub](https://github.com/rickythewriter)
+- [Portfolio](rickythang.com)
+- [LinkedIn](https://www.linkedin.com/in/ricky-thang-88307a100)
+
 
