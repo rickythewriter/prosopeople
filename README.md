@@ -23,46 +23,46 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 ### Splash Page with Value Proposition
 
-![Splash Page](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-splash.png?raw=true)
+![Splash Page](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-splash.png?raw=true)
 
 *Demo account also available*
 
 ### User Registration and Login
 
-![Login](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-login.png?raw=true)
+![Login](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-login.png?raw=true)
 
 ### User-Interface
 
 #### Dossiers with Entries
 
-![Dossiers with Descriptions](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-person_and_entries.png?raw=true)
+![Dossiers with Descriptions](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-person_and_entries.png?raw=true)
 
 #### Create Entries
 
-![Create Entries](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-create_entries.png?raw=true)
+![Create Entries](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-create_entries.png?raw=true)
 
 #### Revise Entries
 
-![Revise Entries](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-revise_entries.png?raw=true)
+![Revise Entries](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-revise_entries.png?raw=true)
 
 #### Filter Dossiers with Tags
 
-![Filter Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-tag_filters.png?raw=true)
+![Filter Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-tag_filters.png?raw=true)
 
 #### Create a New Dossier with Tags
 
-![Create Dossier With Tags](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-create_dossier_with_tags.png?raw=true)
+![Create Dossier With Tags](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-create_dossier_with_tags.png?raw=true)
 
 #### Create a New Tag
 
-![Create a New Tag](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_tags.png?raw=true)
+![Create a New Tag](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-add_tags.png?raw=true)
 
 #### View and Add Tags to Dossier
-![Dossier Tags](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-person_and_tags.png?raw=true)
+![Dossier Tags](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-person_and_tags.png?raw=true)
 
-![Add Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_tag_to_dossier.png?raw=true)
+![Add Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-add_tag_to_dossier.png?raw=true)
 
-![Added Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-added_dossier_tag.png?raw=true)
+![Added Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-added_dossier_tag.png?raw=true)
 
 ### Upcoming Features
 
