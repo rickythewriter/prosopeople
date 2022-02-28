@@ -50,7 +50,8 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 ![Filter Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-tag_filters.png?raw=true)
 
 #### Create a New Tag
-![Filter Dossiers](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_tags.png?raw=true)
+
+![Create a New Tag](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-add_tags.png?raw=true)
 
 #### View Dossier Tags
 ![Dossier Tags](https://github.com/rickythewriter/prosopeople/blob/feature-tags/docs/images/views/view-person_and_tags.png?raw=true)
