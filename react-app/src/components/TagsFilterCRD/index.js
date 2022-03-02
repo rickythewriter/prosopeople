@@ -68,7 +68,7 @@ const TagsFilterCRD = () => {
 	/* Load tagged people every time the filter tags change */
 	useEffect(()=> {
 		if (tagsFilter.length === 0) {
-			console.log('No filters applied.')
+			// console.log('No filters applied.')
 			dispatch(loadPeople(user))
 		} else {
 			dispatch(loadPeopleMultipleTags(user, tagsFilter))
@@ -140,8 +140,6 @@ const TagsFilterCRD = () => {
 					</form>
 				</div>
 			 	{tags.map( tag => {
-
-
 			 		
 			 		let isSelected = false
 
@@ -153,7 +151,6 @@ const TagsFilterCRD = () => {
 			 			<TagSlip 
 			 				tag={tag}
 			 				clickable={true}
-			 				// selected={tagsFilter.includes(tag)}
 			 				selected={isSelected}
 			 				handleClick={handleClick}
 			 				clickArgs={[tag, isSelected, tagsFilter]}
