@@ -70,8 +70,10 @@ const TagsCRD = () => {
 		Handle deletion of tag
 			Dissociate tag from dossier; clear from state. 
 	*/
-	const handleDelete = (person, tag) => {
-		dispatch(dissociateTag(person, tag));
+	const handleDelete = (person, tag, tagSelected) => {
+		if (tagSelected){
+			dispatch(removeFilterTag(tag))
+		} else {dispatch(dissociateTag(person, tag));}
 	}
 
 	/* Sort tags array by alphabetical order */
@@ -117,7 +119,7 @@ const TagsCRD = () => {
 							handleClick={handleClick}
 							clickArgs={[tag, isSelected, tagsFilter]}
 							handleDelete={handleDelete}
-							deletionArgs={[person,tag]}
+							deletionArgs={[person,tag, isSelected]}
 							key={tag.id}
 						/>
 					)
