@@ -3,10 +3,15 @@
 }
 
 .name-tag-slip:hover{
-	cursor: default;
+	cursor: pointer;
 }
 
 #container-tags-person .panel-heading:hover{
 	cursor: default;
 	text-decoration: none;
+}
+
+.person-tags .selected-tag-slip .tag-slip{
+	color: #fff;
+	background-color: #61714d;
 }

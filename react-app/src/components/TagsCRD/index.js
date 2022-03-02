@@ -27,15 +27,18 @@
 
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPersonTags, dissociateTag } from '../../store/tags'
+import { loadPeople, loadPeopleMultipleTags } from '../../store/people'
+import { loadPersonTags, dissociateTag, addFilterTag, removeFilterTag } from '../../store/tags'
 import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import './TagsCRD.css'
 
 const TagsCRD = () => {
+	const user = useSelector(state => state.session.user)
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
 	const tags = Object.values(tagsObj.person);
+	const tagsFilter = Object.values(tagsObj.filter)
 	const dispatch = useDispatch()
 
 	/* Load a person's tags, but only when a person is selected */
@@ -43,6 +46,25 @@ const TagsCRD = () => {
 		const personSelected = Object.values(person).length;
 		if (personSelected) {dispatch(loadPersonTags(person));}
 	}, [dispatch, person])
+
+	/* Handle tag clicks - add/remove from filter */
+	const handleClick = (tag, tagSelected, tagsFilter) => {
+		if (tagSelected) {
+			dispatch(removeFilterTag(tag))
+		} else if (!tagSelected) {
+			dispatch(addFilterTag(tag))
+		}
+	}
+
+	/* Load tagged people every time the filter tags change */
+	useEffect(()=> {
+		if (tagsFilter.length === 0) {
+			// console.log('No filters applied.')
+			dispatch(loadPeople(user))
+		} else {
+			dispatch(loadPeopleMultipleTags(user, tagsFilter))
+		}
+	}, [dispatch, tagsObj, user])
 
 	/* 
 		Handle deletion of tag
@@ -80,9 +102,20 @@ const TagsCRD = () => {
 
 			<div className='tags-stack person-tags'>
 				{tags.map( tag => {
+
+					let isSelected = false
+
+					if(tagsObj.filter[tag.id]) {
+						isSelected = true	
+					}
+
 					return (
 						<TagSlip 
 							tag={tag} 
+							clickable={true}
+							selected={isSelected}
+							handleClick={handleClick}
+							clickArgs={[tag, isSelected, tagsFilter]}
 							handleDelete={handleDelete}
 							deletionArgs={[person,tag]}
 							key={tag.id}
