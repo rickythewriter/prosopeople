@@ -6,7 +6,7 @@ Website: [https://prosopeople.herokuapp.com/](https://prosopeople.herokuapp.com/
 
 Prosopeople is a digital auto-prosoporaphy, a technology for managing your relationships, through record-keeping, inspired by the user interface of [Evernote.com](https://evernote.com/). You can:
 - create dossiers of people, with whom you want to build a deeper relationship,
-- add tags, to see your friends' traits, and who has what in common.
+- add tags, to see your friends' traits, and who has what in common,
 - write entries about them, so you don't forget what you've done together, what they like, how you feel about them.
 
 ## Technologies Used
