@@ -8,6 +8,10 @@
 
 #splashpage-img {
     max-width: 480px;
+    margin-bottom: 16px;
+    /*height: auto;*/
+    /*width: auto;*/
+    
 }
 
 #splashpage-body {
@@ -24,7 +28,7 @@
     background-color: #61714D;
     color: #fff;
     display: inline-block;
-    margin: 4px 0 32px 0;
+    margin: 0px 0 16px 0;
     font-weight: 500;
     text-align: center;
     white-space: nowrap;
@@ -61,7 +65,7 @@
     width: 100%;
     align-self: flex-end;
     margin-top: auto;
-    /*padding: 9px;*/
+    padding: 8px 0;
 }
 
 .footer-nav-div {
