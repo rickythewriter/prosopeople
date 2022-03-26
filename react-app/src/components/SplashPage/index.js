@@ -16,7 +16,7 @@ const SplashPage = () => {
     else return (
         <>
             <div className='splashpage-body-container'>
-                <h2 id='splashpage-body'>Keep a record, of your social relationships, and find them in one place: <br/>your auto-prosopography</h2>
+                <h2 id='splashpage-body'>Chronicle Your Relationships. Deepen Them.</h2>
                 <a href="/sign-up" id='splashpage-signup-button'> Sign Up Free</a>
             </div>
             <footer id='splashpage-footer'>
