@@ -16,7 +16,7 @@ const SplashPage = () => {
     else return (
         <div className='splashpage-body-container'>
             <h2 id='splashpage-header'>Chronicle Your Relationships</h2>
-            <img id='splashpage-img' src='https://github.com/rickythewriter/prosopeople/blob/splash_page-202203/docs/images/demo-dossiers-create.gif?raw=true'/>
+            <img id='splashpage-img' src='https://github.com/rickythewriter/prosopeople/blob/main/docs/images/demo-dossiers-create.gif?raw=true'/>
             <p id='splashpage-body'>Deepen bonds, by writing about them.<br/>Recover the memories, in your auto-prosopography.</p>
             <a href="/sign-up" id='splashpage-signup-button'>Sign Up Free</a>
             <footer id='splashpage-footer'>
