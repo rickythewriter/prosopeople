@@ -14,13 +14,18 @@
     
 }
 
-#splashpage-body {
+#splashpage-header {
     /*font-size: 40px;*/
     font-weight: 500;
     /*color: #fff;*/
     margin: 48px 16px 16px 16px;
     text-align: center;
     min-width: 520px;
+}
+
+#splashpage-body {
+    text-align: center;
+    margin-top: 0;    
 }
 
 #splashpage-signup-button {
