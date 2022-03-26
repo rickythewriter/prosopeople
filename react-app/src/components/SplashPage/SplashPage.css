@@ -7,10 +7,9 @@
 }
 
 #splashpage-img {
-    width: 72%;
+    width: 90%;
     max-width: 906px;
-    /*max-width: 700px;*/
-    /*margin-left: 6px;*/
+    min-width: 485px;
     margin-bottom: 16px;
 }
 
