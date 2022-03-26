@@ -21,7 +21,7 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 ## Features
 
-### Splash Page with Value Proposition
+### Splash Page with Demo and Value Proposition
 
 ![Splash Page](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-splash.png?raw=true)
 
