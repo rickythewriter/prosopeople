@@ -1,31 +1,30 @@
 .splashpage-body-container {
     display: flex;
     flex-direction: column;
-    /*height: 100%;*/
-    /*width: 100%;*/
     align-items: center;
     background-color: #bec8b3;
-    max-height: 400px;
+    min-height: calc(100vh - 80px);
+}
+
+#splashpage-img {
+    max-width: 480px;
 }
 
 #splashpage-body {
     /*font-size: 40px;*/
     font-weight: 500;
     /*color: #fff;*/
-    margin: 120px 16px 31px 16px;
+    margin: 48px 16px 16px 16px;
     text-align: center;
     min-width: 520px;
 }
 
 #splashpage-signup-button {
-    font-size: 23px;
-    color: #fff;
+    font-size: 14px;
     background-color: #61714D;
-    /*background-color: #83929f ;*/
-    /*color: #000;*/
-    border-color: transparent;
+    color: #fff;
     display: inline-block;
-    margin: 4px 0 87px 0;
+    margin: 4px 0 32px 0;
     font-weight: 500;
     text-align: center;
     white-space: nowrap;
@@ -33,10 +32,15 @@
     cursor: pointer;
     border: 1px solid transparent;
     text-decoration: none;
-    border-radius: 5px;
-    padding: 11px 32px 12px;
     line-height: 1.2;
     text-decoration: none;
+
+    min-width: 120px;
+    line-height: 37px;
+    letter-spacing: .5px;
+    border-radius: 3px;
+    border: 2px solid #61714d;
+    padding: 0 10px;
 }
 
 #splashpage-signup-button:visited {
@@ -45,24 +49,19 @@
 
 #splashpage-signup-button:hover {
     background-color: #465237;
+    border-color: #465237;
 }
 
 #splashpage-footer {
-    margin-top: 10px;
-    
-    /*border-top: 1px solid #e8e8e8;*/
-    /*padding: 50px 0;*/
-    /*height: 8em;*/
-    /*width: 100%;*/
     font-size: 16px;
     box-sizing: border-box;
     justify-content: center;
-    align-items: center;
     display: flex;
-    background-color: #909D88;
-    /*border: 2px solid #61714D;*/
-    border-radius: 7px;
-    max-height: 50px;
+    background-color: #fff;
+    width: 100%;
+    align-self: flex-end;
+    margin-top: auto;
+    /*padding: 9px;*/
 }
 
 .footer-nav-div {
@@ -86,7 +85,6 @@
     padding-top: 0;
     padding-bottom: 0;
     text-decoration: none;
-    /*display: inline-block;*/
     position: relative;
 }
 

@@ -23,7 +23,7 @@ function DemoLoginButton() {
                       type='submit'
                       // className='Btn Btn_emph Btn_super'
                       className='button-outline'
-                      value='Demo Log In'
+                      value='Demo Login'
                     />
                 </li>
             </ol>
