@@ -27,7 +27,7 @@ const NavBar = () => {
             activeClassName='active'
             style={{textDecoration: 'none', color: 'inherit'}}
           >
-            <h2>PROSOPEOPLE</h2>
+            <h2>Prosopeople</h2>
           </NavLink>
         </div>
         <nav className='utility-nav'>
