@@ -7,13 +7,15 @@
 }
 
 #splashpage-img {
-    max-width: 480px;
+    width: 90%;
+    max-width: 906px;
+    min-width: 485px;
     margin-bottom: 16px;
 }
 
 #splashpage-header {
     font-weight: 500;
-    margin: 48px 16px 16px 16px;
+    margin: 16px 16px;
     text-align: center;
     min-width: 520px;
 }
