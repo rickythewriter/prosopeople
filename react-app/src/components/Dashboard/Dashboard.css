@@ -63,7 +63,7 @@
 	padding: 0 16px;
 	height: 84vh;
 	max-height: 1080px;
-	overflow: scroll;
+	overflow: auto;
 	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
 }
 
