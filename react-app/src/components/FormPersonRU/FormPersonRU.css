@@ -45,7 +45,7 @@
 	border-top: 1px solid #bec8b3;
 	width: 100%;
 	height: 50vh;
-	overflow: scroll;
+	overflow: auto;
 	resize: none;
 }
 
