@@ -62,7 +62,7 @@ const TagsCRD = () => {
 			// console.log('No filters applied.')
 			dispatch(loadPeople(user))
 		} else {
-			dispatch(loadPeopleMultipleTags(user, tagsFilter))
+			dispatch(loadPeopleMultipleTags(tagsFilter))
 		}
 	}, [dispatch, tagsObj, user])
 
