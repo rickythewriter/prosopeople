@@ -44,142 +44,66 @@ export const loadTaggedPeople = tag => async dispatch => {
 
 /* 
     Load intersection of people with multiple tags
-
-        Parameters:
-            user
-                - from Redux Store
-                    i.e. useSelect(state.session.user)
-            tags
-                - format: [{...}, {...}]
-                - type: array
-                - contents: tags
-                    e.g. {id: 1, name: 'artist'}
         
+    Input:
+        - array
+            e.g. [{tag1}, {tag2}, ...]
+        - e.g. of tag object
+            {id: 1, name: 'artist'}
+    
     Dispatches people who contain all tags to store
 */
-export const loadPeopleMultipleTags = (user, tags) => async dispatch => {
+export const loadPeopleMultipleTags = (tags) => async dispatch => {
 
-    /* Helper function - load app people without dispatching to reducer */
-    const loadPeopleWithoutAction = user => async dispatch => {
-        const res = await fetch(`/api/users/${user.id}/people`)
-        const data = await res.json();
-        return data;
-    }
+    const peoplePerTag = [];
+    tags.forEach(tag => {
+        peoplePerTag.push(dispatch(loadTaggedPeople(tag)));
+    })
 
-    /* Load all people belonging to user */
-    dispatch(loadPeopleWithoutAction(user))
-    .then( (peopleObj) => {
+    Promise.all(peoplePerTag)
+    .then((res) => {
 
-        
-        /* Reduce people object */
-        const peopleAll = {}
-        const allPeople = peopleObj.people
-        allPeople.forEach(person => {peopleAll[person.id] = person
-            })
-        const peopleAllReduced = {...peopleAll}
-        // console.log('The reduced person object looks like this: ', peopleAllReduced)
+        console.log(res);
 
-
-        /* create an array of all the tags being loaded */
-        const arrPromise = []
-        tags.forEach(tag => {
-            arrPromise.push(dispatch(loadTaggedPeople(tag)));
+        let peopleIntersecting = {};
+        let peopleFirstTag = res[0].people
+        peopleFirstTag.forEach(person => {
+            /* Format as { <id1> : {person1}, <id2> : {person2}, ... } */
+            peopleIntersecting[person.id] = person;
         })
-        // console.log(arrPromise);
 
-
-        /* Handle each individual list of tagged people after all promises fulfilled */
-        Promise.all(arrPromise)
-        .then((res) => {
-
-            // console.log('These are the values of PromiseAll: ', res)
-            /* 
-                res is of this format:
-                    [ {people: Array(1)}, {people: Array(2)}, ... ]
-            */
-
-
-            /* for each array of people, compare with all people */
-            const arrPeopleTaggedObj = res.map(peopleSingleTag => {
-                // console.log('This is a forEach object: ', peopleSingleTag);
-                /*
-                    peopleSingleTag is of this format:
-                        {people: Array(i)}
-                */
-
-
-                /* 
-                    Reduce each member of arrPeopleTaggedObj 
-                    e.g.
-                        {4: {...}, 5: {...}}
-                */
-                const peopleSingleTagObjects = {}
-                peopleSingleTag = peopleSingleTag.people.forEach(person => {
-                    // console.log('this is a person inside peopleSingleTag.people: ', person)
-                    peopleSingleTagObjects[person.id] = person;
-                })
-                peopleSingleTag = peopleSingleTagObjects; // turn [{...}] into {person.id: {person}}
-                // console.log('peopleSingleTag after formatting ', peopleSingleTag);
-                return peopleSingleTag
-            })
-
-
-            // console.log('This is res after formatting: ', arrPeopleTaggedObj)
-            /* 
-                arrPeopleTaggedObj is of this format:
-                [
-                    {4: {...}}
-                    {4: {...}, 5: {...}}
-                ]
+        res.forEach(peopleWithTag => {
             
-                Each element in the array is an object 
-                which contains the people with single tag of each loadTaggedPeople call.
-            */
-
-
-            /* 
-                Compare peopleAllReduced with each member of arrPeopleTaggedObj.
-                Filter out the people who are not intersections.
-            */
-            arrPeopleTaggedObj.forEach((peopleTaggedReduced) => {
-                /*
-                    peopleTaggedReduced is of this format:
-                        {4: {...}, 5: {...}}
-                */
-
-
-                /* 
-                    keysIntersecting is an array, 
-                    containing keys of the people and tagged people intersection
-                */
-                const keysIntersecting = Object.keys(peopleAllReduced).filter(key => key in peopleTaggedReduced)
-
-
-                /* Remove from people, those persons whose keys are not in the intersection */
-                for (const id in peopleAllReduced){
-                    /* 
-                        If intersecting keys doesn't include person's key,
-                            remove it from peopleAllReduced
-                    */
-                    if (!keysIntersecting.includes(id)){
-                        delete peopleAllReduced[id];
-                    }
-                }
+            /* Initialize ID's of persons with tag */
+            const idsPeopleWithTag = new Set()
+            peopleWithTag.people.forEach(person => {
+                idsPeopleWithTag.add(person.id);
             })
 
-            /* 
-                Format people for reducer 
-                    format: { people: [{person1}, {person2}, ... ] }
-            */
-            const peopleWithAllTags = {};
-            peopleWithAllTags.people = Object.values(peopleAllReduced)
-
-            /* Dispatch result to reducer */
-            dispatch(getPeople(peopleWithAllTags));
-            return(peopleWithAllTags);
+            /* Update list of intersecting people */
+            for (let id in peopleIntersecting) {
+                id = parseInt(id)
+                const idDoesNotIntersect = (!idsPeopleWithTag.has(id))
+                if (idDoesNotIntersect) {
+                    delete peopleIntersecting[id];
+                }
+            }
         })
+
+        /* 
+            Format for reducer 
+                i.e. { people: [{person1}, {person2}, ... ] }
+        */
+        const peopleWithAllTags = {};
+        peopleWithAllTags.people = Object.values(peopleIntersecting)
+
+        /* Dispatch result to reducer */
+        dispatch(getPeople(peopleWithAllTags));
+        return (peopleWithAllTags);
+
     })
 }
+
 
 export const createPerson = (newPerson, user) =>  async dispatch => {
     const res = await fetch(`/api/users/${user.id}/people`, {
