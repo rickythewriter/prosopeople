@@ -63,8 +63,6 @@ export const loadPeopleMultipleTags = (tags) => async dispatch => {
     Promise.all(peoplePerTag)
     .then((res) => {
 
-        console.log(res);
-
         let peopleIntersecting = {};
         let peopleFirstTag = res[0].people
         peopleFirstTag.forEach(person => {
