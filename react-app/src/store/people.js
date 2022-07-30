@@ -45,11 +45,11 @@ export const loadTaggedPeople = tag => async dispatch => {
 /* 
     Load intersection of people with multiple tags
         
-    Input:
-        - array
-            e.g. [{tag1}, {tag2}, ...]
-        - e.g. of tag object
-            {id: 1, name: 'artist'}
+    Input: array of tags
+        e.g. [ {id: 1, name: 'artist'},
+               {id: 2, name: 'celebrity'}, 
+               ...,
+             ]
     
     Dispatches people who contain all tags to store
 */
