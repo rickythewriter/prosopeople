@@ -1,3 +1,9 @@
+:root {
+    --typeface-logo: 'Bodoni Moda', serif;
+    --typeface-body: 'PT Serif', serif;
+    --typeface-error: 'PT Sans', sans-serif;
+}
+
 html {
 	background-color: #bec8b3;
 	height: 100vh;
@@ -5,7 +11,7 @@ html {
 }
 
 body {
-    font-family: 'PT Serif', serif;
+    font-family: var(--typeface-body);
     font-style: normal;
     font-weight: 400;
     color: #151515;
@@ -16,21 +22,15 @@ body {
 	grid-template-rows: 80px 1fr 100px;
 
 	position: absolute;
-    /*top:  50%;*/
     left: 50%;
     transform: translate(-50%,0);
 
-    /*height: 96vh;*/
-    /*width: 96vw;*/
     height: 100%;
     width: 100%;
-
-    /*max-height: 1080px;*/
-    /*max-width: 828px;*/
 }
 
 .error-message {
 	color: #5c5c5c;
 	font-size: 0.875rem;
-	font-family: 'PT Sans', sans-serif;
+	font-family: var(--typeface-error);
 }
