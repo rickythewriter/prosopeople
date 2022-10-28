@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import DemoLoginButton from '../DemoLoginButton'
-// import LogoutButton from './auth/LogoutButton';
 import './NavSplash.css'
 
 const NavSplash = () => {
@@ -42,24 +40,9 @@ const NavSplash = () => {
                 <p>Log In</p>
               </NavLink>
             </li>
-    {/*        <li>
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
-              </NavLink>
-            </li>*/}
-{/*            <li>
-              <NavLink to='/users' exact={true} activeClassName='active'>
-                Users
-              </NavLink>
-            </li>*/}
-    {/*        <li>
-              <LogoutButton />
-            </li>*/}
-
             <li>
               <DemoLoginButton />
             </li>
-
           </ul>
         </nav>
       </div>
