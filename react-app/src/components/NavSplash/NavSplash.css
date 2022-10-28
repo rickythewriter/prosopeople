@@ -4,7 +4,6 @@
     background:  #fff;
     z-index: 999;
     border: 2px solid #fff;
-    /*border-radius: 7px;*/
     margin-top: -8px;
     display: flex;
     justify-content: center;
@@ -29,9 +28,6 @@
 
 .top .global-logo {
     display: inline-block;
-    /*width: 177px;*/
-    /*height: 40px;*/
-    /*background-size: contain;*/
 }
 
 .top .utility-nav {
@@ -53,7 +49,6 @@ ul, ol, table {
     font-size: 14px;
     display: inline-block;
     position: relative;
-    /*vertical-align: middle;*/
 }
 
 .utility-nav p:hover {
@@ -62,12 +57,9 @@ ul, ol, table {
 }
 
 .top img {
-    /*height: 21px;*/
     height: 22px;
     width: auto;
     margin-right: 16px;
     margin-left: 16px;
     margin-top: 4px;
-    /*margin-right: 16px;*/
-    /*margin-left: 16px;*/
 }
