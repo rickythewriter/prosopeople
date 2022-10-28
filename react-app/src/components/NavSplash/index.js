@@ -3,9 +3,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import DemoLoginButton from '../DemoLoginButton'
 // import LogoutButton from './auth/LogoutButton';
-import './NavBar.css'
+import './NavSplash.css'
 
-const NavBar = () => {
+const NavSplash = () => {
   return (
     <div className='global-header'>
       <div className='top'>
@@ -67,4 +67,4 @@ const NavBar = () => {
   );
 }
 
-export default NavBar;
+export default NavSplash;
