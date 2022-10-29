@@ -13,7 +13,7 @@ const LoginSignupLogo = () => {
             />
             <h1>PROSOPEOPLE</h1>
           </NavLink>
-          <p className='tagline'> Chronicle Your Relationships </p>
+          <p className='tagline'> Deepen Your Relationships </p>
         </div>
     )
 }
