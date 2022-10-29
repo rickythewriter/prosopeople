@@ -30,10 +30,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/' exact={true} >
-          <div id='homepage'>
-            <NavSplash />
             <SplashPage />
-          </div>
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />

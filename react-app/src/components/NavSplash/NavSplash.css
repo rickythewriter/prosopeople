@@ -1,63 +1,57 @@
-.global-header {
-    position: relative;
-    top: 0;
-    background:  #fff;
-    z-index: 999;
-    border: 2px solid #fff;
-    margin-top: -8px;
+.nav-splash {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    margin-bottom: 6px;
-}
-
-.top {
     box-sizing: border-box;
-    width: 100%;
     max-width: 970px;
     padding: 0 16px;
     height: 80px;
+    margin: auto;
     align-items: center;
-    display: flex;
-    position: relative;
 }
 
 .global-logo h2 {
-    font-family: 'Bodoni Moda', serif;
-    font-size: 28px;
+    font-family: var(--typeface-logo);
+    font-size: var(--logo-size);
 }
 
-.top .global-logo {
-    display: inline-block;
-}
-
-.top .utility-nav {
-    display: inline-block;   
+.nav-splash .utility-nav {
+    /* display: inline-block;    */
+    
+    /* display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between; */
     margin-left: auto;
 }
 
-ul, ol, table {
-    line-height: 21px;
-    font-size: 13px;
-}
-
-.top .utility-nav li:first-child {
+.nav-splash .utility-nav li:first-child {
     margin-left: 0;
     margin-right: 16px;
+    white-space: nowrap;
 }
 
-.top .utility-nav li {
+/* Line up button with other links */
+.nav-splash .utility-nav li:last-child {
+    margin-top: 3px;
+}
+
+.nav-splash .utility-nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
     font-size: 14px;
-    display: inline-block;
+    list-style: none;
     position: relative;
 }
 
 .utility-nav p:hover {
-    color: #465237;
+    color: var(--background-hover);
     font-weight: 500;
 }
 
-.top img {
-    height: 22px;
+.nav-splash img {
+    height: calc(var(--logo-size)*0.785);
     width: auto;
     margin-right: 16px;
     margin-left: 16px;
