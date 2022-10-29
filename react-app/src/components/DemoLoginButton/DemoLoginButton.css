@@ -1,24 +1,19 @@
 #demo-login {
-	/*background-color: transparent;
-	color: #61714d;*/
-	background-color: #61714d;
-	color: #fff;
+	background-color: var(--button-color);
 	height: 40px;
 	min-width: 120px;
-	font-size: 14px;
 	line-height: 37px;
+	padding: 0 10px;
 	text-align: center;
 	text-decoration: none;
+	color: white;
+	font-size: 14px;
 	letter-spacing: .5px;
+	border: 2px solid var(--button-color);
 	border-radius: 3px;
-	border: 2px solid #61714d;
-	padding: 0 10px;
 }
 
 #demo-login:hover {
-	/*color: #465237;*/
-	/*font-weight: 530;*/
-	/*background-color: #bec8b3;*/
-	background-color: #465237;
-	border-color: #465237;
+	background-color: var(--background-hover);
+	border-color: var(--background-hover);
 } 
