@@ -2,35 +2,25 @@
     --typeface-logo: 'Bodoni Moda', serif;
     --typeface-body: 'PT Serif', serif;
     --typeface-error: 'PT Sans', sans-serif;
-}
-
-html {
-	background-color: #bec8b3;
-	height: 100vh;
-	font-size: 100%;
+    --fontcolor-error: #5c5c5c;
+    --background-hover: #465237;
+    --background-app: #bec8b3;
+    --logo-size: 28px;
+    --button-color: #61714d;
 }
 
 body {
     font-family: var(--typeface-body);
-    font-style: normal;
-    font-weight: 400;
-    color: #151515;
 }
 
-#homepage {
-	display: grid;
-	grid-template-rows: 80px 1fr 100px;
-
-	position: absolute;
-    left: 50%;
-    transform: translate(-50%,0);
-
-    height: 100%;
-    width: 100%;
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 .error-message {
-	color: #5c5c5c;
+	color: var(--fontcolor-error);
 	font-size: 0.875rem;
 	font-family: var(--typeface-error);
 }
