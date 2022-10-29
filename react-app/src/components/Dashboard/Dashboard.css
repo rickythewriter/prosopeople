@@ -10,7 +10,8 @@
 	max-height: 1080px;
 	display: grid;
 	grid-template-rows: 50px 1fr;
-	background-color: #bec8b3;
+	background-color: white;
+	/* border-radius: 7px; */
 }
 
 .panel-heading {
@@ -23,7 +24,7 @@
 }
 
 #container-top-nav {
-	background-color: #bec8b3;
+	background-color: white;
 	height: 50px;
 	width: 100%;
 	box-sizing: border-box;
@@ -40,10 +41,15 @@
 
 #container-navigation {
 	background-color: #909D88;
-	border-radius: 7px;
+	border-radius: 7px 0 0 7px;
 }
 
 #container-main-view {
+	box-sizing: border-box;
+	border: 1px solid var(--background-app);
+	border-left: none;
+	box-shadow: none;
+	border-radius: 0 7px 7px 0;
 }
 
 #horizontal-panels-LR {
@@ -59,7 +65,7 @@
 }
 
 .horizontal-panel {
-	margin: 1px;
+	/* margin: 1px; */
 	padding: 0 16px;
 	height: 84vh;
 	max-height: 1080px;
@@ -69,7 +75,6 @@
 
 .horizontal-panel-R {
 	background-color: #fff;
-	border-radius: 7px;
 }
 
 .horizontal-panel-R button {

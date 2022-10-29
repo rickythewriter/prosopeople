@@ -13,6 +13,7 @@
 }
 
 #list-people li {
+	font-size: 11pt;
 	overflow-x: hidden;
 	white-space: nowrap;
 	/*display: block;*/
