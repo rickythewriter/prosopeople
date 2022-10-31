@@ -10,7 +10,7 @@
 	max-height: 1080px;
 	display: grid;
 	grid-template-rows: 50px 1fr;
-	background-color: white;
+	background-color: var(--background-app);
 	/* border-radius: 7px; */
 }
 
@@ -24,7 +24,7 @@
 }
 
 #container-top-nav {
-	background-color: white;
+	background-color: var(--background-app);
 	height: 50px;
 	width: 100%;
 	box-sizing: border-box;
@@ -45,10 +45,6 @@
 }
 
 #container-main-view {
-	box-sizing: border-box;
-	border: 1px solid var(--background-app);
-	border-left: none;
-	box-shadow: none;
 	border-radius: 0 7px 7px 0;
 }
 
