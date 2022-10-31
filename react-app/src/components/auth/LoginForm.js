@@ -49,14 +49,6 @@ const LoginForm = () => {
               <ol>
 
                 <li className='Row'>
-                  <div>
-                    {/*{errors.map((error, ind) => (
-                      <div key={ind}>{error}</div>
-                    ))}*/}
-                  </div>
-                </li>
-
-                <li className='Row'>
 
                   <div className='input-wrapper' id='email-wrapper'>
                     <label htmlFor='email'>Email</label>
