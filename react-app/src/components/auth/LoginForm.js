@@ -4,6 +4,7 @@ import { Redirect, NavLink } from 'react-router-dom';
 import { login } from '../../store/session';
 import LoginSignupLogo from '../LoginSignupLogo';
 import './LoginSignupForm.css'
+import formatValidationError from './authHelperFunctions';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -20,19 +21,6 @@ const LoginForm = () => {
     }
   };
 
-  const formatError = (errorsArr, fieldName) => {
-    /* 
-      Returns error message associated with field. 
-      Assumes 
-        there is only one error returned per field 
-        that the error element is formatted <fieldName> : <error>
-    */
-    const errorWithFieldNameArr = errorsArr.filter(error => error.includes(fieldName));
-    const errorWithFieldNameStr = errorWithFieldNameArr.toString();
-    const errorWithoutFieldName = errorWithFieldNameStr.split(': ')[1];
-    return errorWithoutFieldName;
-  }
-
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -46,12 +34,9 @@ const LoginForm = () => {
   }
 
   return (
+      <div className='auth-form-block'>
 
-    <div className='minimal-frame'>
-
-      <div className='minimal-wrapper'>
-
-        <div className='minimal-body'>
+        <div className='auth-form-frame'>
 
           <div className='heading'>
 
@@ -87,7 +72,7 @@ const LoginForm = () => {
                     />
                     {/*<div className="error-status FieldState-message FieldState_error-message qa-ValidationError-email"> Email address is a required field </div>*/}
                       <div className='error-message'>
-                        {formatError(errors, 'email')}
+                        {formatValidationError(errors, 'email')}
                       </div>
                   </div>
 
@@ -109,7 +94,7 @@ const LoginForm = () => {
                     />
                   {/*<div className="passMsg badPass"> A strong password is blah blah blah </div>*/}
                     <div className='error-message'>
-                      {formatError(errors, 'password')}
+                      {formatValidationError(errors, 'password')}
                     </div>
                   </div>
 
@@ -152,7 +137,6 @@ const LoginForm = () => {
 
         </div>
       </div>
-    </div>
   );
 };
 
