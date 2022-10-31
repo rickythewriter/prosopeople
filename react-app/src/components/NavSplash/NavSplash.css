@@ -1,13 +1,18 @@
 .nav-splash {
+    background-color: white;
+}
+
+.nav-splash-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
     box-sizing: border-box;
-    max-width: 970px;
     padding: 0 16px;
     height: 80px;
     margin: auto;
     align-items: center;
+    background-color: white;
+    max-width: 970px;
 }
 
 .global-logo h2 {
