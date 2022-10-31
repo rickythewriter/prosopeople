@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import NavSplash from '../NavSplash';
+import NavSplash from './NavSplash';
 
 import './SplashPage.css'
 
