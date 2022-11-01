@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPeople, loadPeopleMultipleTags } from '../../store/people'
-import { loadUserTags, createTag, deleteTag, addFilterTag, removeFilterTag, clearFilterTags} from '../../store/tags'
+import { loadPeople, loadPeopleMultipleTags } from '../../../../store/people'
+import { loadUserTags, createTag, deleteTag, addFilterTag, removeFilterTag, clearFilterTags} from '../../../../store/tags'
 import TagSlip from '../TagSlip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faDeleteLeft } from '@fortawesome/free-solid-svg-icons'

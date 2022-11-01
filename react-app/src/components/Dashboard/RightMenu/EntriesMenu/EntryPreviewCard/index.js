@@ -25,7 +25,7 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { loadEntry } from '../../store/entry'
+import { loadEntry } from '../../../../../store/entry'
 import './EntryPreviewCard.css'
 
 
