@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
-import { associateTag, loadPersonTags } from '../../store/tags'
+import { associateTag, loadPersonTags } from '../../../../store/tags'
 import './TagSearchCR.css'
 
 const TagSearchCR = () => {

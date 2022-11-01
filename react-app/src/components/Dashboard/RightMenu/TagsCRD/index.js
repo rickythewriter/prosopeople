@@ -27,10 +27,10 @@
 
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPeople, loadPeopleMultipleTags } from '../../store/people'
-import { loadPersonTags, dissociateTag, addFilterTag, removeFilterTag } from '../../store/tags'
+import { loadPeople, loadPeopleMultipleTags } from '../../../../store/people'
+import { loadPersonTags, dissociateTag, addFilterTag, removeFilterTag } from '../../../../store/tags'
 import TagSearchCR from '../TagSearchCR';
-import TagSlip from '../TagSlip';
+import TagSlip from '../../../TagSlip';
 import './TagsCRD.css'
 
 const TagsCRD = () => {
