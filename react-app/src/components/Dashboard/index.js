@@ -52,7 +52,7 @@ import { useSelector } from 'react-redux';
 import TopNav from './TopNav';
 import LeftMenu from './LeftMenu';
 import SmallMainView from './SmallMainView.js';
-import RightMenu from './RightMenu.js'
+import RightMenu from './RightMenu'
 import './Dashboard.css';
 
 const Dashboard = () => {

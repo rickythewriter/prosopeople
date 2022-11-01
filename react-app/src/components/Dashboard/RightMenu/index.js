@@ -20,9 +20,9 @@
 /---------------------------------------------------------------------*/
 
 import React from 'react';
-import EntriesMenu from '../EntriesMenu';
-import TagsCRD from '../TagsCRD';
-import TagsFilterCRD from '../TagsFilterCRD';
+import EntriesMenu from '../../EntriesMenu';
+import TagsCRD from '../../TagsCRD';
+import TagsFilterCRD from '../../TagsFilterCRD';
 
 const RightMenu = ({personIsSelected, setNewEntrySelected, showTags, tagsFilter, setTagsFilter}) => {
 
