@@ -13,6 +13,11 @@
 	background-color: var(--background-app);
 }
 
+#dashboard button {
+	box-shadow: -1px 2px 7px 1px rgb(0 0 0 / 10%);
+	text-shadow: -1px 2px rgb(0 0 0 / 10%);
+}
+
 #container-top-nav {
 	background-color: var(--background-app);
 	height: 50px;
@@ -25,17 +30,25 @@
     position: relative;
 }
 
-#container-left-menu {
-	background-color: #909D88;
-	border-radius: 7px 0 0 7px;
-}
-
-#panels-dashboard {
-	width:  100%;
+#dashboard-body {
+	width: 100%;
 	max-height: 700px;
 	display: grid;
 	grid-template-areas: 'left right main';
 	grid-template-columns: 1fr 1fr 2fr;
+}
+
+.horizontal-panel {
+	padding: 0 16px;
+	height: 84vh;
+	max-height: 1080px;
+	overflow: auto;
+	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
+}
+
+#container-left-menu {
+	background-color: #909D88;
+	border-radius: 7px 0 0 7px;
 }
 
 #container-right-menu {
@@ -45,14 +58,6 @@
 
 #container-main-view {
 	grid-area: main;
-}
-
-.horizontal-panel {
-	padding: 0 16px;
-	height: 84vh;
-	max-height: 1080px;
-	overflow: auto;
-	box-shadow: -2px 4px 5px 2px rgb(0 0 0 / 10%);
 }
 
 #container-main-view button {
@@ -77,6 +82,12 @@
 	cursor: pointer;
 }
 
+/*----------------------------------------------------------------------/
+
+	Styles for Logout Button, from Auth Components
+
+/----------------------------------------------------------------------*/
+
 #button-logout {
 	background-color: #fff;
 	color: #000;
@@ -97,9 +108,4 @@
 	background-color: #61714d;
 	border-color: #61714d;
 	cursor: pointer;
-} 
-
-#dashboard button {
-	box-shadow: -1px 2px 7px 1px rgb(0 0 0 / 10%);
-	text-shadow: -1px 2px rgb(0 0 0 / 10%);
 }

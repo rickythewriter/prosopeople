@@ -92,7 +92,7 @@ const Dashboard = () => {
 				<div id="container-top-nav">
 					<TopNav />
 				</div>
-				<div id="panels-dashboard">
+				<div id="dashboard-body">
 					<div className="horizontal-panel" id="container-left-menu">
 						<LeftMenu
 							setNewEntrySelected={setNewEntrySelected}
