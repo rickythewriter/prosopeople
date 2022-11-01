@@ -52,7 +52,7 @@ import { useSelector } from 'react-redux';
 import TopNav from './TopNav';
 import LeftMenu from './LeftMenu';
 import SmallMainView from './SmallMainView.js';
-import SecondaryNavPanel from './SecondaryNavPanel.js'
+import RightMenu from './RightMenu.js'
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -61,7 +61,7 @@ const Dashboard = () => {
 	const user = useSelector(state => state.session.user);
 
 	/* 
-		Read newEntrySelected state from SecondaryNavPanel;
+		Read newEntrySelected state from RightMenu;
 		Affects SmallMainView
 	*/
 	const [ newEntrySelected, setNewEntrySelected ] = useState(false)
@@ -69,7 +69,7 @@ const Dashboard = () => {
 	/* 
 		Listen for whether a Person has been selected. 
 		Affects both
-			SecondaryNavPanel, and
+			RightMenu, and
 			SmallMainView
 	*/
 	const person = useSelector(state => state.person);
@@ -81,7 +81,7 @@ const Dashboard = () => {
 
 	/*
 		Read showTags state from SmallMainView FormPersonRU;
-		Determine whether SecondaryNavPanel displays TagsCRD.		
+		Determine whether RightMenu displays TagsCRD.		
 	*/
 	const [ showTags, setShowTags ] = useState(false)
 
@@ -92,7 +92,7 @@ const Dashboard = () => {
 	const horizontalPanelsRight = () => {
 		return (
 			<div id="horizontal-panels-R">	
-				<SecondaryNavPanel	
+				<RightMenu	
 					personIsSelected={personIsSelected}
 					setNewEntrySelected={setNewEntrySelected}
 					showTags={showTags}

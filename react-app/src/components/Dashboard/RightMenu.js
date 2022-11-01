@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------/
 
-	The main responsibility of SecondaryNavPanel is:
+	The main responsibility of RightMenu is:
 		Determine which view to show on middle-left quarter of 
 		the dashboard.
 
@@ -24,9 +24,9 @@ import EntriesMenu from '../EntriesMenu';
 import TagsCRD from '../TagsCRD';
 import TagsFilterCRD from '../TagsFilterCRD';
 
-const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags, tagsFilter, setTagsFilter}) => {
+const RightMenu = ({personIsSelected, setNewEntrySelected, showTags, tagsFilter, setTagsFilter}) => {
 
-	const secondaryNavPanel = () => {
+	const RightMenu = () => {
 
 		if (showTags && personIsSelected) {
 			return (<TagsCRD />)
@@ -44,7 +44,7 @@ const SecondaryNavPanel = ({personIsSelected, setNewEntrySelected, showTags, tag
 	}
 	
 
-	return secondaryNavPanel()
+	return RightMenu()
 }
 
-export default SecondaryNavPanel;
+export default RightMenu;
