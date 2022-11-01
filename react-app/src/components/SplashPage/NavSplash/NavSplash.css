@@ -51,7 +51,7 @@
 }
 
 .utility-nav p:hover {
-    color: var(--background-hover);
+    color: var(--button-hover);
     font-weight: 500;
 }
 
