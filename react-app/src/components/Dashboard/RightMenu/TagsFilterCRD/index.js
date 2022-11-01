@@ -96,7 +96,6 @@ const TagsFilterCRD = () => {
 
 	return (
 		<div 
-			className="horizontal-panel-R horizontal-panel" 
 			id="container-tags-user"
 		>
 			<div className="row-name-clear">

@@ -85,28 +85,6 @@ const Dashboard = () => {
 	*/
 	const [ showTags, setShowTags ] = useState(false)
 
-	/* 
-		Determine views right of the NavPanel.
-		Previously contained a LargeMainView option.
-	*/
-	const horizontalPanelsRight = () => {
-		return (
-			<div id="horizontal-panels-R">	
-				<RightMenu	
-					personIsSelected={personIsSelected}
-					setNewEntrySelected={setNewEntrySelected}
-					showTags={showTags}
-				/>
-			 	<MainView
-			 		personIsSelected={personIsSelected}
-			 		newEntrySelected={newEntrySelected}
-			 		showTags={showTags}
-			 		setShowTags={setShowTags}
-			 	/>
-			</div>
-		)
-	}
-
 	/*  Render the Dashboard view */
 	if (user) {
 		return (
@@ -114,16 +92,27 @@ const Dashboard = () => {
 				<div id="container-top-nav">
 					<TopNav />
 				</div>
-				
-				<div id="horizontal-panels-LR">
-					<div className="horizontal-panel" id="container-navigation">
-						<LeftMenu 
+				<div id="panels-dashboard">
+					<div className="horizontal-panel" id="container-left-menu">
+						<LeftMenu
 							setNewEntrySelected={setNewEntrySelected}
 						/>
 					</div>
-					
-					{horizontalPanelsRight()}
-					
+					<div className="horizontal-panel" id="container-right-menu">
+						<RightMenu
+							personIsSelected={personIsSelected}
+							setNewEntrySelected={setNewEntrySelected}
+							showTags={showTags}
+						/>
+					</div>
+					<div className="horizontal-panel" id="container-main-view">
+						<MainView
+							personIsSelected={personIsSelected}
+							newEntrySelected={newEntrySelected}
+							showTags={showTags}
+							setShowTags={setShowTags}
+						/>
+					</div>
 				</div>
 			</div>
 		);

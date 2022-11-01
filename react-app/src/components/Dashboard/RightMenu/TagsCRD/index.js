@@ -91,7 +91,6 @@ const TagsCRD = () => {
 
 	return (
 		<div 
-			className="horizontal-panel-R horizontal-panel" 
 			id="container-tags-person"
 		>
 			<h4

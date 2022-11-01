@@ -25,6 +25,7 @@ import FormPersonCreate from './FormPersonCreate'
 import FormPersonRU from './FormPersonRU'
 import FormEntryCreate from './FormEntryCreate'
 import FormEntryRUD from './FormEntryRUD'
+import './MainView.css'
 
 const MainView = ({personIsSelected, newEntrySelected, showTags, setShowTags}) => {
 
@@ -71,11 +72,7 @@ const MainView = ({personIsSelected, newEntrySelected, showTags, setShowTags}) =
 		}
 	}
 
-	return (
-		<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-			{MainView()}
-		</div>
-	)
+	return MainView()
 
 
 }

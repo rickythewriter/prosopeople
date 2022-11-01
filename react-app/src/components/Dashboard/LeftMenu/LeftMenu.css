@@ -33,3 +33,12 @@
 	/*color: #ffffc0;*/
 	color: #fff;
 }
+
+.panel-heading {
+	text-shadow: -1px 2px rgb(0 0 0 / 10%);
+}
+
+.panel-heading:hover {
+	cursor: pointer;
+	text-decoration: underline solid #fff;
+}

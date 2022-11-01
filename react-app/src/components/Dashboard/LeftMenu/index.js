@@ -39,7 +39,7 @@ const LeftMenu = ({setNewEntrySelected} ) => {
 	});
 
 	return (
-		<nav id='nav-panel'>
+		<>
 			<h4 
 				className="panel-heading"
 				onClick={()=> {
@@ -72,7 +72,7 @@ const LeftMenu = ({setNewEntrySelected} ) => {
 					)
 				})}
 			</ul>
-		</nav>
+		</>
 
 	)
 }
