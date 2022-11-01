@@ -4,7 +4,7 @@ App Dashboard
 Responsibilities:
 	- Render Dashboard components
 		- TopNavBar
-		- NavPanel (i.e. horizontal panel leftmost)
+		- LeftMenu (i.e. horizontal panel leftmost)
 		- right horizontal panels
 	- Manage variables 
 		- that affect two or more Dashboard components' views, or
@@ -50,7 +50,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from './TopNav';
-import NavPanel from '../NavPanel';
+import LeftMenu from './LeftMenu';
 import SmallMainView from './SmallMainView.js';
 import SecondaryNavPanel from './SecondaryNavPanel.js'
 import './Dashboard.css';
@@ -117,7 +117,7 @@ const Dashboard = () => {
 				
 				<div id="horizontal-panels-LR">
 					<div className="horizontal-panel" id="container-navigation">
-						<NavPanel 
+						<LeftMenu 
 							setNewEntrySelected={setNewEntrySelected}
 						/>
 					</div>

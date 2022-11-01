@@ -7,13 +7,13 @@ made.
 
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPeople } from '../../store/people'
-import { loadPerson, removePerson } from '../../store/person'
-import { removeEntry } from '../../store/entry'
-import { removeDossierTags } from '../../store/tags'
-import './NavPanel.css'
+import { loadPeople } from '../../../store/people'
+import { loadPerson, removePerson } from '../../../store/person'
+import { removeEntry } from '../../../store/entry'
+import { removeDossierTags } from '../../../store/tags'
+import './LeftMenu.css'
 
-const NavPanel = ({setNewEntrySelected} ) => {
+const LeftMenu = ({setNewEntrySelected} ) => {
 	const user = useSelector(state => state.session.user);
 	const peopleObj = useSelector(state => state.people)
 	const people = Object.values(peopleObj)
@@ -77,4 +77,4 @@ const NavPanel = ({setNewEntrySelected} ) => {
 	)
 }
 
-export default NavPanel;
+export default LeftMenu;
