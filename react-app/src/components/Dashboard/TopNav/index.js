@@ -2,11 +2,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { removePerson } from '../../store/person'
-import { removeEntries } from '../../store/entries'
-import { removeEntry } from '../../store/entry'
-import { removeDossierTags, clearFilterTags } from '../../store/tags'
-import LogoutButton from '../auth/LogoutButton';
+import { removePerson } from '../../../store/person'
+import { removeEntries } from '../../../store/entries'
+import { removeEntry } from '../../../store/entry'
+import { removeDossierTags, clearFilterTags } from '../../../store/tags'
+import LogoutButton from '../../auth/LogoutButton';
 import './TopNav.css'
 
 const TopNav = () => {

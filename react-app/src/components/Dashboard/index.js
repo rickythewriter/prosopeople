@@ -49,7 +49,7 @@ Note:
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import TopNav from '../TopNav';
+import TopNav from './TopNav';
 import NavPanel from '../NavPanel';
 import SmallMainView from './SmallMainView.js';
 import SecondaryNavPanel from './SecondaryNavPanel.js'
