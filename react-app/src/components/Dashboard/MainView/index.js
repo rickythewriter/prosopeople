@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------/
 
-	The main responsibility of SmallMainView is:
+	The main responsibility of MainView is:
 		Determine which view to show on right half of dashboard.
 
 	States:
@@ -21,12 +21,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import FormPersonCreate from '../FormPersonCreate'
-import FormPersonRU from '../FormPersonRU'
-import FormEntryCreate from '../FormEntryCreate'
-import FormEntryRUD from '../FormEntryRUD'
+import FormPersonCreate from './FormPersonCreate'
+import FormPersonRU from './FormPersonRU'
+import FormEntryCreate from './FormEntryCreate'
+import FormEntryRUD from './FormEntryRUD'
 
-const SmallMainView = ({personIsSelected, newEntrySelected, showTags, setShowTags}) => {
+const MainView = ({personIsSelected, newEntrySelected, showTags, setShowTags}) => {
 
 	/* Initialize user information */
 	const user = useSelector(state => state.session.user);
@@ -35,7 +35,7 @@ const SmallMainView = ({personIsSelected, newEntrySelected, showTags, setShowTag
 	/* 
 		Read state for whether an entry has been selected 
 
-		Note: Managed here, because state only affects SmallMainView
+		Note: Managed here, because state only affects MainView
 	*/
 	const entryObj = useSelector(state => state.entry);
 	const entry = Object.values(entryObj);
@@ -46,8 +46,8 @@ const SmallMainView = ({personIsSelected, newEntrySelected, showTags, setShowTag
 	}, [entryObj, entry.length]);
 
 
-	/* Determine which form to display on SmallMainView */
-	const smallMainView = () => {
+	/* Determine which form to display on MainView */
+	const MainView = () => {
 		if (!personIsSelected) {
 			return (
 				<FormPersonCreate user={user} />
@@ -73,11 +73,11 @@ const SmallMainView = ({personIsSelected, newEntrySelected, showTags, setShowTag
 
 	return (
 		<div className="horizontal-panel-R horizontal-panel" id="container-main-view">
-			{smallMainView()}
+			{MainView()}
 		</div>
 	)
 
 
 }
 
-export default SmallMainView;
+export default MainView;

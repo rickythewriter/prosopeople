@@ -29,7 +29,7 @@ Blueprint
 		1. Left - Nav Panel
 		2. Right - horizontalPanelsRight
 			- large main view, or
-			- secondary navigation + SmallMainView
+			- secondary navigation + MainView
 
 	States:
 		- Person was selected from Navigation
@@ -51,7 +51,7 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from './TopNav';
 import LeftMenu from './LeftMenu';
-import SmallMainView from './SmallMainView.js';
+import MainView from './MainView';
 import RightMenu from './RightMenu'
 import './Dashboard.css';
 
@@ -62,7 +62,7 @@ const Dashboard = () => {
 
 	/* 
 		Read newEntrySelected state from RightMenu;
-		Affects SmallMainView
+		Affects MainView
 	*/
 	const [ newEntrySelected, setNewEntrySelected ] = useState(false)
 
@@ -70,7 +70,7 @@ const Dashboard = () => {
 		Listen for whether a Person has been selected. 
 		Affects both
 			RightMenu, and
-			SmallMainView
+			MainView
 	*/
 	const person = useSelector(state => state.person);
 	const personValues = Object.values(person);
@@ -80,7 +80,7 @@ const Dashboard = () => {
 	}, [person, personValues.length]);
 
 	/*
-		Read showTags state from SmallMainView FormPersonRU;
+		Read showTags state from MainView FormPersonRU;
 		Determine whether RightMenu displays TagsCRD.		
 	*/
 	const [ showTags, setShowTags ] = useState(false)
@@ -97,7 +97,7 @@ const Dashboard = () => {
 					setNewEntrySelected={setNewEntrySelected}
 					showTags={showTags}
 				/>
-			 	<SmallMainView
+			 	<MainView
 			 		personIsSelected={personIsSelected}
 			 		newEntrySelected={newEntrySelected}
 			 		showTags={showTags}
