@@ -1,4 +1,9 @@
 #dashboard {
+
+	--top-panel: 2;
+	--middle-panel: 1;
+	--bottom-panel: 0;
+
 	position: absolute;
     top:  50%;
     left: 50%;
@@ -49,15 +54,18 @@
 #container-left-menu {
 	background-color: var(--background-main-menu);
 	border-radius: 7px 0 0 7px;
+	z-index: var(--top-panel);
 }
 
 #container-right-menu {
 	grid-area: right;
 	background-color: var(--background-secondary-menu);
+	z-index: var(--middle-panel);
 }
 
 #container-main-view {
 	grid-area: main;
+	z-index: var(--top-panel);
 }
 
 #container-main-view button {
