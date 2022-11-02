@@ -175,11 +175,13 @@
 
     Mobile Style
 
-    Note: Width set to screen size of iPhone XR11 Pro
+    Note: Width set to 
+        - screen size of iPhone 12, 13 Pro Max, 428pt, or
+        - size of demo row
 
 /----------------------------------------------------------------------*/
 
-@media screen and (width < 828px) {
+@media screen and ((width < 428pt) or (width < 906px)) {
     #splashpage-heading {
         width: var(--demo-max-width);
         font-size: 32px;
