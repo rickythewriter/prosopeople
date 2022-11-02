@@ -24,7 +24,7 @@ import EntriesMenu from './EntriesMenu';
 import TagsCRD from './TagsCRD';
 import TagsFilterCRD from './TagsFilterCRD';
 
-const RightMenu = ({personIsSelected, setNewEntrySelected, showTags, tagsFilter, setTagsFilter}) => {
+const RightMenu = ({personIsSelected, setNewEntrySelected, showTags}) => {
 
 	const RightMenu = () => {
 
