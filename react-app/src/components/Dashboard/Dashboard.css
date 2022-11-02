@@ -4,6 +4,8 @@
 	--middle-panel: 1;
 	--bottom-panel: 0;
 
+	--three-alphabets-11pt: 540px;
+
 	position: absolute;
     top:  50%;
     left: 50%;

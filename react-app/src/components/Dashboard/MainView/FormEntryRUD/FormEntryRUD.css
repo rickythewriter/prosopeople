@@ -4,7 +4,7 @@
 	width: 100%;
 	flex-direction: column;
 	align-items: stretch;
-	max-width: 31em;
+	max-width: var(--three-alphabets-11pt);
 }
 
 #entry-form-r-u-d #label-title {
@@ -53,10 +53,7 @@
 }
 
 #container-formentryrud-buttons {
-	/*display: inline-block;*/
 	width: 100%;
-	/*flex-direction: row;*/
-	/*justify-content: flex-start;*/
 	display: inline-grid;
 	margin-bottom: 21.28px;
 	grid-template-columns: 1fr 1fr;
@@ -64,17 +61,14 @@
 
 .formentryrud-buttons {
 	overflow: hidden;
-	/*white-space: nowrap;*/
-	/*overflow: auto;*/
-
 }
 
 #container-formentryrud-buttons #button-update-entry {
-	margin-right: 21.28px;
+	margin-right: 8px;
 	margin-bottom: 21.28px;
 }
 
 #container-formentryrud-buttons #button-delete-entry {
-	margin-right: 21.28px;
+	margin-left: 8px;
 	max-width: auto;
 }
