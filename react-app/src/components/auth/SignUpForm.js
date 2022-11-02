@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
-import LoginSignupLogo from '../LoginSignupLogo';
+import LoginSignupLogo from './LoginSignupLogo';
 import './LoginSignupForm.css'
+import formatValidationError from './authHelperFunctions';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -27,19 +28,6 @@ const SignUpForm = () => {
         setErrors(['repeat_password : Passwords must match.'])
     }
   };
-
-  const formatError = (errorsArr, fieldName) => {
-    /* 
-      Returns error message associated with field. 
-      Assumes 
-        there is only one error returned per field 
-        that the error element is formatted <fieldName> : <error>
-    */
-    const errorWithFieldNameArr = errorsArr.filter(error => error.includes(fieldName));
-    const errorWithFieldNameStr = errorWithFieldNameArr.toString();
-    const errorWithoutFieldName = errorWithFieldNameStr.split(': ')[1];
-    return errorWithoutFieldName;
-  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -70,11 +58,10 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className='minimal-frame'>
 
-      <div className='minimal-wrapper'>
+    <div className='auth-form-block'>
 
-        <div className='minimal-body'>
+      <div className='auth-form-frame'>
 
           <div className='heading'>
 
@@ -106,7 +93,7 @@ const SignUpForm = () => {
                       value={username}
                     ></input>
                     <div className='error-message'>
-                      {formatError(errors, 'username')}
+                      {formatValidationError(errors, 'username')}
                     </div>
                   </div>
                 </li>
@@ -123,7 +110,7 @@ const SignUpForm = () => {
                       value={firstName}
                     ></input>
                     <div className='error-message'>
-                      {formatError(errors, 'first_name')}
+                      {formatValidationError(errors, 'first_name')}
                     </div>
                   </div>
                 </li>
@@ -140,7 +127,7 @@ const SignUpForm = () => {
                       value={lastName}
                     ></input>
                     <div className='error-message'>
-                      {formatError(errors, 'last_name')}
+                      {formatValidationError(errors, 'last_name')}
                     </div>
                   </div>
                 </li>
@@ -157,7 +144,7 @@ const SignUpForm = () => {
                       value={email}
                     ></input>
                     <div className='error-message'>
-                      {formatError(errors, 'email')}
+                      {formatValidationError(errors, 'email')}
                     </div>
                     </div>
                   </li>
@@ -174,7 +161,7 @@ const SignUpForm = () => {
                         value={password}
                       ></input>
                       <div className='error-message'>
-                        {formatError(errors, 'password')}
+                        {formatValidationError(errors, 'password')}
                       </div>
                     </div>
                   </li>
@@ -192,7 +179,7 @@ const SignUpForm = () => {
                         required={true}
                       ></input>
                       <div className='error-message'>
-                        {formatError(errors, 'repeat_password')}
+                        {formatValidationError(errors, 'repeat_password')}
                       </div>
                     </div>
                   </li>
@@ -215,27 +202,26 @@ const SignUpForm = () => {
             </div>
 
             <div id="context-switch">
-            <div className='context-switch-explanation'>
-                <p> Already have an account? </p>
+              <div className='context-switch-explanation'>
+                  <p> Already have an account? </p>
               </div>
               <div className="switch">
-                <NavLink 
-                  to="/login" 
-                  exact={true}
-                  style={
-                    {textDecoration: 'none', color: '#61714d'}
-                  }
-                  >
-                  <p>
-                   Sign In
-                  </p>
-                </NavLink>
+                  <NavLink 
+                    to="/login" 
+                    exact={true}
+                    style={
+                      {textDecoration: 'none', color: '#61714d'}
+                    }
+                    >
+                    <p>
+                    Sign In
+                    </p>
+                  </NavLink>
               </div>
             </div>
 
-          </div>
-        </div>
       </div>
+    </div>
   );
 };
 

@@ -1,0 +1,19 @@
+#demo-login {
+	background-color: var(--button-color);
+	height: 40px;
+	min-width: 120px;
+	line-height: 37px;
+	padding: 0 10px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	font-size: 14px;
+	letter-spacing: .5px;
+	border: 2px solid var(--button-color);
+	border-radius: 3px;
+}
+
+#demo-login:hover {
+	background-color: var(--button-hover);
+	border-color: var(--button-hover);
+} 

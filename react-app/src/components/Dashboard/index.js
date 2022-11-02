@@ -4,7 +4,7 @@ App Dashboard
 Responsibilities:
 	- Render Dashboard components
 		- TopNavBar
-		- NavPanel (i.e. horizontal panel leftmost)
+		- LeftMenu (i.e. horizontal panel leftmost)
 		- right horizontal panels
 	- Manage variables 
 		- that affect two or more Dashboard components' views, or
@@ -29,7 +29,7 @@ Blueprint
 		1. Left - Nav Panel
 		2. Right - horizontalPanelsRight
 			- large main view, or
-			- secondary navigation + SmallMainView
+			- secondary navigation + MainView
 
 	States:
 		- Person was selected from Navigation
@@ -49,10 +49,10 @@ Note:
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import TopNav from '../TopNav';
-import NavPanel from '../NavPanel';
-import SmallMainView from './SmallMainView.js';
-import SecondaryNavPanel from './SecondaryNavPanel.js'
+import TopNav from './TopNav';
+import LeftMenu from './LeftMenu';
+import RightMenu from './RightMenu'
+import MainView from './MainView';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -61,16 +61,16 @@ const Dashboard = () => {
 	const user = useSelector(state => state.session.user);
 
 	/* 
-		Read newEntrySelected state from SecondaryNavPanel;
-		Affects SmallMainView
+		Read newEntrySelected state from RightMenu;
+		Affects MainView
 	*/
 	const [ newEntrySelected, setNewEntrySelected ] = useState(false)
 
 	/* 
 		Listen for whether a Person has been selected. 
 		Affects both
-			SecondaryNavPanel, and
-			SmallMainView
+			RightMenu, and
+			MainView
 	*/
 	const person = useSelector(state => state.person);
 	const personValues = Object.values(person);
@@ -80,32 +80,10 @@ const Dashboard = () => {
 	}, [person, personValues.length]);
 
 	/*
-		Read showTags state from SmallMainView FormPersonRU;
-		Determine whether SecondaryNavPanel displays TagsCRD.		
+		Read showTags state from MainView FormPersonRU;
+		Determine whether RightMenu displays TagsCRD.		
 	*/
 	const [ showTags, setShowTags ] = useState(false)
-
-	/* 
-		Determine views right of the NavPanel.
-		Previously contained a LargeMainView option.
-	*/
-	const horizontalPanelsRight = () => {
-		return (
-			<div id="horizontal-panels-R">	
-				<SecondaryNavPanel	
-					personIsSelected={personIsSelected}
-					setNewEntrySelected={setNewEntrySelected}
-					showTags={showTags}
-				/>
-			 	<SmallMainView
-			 		personIsSelected={personIsSelected}
-			 		newEntrySelected={newEntrySelected}
-			 		showTags={showTags}
-			 		setShowTags={setShowTags}
-			 	/>
-			</div>
-		)
-	}
 
 	/*  Render the Dashboard view */
 	if (user) {
@@ -114,16 +92,27 @@ const Dashboard = () => {
 				<div id="container-top-nav">
 					<TopNav />
 				</div>
-				
-				<div id="horizontal-panels-LR">
-					<div className="horizontal-panel" id="container-navigation">
-						<NavPanel 
+				<div id="dashboard-body">
+					<div className="horizontal-panel" id="container-left-menu">
+						<LeftMenu
 							setNewEntrySelected={setNewEntrySelected}
 						/>
 					</div>
-					
-					{horizontalPanelsRight()}
-					
+					<div className="horizontal-panel" id="container-right-menu">
+						<RightMenu
+							personIsSelected={personIsSelected}
+							setNewEntrySelected={setNewEntrySelected}
+							showTags={showTags}
+						/>
+					</div>
+					<div className="horizontal-panel" id="container-main-view">
+						<MainView
+							personIsSelected={personIsSelected}
+							newEntrySelected={newEntrySelected}
+							showTags={showTags}
+							setShowTags={setShowTags}
+						/>
+					</div>
 				</div>
 			</div>
 		);

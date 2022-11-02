@@ -1,0 +1,17 @@
+#container-tags-person {
+	/* background-color: #ACB6A6; */
+}
+
+.name-tag-slip:hover{
+	cursor: pointer;
+}
+
+#container-tags-person .panel-heading:hover{
+	cursor: default;
+	text-decoration: none;
+}
+
+.person-tags .selected-tag-slip .tag-slip{
+	color: #fff;
+	background-color: #61714d;
+}

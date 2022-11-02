@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import NavSplash from './NavSplash';
 
 import './SplashPage.css'
 
@@ -14,11 +15,22 @@ const SplashPage = () => {
     }
 
     else return (
-        <div className='splashpage-body-container'>
-            <h2 id='splashpage-header'>Chronicle Your Relationships</h2>
-            <img id='splashpage-img' src='https://github.com/rickythewriter/prosopeople/blob/main/docs/images/demo-dossiers-create.gif?raw=true'/>
-            <p id='splashpage-body'>Deepen bonds, by writing about them.<br/>Recover the memories, in your auto-prosopography.</p>
-            <a href="/sign-up" id='splashpage-signup-button'>Sign Up Free</a>
+        <div className='splashpage'>
+            <NavSplash />
+            <section id='splashpage-body-container'>
+                <h2 id='splashpage-heading'>Deepen Your Relationships</h2>
+                <div className='splashpage-body-row' id='row-1'>
+                    <div className='spashpage-body-row-left' id='row-1-left'>
+                        <img id='splashpage-img' src='https://github.com/rickythewriter/prosopeople/blob/main/docs/images/demo-dossiers-create.gif?raw=true' />
+                    </div>
+                    <div className='splashpage-body-row-right' id='row-1-right'>
+                        <h3>Strengthen bonds, by writing about them.</h3>
+                        <p>Every <em>entry</em>, in your collection – of moments you've shared, conversations you've had – forms a <strong>treasure trove</strong>, to help you <strong>make future plans</strong>, and <strong>find conversation topics</strong>.</p>
+                        <p>Keep a record, of your feelings, memories, and ideas, about the people in your life, here, in your auto-prosopography.</p>
+                        <a href="/sign-up" id='splashpage-signup-button'>Sign Up Free</a>
+                    </div>
+                </div>
+            </section>
             <footer id='splashpage-footer'>
                 <div className='footer-container'>
                     <div className='footer-nav-div'>
