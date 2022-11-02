@@ -51,8 +51,8 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNav from './TopNav';
 import LeftMenu from './LeftMenu';
-import MainView from './MainView';
 import RightMenu from './RightMenu'
+import MainView from './MainView';
 import './Dashboard.css';
 
 const Dashboard = () => {
