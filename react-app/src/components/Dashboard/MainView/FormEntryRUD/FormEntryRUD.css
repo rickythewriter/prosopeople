@@ -68,6 +68,16 @@
 	margin-bottom: 21.28px;
 }
 
+#container-formentryrud-buttons .successfully-updated {
+	padding-top: 1px; /* Displacement for text shifting upwards */
+	background-color: var(--background-app-opposite);
+	border: none;
+}
+
+#container-formentryrud-buttons .successfully-updated:hover {
+	background-color: var(--background-app-opposite);
+}
+
 #container-formentryrud-buttons #button-delete-entry {
 	margin-left: 8px;
 	max-width: auto;
