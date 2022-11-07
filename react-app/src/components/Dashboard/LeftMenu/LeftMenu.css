@@ -8,7 +8,7 @@
 	cursor: pointer;
 }
 
-#list-people {
+#list-people { 
 	padding: 0 1em;
 }
 
@@ -34,11 +34,26 @@
 	color: #fff;
 }
 
-.panel-heading {
+#left-menu-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-bottom: 21.28px;
 	text-shadow: -1px 2px rgb(0 0 0 / 10%);
 }
 
-.panel-heading:hover {
+#left-menu-head h4 {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+#left-menu-head #add-new {
+	margin-bottom: -3px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#left-menu-head #add-new:hover {
 	cursor: pointer;
-	text-decoration: underline solid #fff;
+	color: white;
 }

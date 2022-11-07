@@ -34,15 +34,22 @@ const EntriesMenu = ({setNewEntrySelected}) => {
 	/* This component iterates each entry into an EntryPreviewCard */
 	return (
 		<div id="container-entries">
-			<h4 
-				className='panel-heading'
-				onClick={()=> {
-					dispatch(removeEntry());
-					setNewEntrySelected(true);
-				}	
-			}>
-				Entries
-			</h4>
+			<div id="right-menu-head">
+				<h4 
+					className='panel-heading'
+				>
+					Entries
+				</h4>
+				<div 
+					id="add-new"
+					onClick={() => {
+						dispatch(removeEntry());
+						setNewEntrySelected(true);
+					}}	
+				>
+					+
+				</div>
+			</div>
 
 			<div id='entries-window'>
 				{entries.map( entry => {
