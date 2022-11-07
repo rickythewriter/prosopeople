@@ -13,6 +13,7 @@ const FormPersonRU = ({user, showTags, setShowTags}) => {
 	const [ name, setName] = useState()
 	const [ description, setDescription ] = useState()
 	const [errors, setErrors] = useState([])
+	const [successfullyUpdated, setSuccessfullyUpdated] = useState(false)
 
 	const dispatch = useDispatch()
 
@@ -50,8 +51,15 @@ const FormPersonRU = ({user, showTags, setShowTags}) => {
                 	if (data && data.errors) setErrors(data.errors)
             	}
             )
-            setErrors([]);
-            dispatch(loadPerson(person));
+			setErrors([]);
+			dispatch(loadPerson(person));
+
+			/* Show update-success message */
+			setSuccessfullyUpdated(true);
+			const timeout = setTimeout(function() {
+				setSuccessfullyUpdated(false);
+			}, 1200);
+			return () => clearTimeout(timeout);
 	    }
     }
 
@@ -66,7 +74,6 @@ const FormPersonRU = ({user, showTags, setShowTags}) => {
 
 	return (
 		<div id="person-form-read-edit">
-
 			<form onSubmit={handleSubmit}>
 
 				<label id="label-name">{name}</label>
@@ -101,7 +108,10 @@ const FormPersonRU = ({user, showTags, setShowTags}) => {
 		        {errors.map((error, idx) => <div className="error-message" id="new-name-error" key={idx}>{error}</div>)}
 
 		        <div id="container-formpersonru-buttons">
-				    <button className="formpersonru-buttons" type="submit" id="button-update">Revise</button>
+				    { successfullyUpdated ?
+						<button className="formpersonru-buttons successfully-updated" type="button" id="button-update">Revised</button> :
+						<button className="formpersonru-buttons" type="submit" id="button-update">Revise</button>
+					}
 				    <button className="formpersonru-buttons" id="button-delete" onClick={handleDelete}>Discard Dossier</button>
 			    </div>
 

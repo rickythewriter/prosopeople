@@ -9,6 +9,8 @@
     --matcha-light: #acb6a6;
     --matcha-lightest: #bec8b3;
 
+    --background-app-opposite: #41374c;
+
     --fontcolor-error: #5c5c5c;
 
     --button-hover: var(--matcha-darkest);

@@ -10,6 +10,7 @@ const FormEntryRUD = () => {
 	const [ title, setTitle] = useState("")
 	const [ body, setBody ] = useState("")
 	const [errors, setErrors] = useState([])
+	const [successfullyUpdated, setSuccessfullyUpdated] = useState(false)
 
 	const dispatch = useDispatch()
 
@@ -49,6 +50,13 @@ const FormEntryRUD = () => {
             )
             setErrors([]);
             dispatch(loadEntry(entry));
+
+			/* Show update-success message */
+			setSuccessfullyUpdated(true);
+			const timeout = setTimeout(function () {
+				setSuccessfullyUpdated(false);
+			}, 1200);
+			return () => clearTimeout(timeout);
 	    }
     }
 
@@ -89,7 +97,10 @@ const FormEntryRUD = () => {
 		        {errors.map((error, idx) => <div className="error-message" id="new-name-error" key={idx}>{error}</div>)}
 
 		        <div id="container-formentryrud-buttons">
-				    <button className="formentryrud-buttons" type="submit" id="button-update-entry">Revise</button>
+					{ successfullyUpdated ?
+						<button className="formentryrud-buttons successfully-updated" type="button" id="button-update-entry">Revised</button> :
+						<button className="formentryrud-buttons" type="submit" id="button-update-entry">Revise</button>
+					}
 				    <button className="formentryrud-buttons" id="button-delete-entry" onClick={handleDelete}>Discard Entry</button>
 			    </div>
 
