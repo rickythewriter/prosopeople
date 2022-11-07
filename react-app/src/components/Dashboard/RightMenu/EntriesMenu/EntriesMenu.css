@@ -1,3 +1,28 @@
 #container-entries {
 	/* background-color: #ACB6A6; */
 }
+
+#right-menu-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-bottom: 21.28px;
+	text-shadow: -1px 2px rgb(0 0 0 / 10%);
+}
+
+#right-menu-head h4 {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+#right-menu-head #add-new {
+	margin-bottom: -3px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#right-menu-head #add-new:hover {
+	cursor: pointer;
+	color: white;
+}
+

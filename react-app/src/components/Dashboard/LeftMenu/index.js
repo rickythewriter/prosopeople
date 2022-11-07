@@ -40,16 +40,22 @@ const LeftMenu = ({setNewEntrySelected} ) => {
 
 	return (
 		<>
-			<h4 
-				className="panel-heading"
-				onClick={()=> {
-					dispatch(removePerson());
-					dispatch(removeDossierTags());
-				}	
-			}>
-				Dossiers
-			</h4>
-
+			<div id="left-menu-head">
+				<h4
+					className="panel-heading"
+					>
+					Dossiers
+				</h4>
+				<div 
+					id="add-new"
+					onClick={() => {
+						dispatch(removePerson());
+						dispatch(removeDossierTags());
+					}}
+				>
+					+
+				</div>
+			</div> 
 
 			<ul id="list-people">
 				{people.map( person => {
