@@ -103,14 +103,13 @@ const Dashboard = () => {
 							personIsSelected={personIsSelected}
 							setNewEntrySelected={setNewEntrySelected}
 							showTags={showTags}
+							setShowTags={setShowTags}
 						/>
 					</div>
 					<div className="horizontal-panel" id="container-main-view">
 						<MainView
 							personIsSelected={personIsSelected}
 							newEntrySelected={newEntrySelected}
-							showTags={showTags}
-							setShowTags={setShowTags}
 						/>
 					</div>
 				</div>

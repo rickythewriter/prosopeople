@@ -1,0 +1,15 @@
+#panel-heading {
+    margin: 20.28px 0 0 -4px;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 84%;
+    padding: 0;
+    background-color: var(--background-secondary-menu);
+    border: none;
+    text-shadow: -1px 2px rgb(0 0 0 / 10%);
+}
+
+#panel-heading:hover {
+    cursor: pointer;
+}

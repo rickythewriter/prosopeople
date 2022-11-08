@@ -66,7 +66,6 @@ const MainView = ({personIsSelected, newEntrySelected, showTags, setShowTags}) =
 				<FormPersonRU 
 					user={user} 
 					showTags={showTags}
-					setShowTags={setShowTags}
 				/>
 			)
 		}
