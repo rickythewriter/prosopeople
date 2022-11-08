@@ -43,7 +43,11 @@ const LeftMenu = ({setNewEntrySelected} ) => {
 			<div id="left-menu-head">
 				<h4
 					className="panel-heading"
-					>
+					onClick={() => {
+						dispatch(removePerson());
+						dispatch(removeDossierTags());
+					}}
+				>
 					Dossiers
 				</h4>
 				<div 

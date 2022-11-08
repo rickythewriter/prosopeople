@@ -47,6 +47,10 @@
 	margin-bottom: 0;
 }
 
+#left-menu-head .panel-heading {
+	cursor: pointer;
+}
+
 #left-menu-head #add-new {
 	margin-bottom: -3px;
 	font-size: 22px;
