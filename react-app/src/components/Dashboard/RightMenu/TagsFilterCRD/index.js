@@ -57,7 +57,7 @@ const TagsFilterCRD = () => {
 
 
 	/* Handle tag clicks - add/remove from filter */
-	const handleClick = (tag, tagSelected, tagsFilter) => {
+	const handleClick = (tag, tagSelected) => {
 		if (tagSelected) {
 			dispatch(removeFilterTag(tag))
 		} else if (!tagSelected) {

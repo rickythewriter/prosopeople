@@ -23,17 +23,23 @@ import React from 'react';
 import EntriesMenu from './EntriesMenu';
 import TagsCRD from './TagsCRD';
 import TagsFilterCRD from './TagsFilterCRD';
+import './RightMenu.css'
 
-const RightMenu = ({personIsSelected, setNewEntrySelected, showTags}) => {
+const RightMenu = ({personIsSelected, setNewEntrySelected, showTags, setShowTags}) => {
 
 	const RightMenu = () => {
 
 		if (showTags && personIsSelected) {
-			return (<TagsCRD />)
+			return (
+				<TagsCRD 
+					setShowTags={setShowTags}	
+				/>
+			)
 		} else if (personIsSelected) {
 			return (
 				<EntriesMenu 
 					setNewEntrySelected={setNewEntrySelected} 
+					setShowTags={setShowTags}
 				/>
 			)
 		} else {

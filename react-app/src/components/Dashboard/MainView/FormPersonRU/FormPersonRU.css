@@ -54,10 +54,7 @@
 }
 
 #container-formpersonru-buttons {
-	/*display: inline-block;*/
 	width: 100%;
-	/*flex-direction: row;*/
-	/*justify-content: flex-start;*/
 	display: inline-grid;
 	margin-bottom: 21.28px;
 	grid-template-columns: 1fr 1fr;
@@ -65,9 +62,6 @@
 
 .formpersonru-buttons {
 	overflow: hidden;
-	/*white-space: nowrap;*/
-	/*overflow: auto;*/
-
 }
 
 #container-formpersonru-buttons #button-update {
@@ -88,19 +82,4 @@
 #container-formpersonru-buttons #button-delete {
 	margin-left: 8px;
 	max-width: auto;
-}
-
-.row-name-tag {
-	display: grid;
-	grid-template-columns: auto 20px;
-}
-
-#tag-icon {
-	margin: 3px 0 3px 0;
-	justify-self: end;
-	color: #61714d;
-}
-
-#tag-icon:hover {
-	cursor: pointer;
 }

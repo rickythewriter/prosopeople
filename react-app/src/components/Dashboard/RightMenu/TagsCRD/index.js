@@ -33,7 +33,7 @@ import TagSearchCR from '../TagSearchCR';
 import TagSlip from '../TagSlip';
 import './TagsCRD.css'
 
-const TagsCRD = () => {
+const TagsCRD = ({setShowTags}) => {
 	const user = useSelector(state => state.session.user)
 	const person = useSelector(state => state.person)
 	const tagsObj = useSelector(state => state.tags)
@@ -93,11 +93,24 @@ const TagsCRD = () => {
 		<div 
 			id="container-tags-person"
 		>
-			<h4
-				className='panel-heading'
+			<select
+				id="panel-heading"
+				onChange={e => {
+					switch (e.target.value) {
+						case "tags":
+							setShowTags(true);
+							break;
+						case "entries":
+							setShowTags(false);
+
+						default:
+							break;
+					}
+				}}
 			>
-				Tags
-			</h4>
+				<option value="tags">Tags</option>
+				<option value="entries">Entries</option>
+			</select>
 
 			<TagSearchCR />
 

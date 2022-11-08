@@ -6,7 +6,7 @@ import EntryPreviewCard from './EntryPreviewCard';
 import './EntriesMenu.css'
 
 
-const EntriesMenu = ({setNewEntrySelected}) => {
+const EntriesMenu = ({setNewEntrySelected, setShowTags}) => {
 	const entriesObj = useSelector(state => state.entries)
 	const person = useSelector(state => state.person)
 	const entries = Object.values(entriesObj);
@@ -35,11 +35,24 @@ const EntriesMenu = ({setNewEntrySelected}) => {
 	return (
 		<div id="container-entries">
 			<div id="right-menu-head">
-				<h4 
-					className='panel-heading'
+				<select
+					id="panel-heading"
+					onChange={e => {
+						switch (e.target.value) {
+							case "tags":
+								setShowTags(true);
+								break;
+							case "entries":
+								setShowTags(false);
+
+							default:
+								break;
+						}
+					}}
 				>
-					Entries
-				</h4>
+					<option value="entries">Entries</option>
+					<option value="tags">Tags</option>
+				</select>
 				<div 
 					id="add-new"
 					onClick={() => {
