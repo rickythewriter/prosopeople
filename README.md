@@ -11,13 +11,14 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 ## Technologies Used
 
+- React
+-- Redux
 - Flask
-- WTForms
-- SQLAlchemy
+-- WTForms
+-- SQLAlchemy
 - PostgreSQL
 - CSS
-- React
-- Redux
+- AWS S3
 
 ## Features
 
