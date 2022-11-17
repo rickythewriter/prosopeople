@@ -30,4 +30,5 @@ class Image(db.Model):
             'id': self.id,
             'link': self.link,
             'caption': self.caption,
+            'created_at': self.created_at,
         }
