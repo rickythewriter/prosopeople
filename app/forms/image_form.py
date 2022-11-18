@@ -14,8 +14,8 @@ class ImageForm(FlaskForm):
 		Update an image
 			accepting non-required fields
 	"""
-	link = StringField('name', validators=[DataRequired(), Length(min=2,max=1024,message="Link must not exceed 1024 characters")])
-	caption = TextAreaField('body', validators=None)
+	link = StringField('link', validators=[DataRequired(), Length(min=2,max=1024,message="Link must not exceed 1024 characters")])
+	caption = TextAreaField('caption', validators=None)
     entry_id = IntegerField('entry_id', validators=[DataRequired()])
 	person_id = IntegerField('person_id', validators=[DataRequired()])
 	user_id = IntegerField('user_id', validators=[DataRequired()])
