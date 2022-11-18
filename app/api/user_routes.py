@@ -1,10 +1,14 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, User, Person, Entry, Tag, PersonTag
-from app.forms import PersonForm, EntryForm, TagForm, PersonTagForm
+from app.forms import PersonForm, EntryForm, TagForm, PersonTagForm, ImageForm
+from s3_resources import get_bucket
 
 user_routes = Blueprint('users', __name__)
 
+'''
+Auth Routes
+'''
 
 @user_routes.route('/')
 @login_required
@@ -12,12 +16,15 @@ def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
-
 @user_routes.route('/<int:id>')
 @login_required
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+'''
+Dossier Routes
+'''
 
 @user_routes.route('/<int:id>/people')
 @login_required
@@ -44,6 +51,10 @@ def create_person(id):
         return person.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+'''
+Entry Routes
+'''
+
 # Create entry
 @user_routes.route('/<int:id>/people/<person_id>/entries', methods=['POST'])
 @login_required
@@ -61,6 +72,10 @@ def create_entry(id, person_id):
         db.session.commit()
         return entry.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+'''
+Tag Routes
+'''
 
 # Get all of a user's tags
 @user_routes.route('/<int:id>/tags')
@@ -106,4 +121,3 @@ def associate_tag(id, person_id, tag_id):
         db.session.commit()
         return tag.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
