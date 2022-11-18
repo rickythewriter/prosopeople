@@ -1,6 +1,5 @@
 import os
 
-
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     S3_BUCKET = os.environ.get('S3_BUCKET')
