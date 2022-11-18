@@ -1,7 +1,7 @@
 from .db import db
 from sqlalchemy.sql import func
 
-class Image(db.Model):
+class ImageWithCaption(db.Model):
     __tablename__ = 'images'
 
     id = db.Column(db.Integer, primary_key=True)
