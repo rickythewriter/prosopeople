@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, User, Person, Entry, Tag, PersonTag
-from app.forms import PersonForm, EntryForm, TagForm, PersonTagForm, ImageForm
+from app.models import db, User, Person, Entry, Tag, PersonTag, ImageWithCaption
+from app.forms import PersonForm, EntryForm, TagForm, PersonTagForm, ImageWithCaptionForm
 from s3_resources import get_bucket
 
 user_routes = Blueprint('users', __name__)
