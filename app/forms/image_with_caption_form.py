@@ -7,7 +7,7 @@ from app.models import Image
 Form Classes
 """
 
-class ImageForm(FlaskForm):	
+class ImageWithCaptionForm(FlaskForm):	
 	"""
 		Create a new image
 			accept an image link, caption, and current time.
