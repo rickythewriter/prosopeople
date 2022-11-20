@@ -20,3 +20,10 @@ def upload_image_to_s3_bucket(image, bucket):
 
 def delete_file_from_s3_bucket(filename, bucket):
     bucket.Object(S3_BUCKET, filename).delete()
+
+def get_signed_url(filename):
+    params = {'Bucket': S3_BUCKET, 'KEY': filename}
+    response = s3.generate_presigned_url('get_object', params)
+    end_idx = response.index("?")
+    image_url = response[0:end_idx]
+    return image_url
