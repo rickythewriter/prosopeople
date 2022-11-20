@@ -32,3 +32,18 @@ def create_image_with_caption():
 def _create_unique_filename(name):
     timestamp = str(datetime.utcnow().timestamp()).replace('.','')
     return timestamp + '-' + name
+
+@image_routes.route('/<int_id>', methods=['DELETE'])
+@login_required
+# Create an image-with-caption object from database and from AWS
+def delete_image_with_caption(id):
+
+    image_with_caption = ImageWithCaption.query.get(id)
+
+    s3_bucket = get_bucket()
+    delete_file_from_s3_bucket(image_with_caption.filename, s3_bucket)
+
+	db.session.delete(image_with_caption)
+	db.session.commit()
+    
+	return image_with_caption.to_dict();

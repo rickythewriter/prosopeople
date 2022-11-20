@@ -17,3 +17,6 @@ def get_bucket():
 
 def upload_image_to_s3_bucket(image, bucket):
     bucket.upload_fileobj(image, S3_BUCKET, image.filename)
+
+def delete_file_from_s3_bucket(filename, bucket):
+    bucket.Object(S3_BUCKET, filename).delete()
