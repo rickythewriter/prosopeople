@@ -33,3 +33,12 @@ def delete_entry(id):
 	db.session.delete(entry)
 	db.session.commit()
 	return entry.to_dict()
+
+# Get all of an entry's images
+@entry_routes.route('/<int:id>/images')
+@login_required
+def get_entry_images(id):
+	entry = entry.query.get(id)
+	entry_images = ImageWithCaption.query.filter(ImageWithCaption.entry_id == entry.id).all()
+	obj = {'images':[entry_images.to_dict() for image in entry_images]}
+	return obj
