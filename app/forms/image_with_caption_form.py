@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, IntegerField, DateTimeField
 from wtforms.validators import DataRequired, Length
-from app.models import Image
+from app.models import ImageWithCaption
 
 """
 Form Classes
@@ -27,7 +27,7 @@ class ImageWithCaptionForm(FlaskForm):
 	"""
 	filename = StringField('filename', validators=[DataRequired(), Length(min=2,max=512,message="File name must not exceed 512 characters"), is_valid_filename, is_image])
 	caption = TextAreaField('caption', validators=None)
-    entry_id = IntegerField('entry_id', validators=[DataRequired()])
+	entry_id = IntegerField('entry_id', validators=[DataRequired()])
 	person_id = IntegerField('person_id', validators=[DataRequired()])
 	user_id = IntegerField('user_id', validators=[DataRequired()])
 	created_at = DateTimeField('created_at')

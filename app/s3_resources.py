@@ -1,5 +1,5 @@
 import boto3
-from config import S3_BUCKET, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY
+from app.config import S3_BUCKET, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY
 
 def _get_s3_resource():
     if S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY:
