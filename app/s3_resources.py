@@ -14,3 +14,6 @@ def _get_s3_resource():
 def get_bucket():
     s3_resource = _get_s3_resource()
     return s3_resource.Bucket(S3_BUCKET);
+
+def upload_image_to_s3_bucket(image, bucket):
+    bucket.upload_fileobj(image, S3_BUCKET, image.filename)
