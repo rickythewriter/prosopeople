@@ -7,7 +7,7 @@ class ImageWithCaption(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    filename = db.Column(db.String(512))
+    filename = db.Column(db.String(512), unique=True)
     caption = db.Column(db.Text)
 
     #entry
