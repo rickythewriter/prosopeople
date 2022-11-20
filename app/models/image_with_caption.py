@@ -6,7 +6,7 @@ class ImageWithCaption(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    link = db.Column(db.String(1024))
+    filename = db.Column(db.String(512))
     caption = db.Column(db.Text)
 
     #entry
@@ -28,7 +28,7 @@ class ImageWithCaption(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'link': self.link,
+            'filename': self.filename,
             'caption': self.caption,
             'created_at': self.created_at,
         }
