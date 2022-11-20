@@ -7,14 +7,25 @@ from app.models import Image
 Form Classes
 """
 
+ALLOWED_EXTENSIONS = {"jpg", "jpeg", "png", "gif"}
+
+def is_valid_filename(form, field):
+	filename = field.data
+	if len(filename.rsplit('.')) != 2:
+		raise ValidationError('File must only have one extension')
+
+def is_image(form, field):
+	filename = field.data
+	filename_extension = filename.rsplit('.')[-1].lower()
+	if filename_extension not in ALLOWED_EXTENSIONS:
+		raise ValidationError('File must be of extension type: jpg, jpeg, png, or gif')
+
 class ImageWithCaptionForm(FlaskForm):	
 	"""
-		Create a new image
-			accept an image link, caption, and current time.
-		Update an image
-			accepting non-required fields
+		Create a new image-with-caption object.
+		Update an image-with-caption's caption.
 	"""
-	link = StringField('link', validators=[DataRequired(), Length(min=2,max=1024,message="Link must not exceed 1024 characters")])
+	filename = StringField('filename', validators=[DataRequired(), Length(min=2,max=512,message="File name must not exceed 512 characters"), is_valid_filename, is_image])
 	caption = TextAreaField('caption', validators=None)
     entry_id = IntegerField('entry_id', validators=[DataRequired()])
 	person_id = IntegerField('person_id', validators=[DataRequired()])
