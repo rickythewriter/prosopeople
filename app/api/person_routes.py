@@ -1,6 +1,6 @@
 from flask import Blueprint, request, session
 from flask_login import login_required
-from app.models import db, Person, Entry, Tag, PersonTag
+from app.models import db, Person, Entry, Tag, PersonTag, ImageWithCaption
 from app.forms import PersonForm
 
 person_routes = Blueprint('people', __name__)
@@ -72,3 +72,11 @@ def dissociate_tag_from_person(id, tag_id):
 	db.session.commit()
 	return tag.to_dict()
 
+# Get all of a person's images
+@person_routes.route('/<int:id>/images')
+@login_required
+def get_person_images(id):
+	person = Person.query.get(id)
+	dossier_images = ImageWithCaption.query.filter(ImageWithCaption.person_id == person.id).all()
+	obj = {'images':[dossier_images.to_dict() for image in dossier_images]}
+	return obj
