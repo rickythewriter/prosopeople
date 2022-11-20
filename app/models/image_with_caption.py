@@ -1,5 +1,6 @@
 from .db import db
 from sqlalchemy.sql import func
+from s3_resources import get_signed_url
 
 class ImageWithCaption(db.Model):
     __tablename__ = 'images'
@@ -28,7 +29,7 @@ class ImageWithCaption(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'filename': self.filename,
+            'url': get_signed_url(self.filename),
             'caption': self.caption,
             'created_at': self.created_at,
         }
