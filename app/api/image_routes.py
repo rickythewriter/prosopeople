@@ -35,7 +35,7 @@ def _create_unique_filename(name):
 
 @image_routes.route('/<int_id>', methods=['DELETE'])
 @login_required
-# Create an image-with-caption object from database and from AWS
+# Delete an image-with-caption object from database and from AWS
 def delete_image_with_caption(id):
 
     image_with_caption = ImageWithCaption.query.get(id)
