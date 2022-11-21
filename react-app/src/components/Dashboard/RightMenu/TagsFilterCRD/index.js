@@ -42,7 +42,6 @@ const TagsFilterCRD = () => {
                 name: tagName,
                 user_id: user.id
             }
-            // console.log(payload)
             const newTag = await dispatch(createTag(payload, user))
             	.catch(async(res)=> {
                 	const data = await res.json()
@@ -68,7 +67,6 @@ const TagsFilterCRD = () => {
 	/* Load tagged people every time the filter tags change */
 	useEffect(()=> {
 		if (tagsFilter.length === 0) {
-			// console.log('No filters applied.')
 			dispatch(loadPeople(user))
 		} else {
 			dispatch(loadPeopleMultipleTags(tagsFilter))

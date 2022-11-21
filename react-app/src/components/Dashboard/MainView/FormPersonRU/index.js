@@ -42,7 +42,6 @@ const FormPersonRU = ({user}) => {
                 name: name,
                 description: description,
             }
-            // console.log(payload)
             const newPerson = await dispatch(updatePerson(payload, user))
             	.catch(async(res)=> {
                 	const data = await res.json()

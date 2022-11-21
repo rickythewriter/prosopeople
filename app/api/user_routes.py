@@ -54,9 +54,7 @@ def create_entry(id, person_id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         entry = Entry()
-        print("entry got initialized")
         form.populate_obj(entry)
-        print("form got populated")
         db.session.add(entry)
         db.session.commit()
         return entry.to_dict()
@@ -80,9 +78,7 @@ def create_tag(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         tag = Tag()
-        print("tag got initialized")
         form.populate_obj(tag)
-        print("tag got populated")
         db.session.add(tag)
         db.session.commit()
         return tag.to_dict()
@@ -99,11 +95,8 @@ def associate_tag(id, person_id, tag_id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         person_tag = PersonTag()
-        print("person and tag got associated")
         form.populate_obj(person_tag)
-        print("person-tag association got populated")
         db.session.add(person_tag)
         db.session.commit()
         return tag.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
