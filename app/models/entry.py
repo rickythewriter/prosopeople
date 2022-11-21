@@ -1,8 +1,11 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.sql import func
 
 class Entry(db.Model):
     __tablename__ = 'entries'
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
 
@@ -10,11 +13,11 @@ class Entry(db.Model):
     body = db.Column(db.Text)
 
     # dossier
-    person_id = db.Column(db.Integer, db.ForeignKey("people.id", ondelete="CASCADE"), nullable=False)
+    person_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("people.id"), ondelete="CASCADE"), nullable=False)
     person = db.relationship("Person", back_populates="entries")
 
     # user
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     user = db.relationship("User", back_populates="entries")
 
     # recordkeeping
