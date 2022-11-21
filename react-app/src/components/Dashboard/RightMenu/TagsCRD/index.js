@@ -59,7 +59,6 @@ const TagsCRD = ({setShowTags}) => {
 	/* Load tagged people every time the filter tags change */
 	useEffect(()=> {
 		if (tagsFilter.length === 0) {
-			// console.log('No filters applied.')
 			dispatch(loadPeople(user))
 		} else {
 			dispatch(loadPeopleMultipleTags(tagsFilter))

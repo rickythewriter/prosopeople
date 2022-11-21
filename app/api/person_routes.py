@@ -46,9 +46,7 @@ def get_entries(id):
 @login_required
 def delete_entries(id):
 	person = Person.query.get(id)
-	entries = Entry.query.filter(Entry.person_id == person.id).delete()
-	# print("These are the entries: ", entries)
-	# db.session.delete(entries)
+	Entry.query.filter(Entry.person_id == person.id).delete()
 	db.session.commit()
 	return {"message" : "entries deleted"}
 
@@ -67,8 +65,6 @@ def get_person_tags(id):
 def dissociate_tag_from_person(id, tag_id):
 	tag = Tag.query.get(tag_id)
 	person_tag = PersonTag.query.filter(PersonTag.person_id == id, PersonTag.tag_id == tag.id).first()
-	print('persontag is: ', person_tag)
 	db.session.delete(person_tag)
 	db.session.commit()
 	return tag.to_dict()
-

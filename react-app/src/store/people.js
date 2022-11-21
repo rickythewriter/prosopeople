@@ -30,7 +30,6 @@ const removePerson = (person) => ({
 export const loadPeople = user => async dispatch => {
     const res = await fetch(`/api/users/${user.id}/people`)
     const data = await res.json();
-    // console.log(`This is the data from load people: `, data);
     dispatch(getPeople(data));
     return data;
 }

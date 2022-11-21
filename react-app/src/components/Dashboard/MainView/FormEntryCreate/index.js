@@ -35,7 +35,6 @@ const FormEntryCreate = () => {
                 user_id: user.id,
                 person_id: person.id,
             }
-            // console.log(payload)
             const newEntry = await dispatch(createEntry(payload, user, person))
             	// .catch(async(res)=> {
                 	// const data = await res.json();

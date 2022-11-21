@@ -55,7 +55,6 @@ export const createEntry = (newEntry, user, person) =>  async dispatch => {
 }
 
 export const updateEntry = entry => async dispatch => {
-    console.log("Here is the entry being updated, ", entry);
     const res = await fetch(`/api/entries/${entry.id}`, {
         method: 'PUT',
         headers: {
