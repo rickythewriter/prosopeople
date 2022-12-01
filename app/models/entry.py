@@ -9,13 +9,16 @@ class Entry(db.Model):
     title = db.Column(db.String(100))
     body = db.Column(db.Text)
 
+    # user
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user = db.relationship("User", back_populates="entries")
+
     # dossier
     person_id = db.Column(db.Integer, db.ForeignKey("people.id", ondelete="CASCADE"), nullable=False)
     person = db.relationship("Person", back_populates="entries")
 
-    # user
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    user = db.relationship("User", back_populates="entries")
+    # images
+    images = db.relationship("ImageWithCaption", back_populates="entries", passive_deletes=True)
 
     # recordkeeping
     created_at = db.Column(db.DateTime, server_default=func.now())
