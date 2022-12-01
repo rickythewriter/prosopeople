@@ -9,6 +9,9 @@ class Entry(db.Model):
     title = db.Column(db.String(100))
     body = db.Column(db.Text)
 
+    # images
+    images = db.relationship("ImageWithCaption", back_populates="entries", passive_deletes=True)
+
     # dossier
     person_id = db.Column(db.Integer, db.ForeignKey("people.id", ondelete="CASCADE"), nullable=False)
     person = db.relationship("Person", back_populates="entries")
