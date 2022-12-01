@@ -18,7 +18,7 @@ class Entry(db.Model):
     person = db.relationship("Person", back_populates="entries")
 
     # images
-    images = db.relationship("ImageWithCaption", back_populates="entries", passive_deletes=True)
+    images = db.relationship("ImageWithCaption", back_populates="entry", passive_deletes=True)
 
     # recordkeeping
     created_at = db.Column(db.DateTime, server_default=func.now())
