@@ -6,6 +6,7 @@ import { personReducer } from './person'
 import { entriesReducer } from './entries'
 import { entryReducer } from './entry'
 import { tagsReducer } from './tags'
+import { imageReducer } from './image';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   person: personReducer,
   entries: entriesReducer,
   entry: entryReducer,
-  tags: tagsReducer
+  tags: tagsReducer,
+  images: imageReducer,
 });
 
 
