@@ -15,7 +15,7 @@ const ImageReel = () => {
 
     const dispatch = useDispatch();
 
-    /* When selected entry updates... */
+    /* When an entry is chosen... */
     useEffect(() => {
         dispatch(loadImages(entry));
         setReelStartIdx(0);
