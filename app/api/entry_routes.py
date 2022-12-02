@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Entry
+from app.models import db, Entry, ImageWithCaption
 from app.forms import EntryForm
 from sqlalchemy.sql import func
 from app.api.auth_routes import validation_errors_to_error_messages
@@ -39,7 +39,6 @@ def delete_entry(id):
 @entry_routes.route('/<int:id>/images')
 @login_required
 def get_entry_images(id):
-	entry = entry.query.get(id)
+	entry = Entry.query.get(id)
 	entry_images = ImageWithCaption.query.filter(ImageWithCaption.entry_id == entry.id).all()
-	obj = {'images':[entry_images.to_dict() for image in entry_images]}
-	return obj
+	return {'images': [image.to_dict() for image in entry_images]}
