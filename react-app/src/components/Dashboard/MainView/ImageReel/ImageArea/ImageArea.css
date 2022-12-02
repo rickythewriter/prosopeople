@@ -12,10 +12,11 @@
 #upload-label {
     max-width: 72px;
     overflow: scroll;
-    font-size: 16pt;
+    font-size: 24pt;
     width: 100%;
     cursor: pointer;
     flex-grow: 1;
+    padding: 25%;
 }
 
 #upload-label:hover {
