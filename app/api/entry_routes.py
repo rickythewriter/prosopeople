@@ -3,6 +3,7 @@ from flask_login import login_required
 from app.models import db, Entry
 from app.forms import EntryForm
 from sqlalchemy.sql import func
+from app.api.auth_routes import validation_errors_to_error_messages
 
 entry_routes = Blueprint('entries', __name__)
 
