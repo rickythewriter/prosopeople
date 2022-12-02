@@ -21,14 +21,12 @@ def _create_unique_filename(name):
     timestamp = str(datetime.utcnow().timestamp()).replace('.','')
     return timestamp + '-' + name
 
+# Create an image-with-caption object, and upload it to AWS
 @image_routes.route('/', methods=['POST'])
 @login_required
-# Create an image-with-caption object, and upload it to AWS
 def create_image_with_caption():
-
     form = ImageWithCaptionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
     if form.validate_on_submit():
         image_with_caption = ImageWithCaption()
         form.populate_obj(image_with_caption)
