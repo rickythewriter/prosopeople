@@ -21,7 +21,7 @@ def upload_image_to_s3_bucket(image):
 
 def delete_file_from_s3_bucket(filename):
     s3_bucket = get_bucket()
-    s3_bucket.Object(S3_BUCKET, filename).delete()
+    s3_bucket.Object(filename).delete()
 
 def get_signed_url(filename):
     s3_client = boto3.client('s3')
