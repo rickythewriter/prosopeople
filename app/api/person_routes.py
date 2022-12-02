@@ -2,6 +2,7 @@ from flask import Blueprint, request, session
 from flask_login import login_required
 from app.models import db, Person, Entry, Tag, PersonTag, ImageWithCaption
 from app.forms import PersonForm
+from app.api.auth_routes import validation_errors_to_error_messages
 
 person_routes = Blueprint('people', __name__)
 

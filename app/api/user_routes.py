@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, User, Person, Entry, Tag, PersonTag
 from app.forms import PersonForm, EntryForm, TagForm, PersonTagForm
+from app.api.auth_routes import validation_errors_to_error_messages
 
 user_routes = Blueprint('users', __name__)
 
