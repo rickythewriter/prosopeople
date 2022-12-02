@@ -17,6 +17,10 @@ def upload_image():
     upload_image_to_s3_bucket(image)
     return {'filename': image.filename}
 
+def _create_unique_filename(name):
+    timestamp = str(datetime.utcnow().timestamp()).replace('.','')
+    return timestamp + '-' + name
+
 @image_routes.route('/', methods=['POST'])
 @login_required
 # Create an image-with-caption object, and upload it to AWS
@@ -32,10 +36,6 @@ def create_image_with_caption():
         db.session.commit()
         return image_with_caption.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
-def _create_unique_filename(name):
-    timestamp = str(datetime.utcnow().timestamp()).replace('.','')
-    return timestamp + '-' + name
 
 @image_routes.route('/<int_id>', methods=['PUT'])
 @login_required
