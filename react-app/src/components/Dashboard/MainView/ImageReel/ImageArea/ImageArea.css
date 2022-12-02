@@ -15,11 +15,6 @@
     cursor: pointer;
 }
 
-/* .delete-button:before { */
-    /* content: '✕'; */
-    
-/* } */
-
 .delete-button {
     font-size: 12pt;
     color: black;

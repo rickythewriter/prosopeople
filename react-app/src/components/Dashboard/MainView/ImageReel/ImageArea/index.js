@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { uploadImage, createImage } from '../../../../../store/image'
+import { uploadImage, createImage, deleteImage } from '../../../../../store/image'
 import './ImageArea.css'
 
 const ImageArea = ({image=null, isAddButton=false}) => {
@@ -29,11 +29,15 @@ const ImageArea = ({image=null, isAddButton=false}) => {
         dispatch(createImage(payload))
     }
 
+    const deleteHandler = async e => {
+        dispatch(deleteImage(image))
+    }
+
     if (image) {
         return (
             <div className='image-area has-image'>
                 <img className='filmstrip-image' src={image.signed_url} alt={image.caption}/>
-                <span className='delete-button'>✕</span>
+                <span className='delete-button' onClick={deleteHandler}>✕</span>
             </div>
         )
     }

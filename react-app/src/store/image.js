@@ -4,6 +4,7 @@
 
 const LOAD_IMAGES = 'entries/LOAD_IMAGES'
 const ADD_IMAGE = 'entries/ADD_IMAGE'
+const REMOVE_IMAGE = 'entries/REMOVE_IMAGE'
 
 /*---------------------------------------------------------------------/
     Actions
@@ -18,6 +19,10 @@ const addImage = (image) => ({
     image
 })
 
+const removeImage = (image) => ({
+    type: REMOVE_IMAGE,
+    image
+})
 
 /*---------------------------------------------------------------------/
     Dispatch Functions
@@ -59,6 +64,18 @@ export const createImage = (newImageWithCaption) => async dispatch => {
     }
 }
 
+export const deleteImage = (image) => async dispatch => {
+    const res = await fetch(`/api/images/${image.id}`, {
+        method: 'DELETE'
+    });
+    const data = await res.json();
+    if (res.ok) {
+        dispatch(removeImage(data))
+        return data
+    }
+}
+
+
 /*---------------------------------------------------------------------/
     Reducers
 /---------------------------------------------------------------------*/
@@ -77,6 +94,9 @@ export const imageReducer = (state = initialState, action) => {
             return { ...images }
         case ADD_IMAGE:
             newState[action.image.id] = action.image
+            return newState;
+        case REMOVE_IMAGE:
+            delete newState[action.image.id]
             return newState;
         default:
             return state;
