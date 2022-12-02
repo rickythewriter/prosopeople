@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    min-height: 144px;
-    min-width: 144px;
+    height: 144px;
+    width: 144px;
     text-align: center;
-    background-color: lightgrey;
+    box-sizing: border-box;
+    border: solid 1px lightgrey;
 }
 
 #upload-label {
@@ -27,6 +27,13 @@
     display: none;
 }
 
-#placeholder-image-area {
-    /* background-color: grey; */
+.placeholder-image-area,
+.upload-form {
+    background-color: lightgrey;
+}
+
+.filmstrip-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
