@@ -39,6 +39,7 @@ const ImageArea = ({isAddButton=false}) => {
                         type='file'
                         id='upload-image'
                         name='image'
+                        accept='image/jpg, image/jpeg, image/png, image/gif'
                         onChange={changeHandler}
                     />
                     +
