@@ -31,8 +31,9 @@ const ImageArea = ({image=null, isAddButton=false}) => {
 
     if (image) {
         return (
-            <div className='image-area'>
+            <div className='image-area has-image'>
                 <img className='filmstrip-image' src={image.signed_url} alt={image.caption}/>
+                <span className='delete-button'>✕</span>
             </div>
         )
     }
