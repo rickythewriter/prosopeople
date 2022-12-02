@@ -25,6 +25,7 @@ import FormPersonCreate from './FormPersonCreate'
 import FormPersonRU from './FormPersonRU'
 import FormEntryCreate from './FormEntryCreate'
 import FormEntryRUD from './FormEntryRUD'
+import ImageReel from './ImageReel'
 import './MainView.css'
 
 const MainView = ({personIsSelected, newEntrySelected, showTags, setShowTags}) => {
@@ -55,7 +56,10 @@ const MainView = ({personIsSelected, newEntrySelected, showTags, setShowTags}) =
 			)
 		} else if (entryIsSelected){
 			return (
-				<FormEntryRUD />
+				<>
+					<FormEntryRUD />
+					{/* <ImageReel /> */}
+				</>
 			)
 		} else if (newEntrySelected){
 			return (
