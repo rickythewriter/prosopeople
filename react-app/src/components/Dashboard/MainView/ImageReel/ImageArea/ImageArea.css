@@ -1,0 +1,31 @@
+.image-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 144px;
+    min-width: 144px;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+#upload-label {
+    max-width: 72px;
+    overflow: scroll;
+    font-size: 16pt;
+    width: 100%;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+#upload-label:hover {
+    color: white;
+}
+
+#upload-label input {
+    display: none;
+}
+
+#placeholder-image-area {
+    /* background-color: grey; */
+}
