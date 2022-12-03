@@ -20,7 +20,7 @@ class Person(db.Model):
     tags = db.relationship("PersonTag", back_populates="person", passive_deletes=True)
 
     # images
-    images = db.relationship("ImageWithCaption", back_populates="person", passive_deletes=True)
+    images = db.relationship("Image", back_populates="person", passive_deletes=True)
 
     # database timekeeping
     created_at = db.Column(db.DateTime, server_default=func.now())

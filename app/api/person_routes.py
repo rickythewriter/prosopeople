@@ -1,6 +1,6 @@
 from flask import Blueprint, request, session
 from flask_login import login_required
-from app.models import db, Person, Entry, Tag, PersonTag, ImageWithCaption
+from app.models import db, Person, Entry, Tag, PersonTag, Image
 from app.forms import PersonForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -78,6 +78,6 @@ def dissociate_tag_from_person(id, tag_id):
 @login_required
 def get_person_images(id):
 	person = Person.query.get(id)
-	dossier_images = ImageWithCaption.query.filter(ImageWithCaption.person_id == person.id).all()
+	dossier_images = Image.query.filter(Image.person_id == person.id).all()
 	obj = {'images':[dossier_images.to_dict() for image in dossier_images]}
 	return obj

@@ -23,7 +23,6 @@ const ImageArea = ({image=null, isAddButton=false}) => {
         /* Add image to database */
         const payload = {
             filename,
-            caption: '',
             entry_id: entry.id,
             person_id: person.id,
             user_id: user.id,
@@ -49,7 +48,6 @@ const ImageArea = ({image=null, isAddButton=false}) => {
                     <img 
                         className='filmstrip-image' 
                         src={image.signed_url} 
-                        alt={image.caption}
                         onClick={enlargeImage}
                     />
                     <span 

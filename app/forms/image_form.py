@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, IntegerField, DateTimeField
 from wtforms.validators import DataRequired, Length
-from app.models import ImageWithCaption
+from app.models import Image
 
 """
 Form Classes
@@ -20,13 +20,11 @@ def is_image(form, field):
 	if filename_extension not in ALLOWED_EXTENSIONS:
 		raise ValidationError('File must be of extension type: jpg, jpeg, png, or gif')
 
-class ImageWithCaptionForm(FlaskForm):	
+class ImageForm(FlaskForm):	
 	"""
-		Create a new image-with-caption object.
-		Update an image-with-caption's caption.
+		Create a new image object.
 	"""
 	filename = StringField('filename', validators=[DataRequired(), Length(min=2,max=512,message="File name must not exceed 512 characters"), is_valid_filename, is_image])
-	caption = TextAreaField('caption', validators=None)
 	entry_id = IntegerField('entry_id', validators=[DataRequired()])
 	person_id = IntegerField('person_id', validators=[DataRequired()])
 	user_id = IntegerField('user_id', validators=[DataRequired()])

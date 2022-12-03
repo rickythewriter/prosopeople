@@ -57,13 +57,13 @@ export const uploadImage = (image) => async dispatch => {
     }
 }
 
-export const createImage = (newImageWithCaption) => async dispatch => {
+export const createImage = (newImage) => async dispatch => {
     const res = await fetch(`/api/images/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newImageWithCaption),
+        body: JSON.stringify(newImage),
     });
     const data = await res.json();
     if (res.ok) {

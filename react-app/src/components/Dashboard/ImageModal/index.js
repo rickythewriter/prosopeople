@@ -22,7 +22,7 @@ const ImageModal = () => {
     return (
         <div className='modal-background' id='image-modal' onClick={closeImageModal}>
             <div id='photo-frame' onClick={ e => e.stopPropagation() }>
-                <img id='modal-image' src={image.signed_url} alt={image.caption}/>
+                <img id='modal-image' src={image.signed_url}/>
             </div>
         </div>
     )

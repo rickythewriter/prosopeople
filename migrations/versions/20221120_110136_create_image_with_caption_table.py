@@ -1,4 +1,4 @@
-"""create image with caption table
+"""create image table
 
 Revision ID: 54a6f44b97b3
 Revises: d05a7e5e53b4
@@ -24,8 +24,6 @@ def upgrade():
     
     sa.Column('filename', sa.String(length=512), nullable=False),
     sa.UniqueConstraint('filename'),
-
-    sa.Column('caption', sa.Text),
     
     sa.Column('entry_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['entry_id'], ['entries.id'], ondelete="CASCADE"),

@@ -2,13 +2,12 @@ from .db import db
 from sqlalchemy.sql import func
 from app.s3_resources import get_signed_url
 
-class ImageWithCaption(db.Model):
+class Image(db.Model):
     __tablename__ = 'images'
 
     id = db.Column(db.Integer, primary_key=True)
 
     filename = db.Column(db.String(512), unique=True)
-    caption = db.Column(db.Text)
 
     #entry
     entry_id = db.Column(db.Integer, db.ForeignKey("entries.id", ondelete="CASCADE"), nullable=False)
@@ -32,6 +31,5 @@ class ImageWithCaption(db.Model):
             'id': self.id,
             'signed_url': get_signed_url(self.filename),
             'filename': self.filename,
-            'caption': self.caption,
             'created_at': self.created_at,
         }

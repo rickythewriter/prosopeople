@@ -6,7 +6,6 @@ export const ImageModalContext = createContext({
     openImageModal: null,
     closeImageModal: null,
     image: {
-        caption: null,
         created_at: null,
         filename: null,
         id: null,
