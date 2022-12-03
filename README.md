@@ -66,6 +66,24 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 
 ![Added Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-added_dossier_tag.png?raw=true)
 
+#### Upload Image to Gallery
+
+![Upload Image to Gallery](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-gallery-upload_image.png?raw=true)
+
+![Select Image to Upload](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-gallery-open_upload_image.png?raw=true)
+
+![See Uploaded Image in Gallery](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-gallery-uploaded_image.png?raw=true)
+
+### Slide Gallery Reel
+
+![Use Arrow Buttons](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-gallery-nav_arrow.png?raw=true)
+
+### View Image in Modal
+
+![Select Image to View](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-gallery-select_image.png?raw=true)
+
+![View Image](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-image_modal.png?raw=true)
+
 ### Upcoming Features
 - Mobile Optimization and iOS Version
 - Events (plan events with groups of people)
