@@ -21,15 +21,17 @@ const ImageReel = () => {
         setReelStartIdx(0);
     }, [entry])
 
-    const addButton = (<ImageArea isAddButton={true} />)
-    const filledImageAreas = imageList.map((image) => (<ImageArea image={image} />))
+    const addButton = (<ImageArea key='add-button' isAddButton={true} />)
+    const filledImageAreas = imageList.map((image) => (<ImageArea key={image.id} image={image} />))
     const imageAreaList = [addButton, ...filledImageAreas]
 
     function getVisibleImageAreas(reelStartIdx, numImageAreas=3) {
-        const dummyImageArea = (<ImageArea />)
         const visibleFilmStrip = imageAreaList.slice(reelStartIdx, reelStartIdx + numImageAreas)
+        let dummyAreaCount = 1;
         while (visibleFilmStrip.length < numImageAreas) {
+            const dummyImageArea = (<ImageArea key={`dummyArea${dummyAreaCount}`}/>)
             visibleFilmStrip.push(dummyImageArea);
+            dummyAreaCount++;
         }
         return visibleFilmStrip;
     }
