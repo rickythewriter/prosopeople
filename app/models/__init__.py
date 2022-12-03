@@ -4,3 +4,4 @@ from .person import Person
 from .entry import Entry
 from .tag import Tag
 from .person_tag import PersonTag
+from .image import Image

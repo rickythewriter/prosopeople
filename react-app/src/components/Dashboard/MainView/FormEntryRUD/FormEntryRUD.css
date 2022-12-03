@@ -3,8 +3,8 @@
 	display: flex;
 	width: 100%;
 	flex-direction: column;
-	align-items: stretch;
 	max-width: var(--three-alphabets-11pt);
+    flex-grow: 6;
 }
 
 #entry-form-r-u-d #label-title {
@@ -37,13 +37,17 @@
 	font-size: 0.85rem;
 }
 
+#input-body {
+    height: 42vh;
+}
+
 #input-body textarea{
 	font-family: 'PT Serif', serif;
 	border: none;
 	outline: none;
 	border-top: 1px solid #bec8b3;
 	width: 100%;
-	height: 50vh;
+    height: 100%;
 	overflow: auto;
 	resize: none;
 }

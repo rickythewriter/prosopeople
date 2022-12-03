@@ -1,6 +1,9 @@
 #container-main-view {
     background-color: white;
     border-radius: 0 7px 7px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #container-main-view input, textarea {

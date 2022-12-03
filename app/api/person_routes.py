@@ -1,7 +1,9 @@
 from flask import Blueprint, request, session
 from flask_login import login_required
-from app.models import db, Person, Entry, Tag, PersonTag
+from app.models import db, Person, Entry, Tag, PersonTag, Image
 from app.forms import PersonForm
+from app.api.auth_routes import validation_errors_to_error_messages
+from app.s3_resources import delete_file_from_s3_bucket
 
 person_routes = Blueprint('people', __name__)
 
@@ -28,6 +30,8 @@ def update_person(id):
 @login_required
 def delete_person(id):
 	person = Person.query.get(id)
+	person_images = Image.query.filter(Image.person_id == person.id).all()
+	[delete_file_from_s3_bucket(image.filename) for image in person_images]
 	db.session.delete(person)
 	db.session.commit()
 	return person.to_dict();
@@ -68,3 +72,12 @@ def dissociate_tag_from_person(id, tag_id):
 	db.session.delete(person_tag)
 	db.session.commit()
 	return tag.to_dict()
+
+# Get all of a person's images
+@person_routes.route('/<int:id>/images')
+@login_required
+def get_person_images(id):
+	person = Person.query.get(id)
+	dossier_images = Image.query.filter(Image.person_id == person.id).all()
+	obj = {'images':[dossier_images.to_dict() for image in dossier_images]}
+	return obj

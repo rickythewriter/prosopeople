@@ -22,6 +22,9 @@ class Person(db.Model):
     # tags
     tags = db.relationship("PersonTag", back_populates="person", passive_deletes=True)
 
+    # images
+    images = db.relationship("Image", back_populates="person", passive_deletes=True)
+
     # database timekeeping
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now())

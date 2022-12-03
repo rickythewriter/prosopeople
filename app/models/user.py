@@ -22,6 +22,7 @@ class User(db.Model, UserMixin):
     entries = db.relationship("Entry", back_populates="user")
     tags = db.relationship("Tag", back_populates="user")
     people_tags = db.relationship("PersonTag", back_populates="user")
+    images = db.relationship("Image", back_populates="user")
 
     @property
     def password(self):

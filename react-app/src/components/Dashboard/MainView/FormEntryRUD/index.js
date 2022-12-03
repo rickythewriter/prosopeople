@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateEntry, deleteEntry } from '../../../../store/entries'
 import { loadEntry, removeEntry } from '../../../../store/entry'
+import ImageReel from '../ImageReel'
 import './FormEntryRUD.css'
 
 const FormEntryRUD = () => {
@@ -68,45 +69,46 @@ const FormEntryRUD = () => {
     }
 
 	return (
-		<div id="entry-form-r-u-d">
+		<>
+			<div id="entry-form-r-u-d">
 
-			<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit}>
 
-				<label id="label-title">{title}</label>
-				<div className="entry-form-r-u-d" id="input-title">
-			        <input 
-			          type="text"
-			          value={title || ""}
-			          placeholder="Title your entry."
-			          onChange={(e) => setTitle(e.target.value)}
-			        />
-			    </div>
-		        <br />
+					<label id="label-title">{title}</label>
+					<div className="entry-form-r-u-d" id="input-title">
+						<input
+							type="text"
+							value={title || ""}
+							placeholder="Title your entry."
+							onChange={(e) => setTitle(e.target.value)}
+						/>
+					</div>
+					<br />
 
-				<label id="label-body">Body</label>
-		        <br />
-		        <div id="input-body">
-			        <textarea
-			          value={body || ""}
-			          placeholder="Draft your entry."
-			          onChange={(e) => setBody(e.target.value)}
-			        />
-			    </div>
-		        <br />
-		        {errors.map((error, idx) => <div className="error-message" id="new-name-error" key={idx}>{error}</div>)}
+					<label id="label-body">Body</label>
+					<br />
+					<div id="input-body">
+						<textarea
+							value={body || ""}
+							placeholder="Draft your entry."
+							onChange={(e) => setBody(e.target.value)}
+						/>
+					</div>
+					<br />
+					{errors.map((error, idx) => <div className="error-message" id="new-name-error" key={idx}>{error}</div>)}
 
-		        <div id="container-formentryrud-buttons">
-					{ successfullyUpdated ?
-						<button className="formentryrud-buttons successfully-updated" type="button" id="button-update-entry">Revised</button> :
-						<button className="formentryrud-buttons" type="submit" id="button-update-entry">Revise</button>
-					}
-				    <button className="formentryrud-buttons" id="button-delete-entry" onClick={handleDelete}>Discard Entry</button>
-			    </div>
+					<div id="container-formentryrud-buttons">
+						{successfullyUpdated ?
+							<button className="formentryrud-buttons successfully-updated" type="button" id="button-update-entry">Revised</button> :
+							<button className="formentryrud-buttons" type="submit" id="button-update-entry">Revise</button>
+						}
+						<button className="formentryrud-buttons" id="button-delete-entry" onClick={handleDelete}>Discard Entry</button>
+					</div>
 
-			</form>
-
-
-		</div>
+				</form>
+			</div>
+			<ImageReel />
+		</>
 	)
 };
 

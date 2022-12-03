@@ -1,0 +1,60 @@
+.image-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 144px;
+    width: 144px;
+    text-align: center;
+    box-sizing: border-box;
+    border: solid 1px lightgrey;
+}
+
+.has-image {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.delete-button {
+    font-size: 12pt;
+    color: black;
+    background-color: rgba(211, 211, 211, 85%);
+    border-radius: 3px;
+    padding: 0 3px;
+    position: absolute;
+    top: 3px;
+    right: 6px;
+}
+
+.delete-button:hover {
+    color: white;
+}
+
+#upload-label {
+    max-width: 72px;
+    overflow: scroll;
+    font-size: 24pt;
+    width: 100%;
+    cursor: pointer;
+    flex-grow: 1;
+    padding: 25%;
+}
+
+#upload-label:hover {
+    color: white;
+}
+
+#upload-label input {
+    display: none;
+}
+
+.placeholder-image-area,
+.upload-form {
+    background-color: lightgrey;
+}
+
+.filmstrip-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
