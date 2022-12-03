@@ -35,8 +35,6 @@ const ImageArea = ({image=null, isAddButton=false}) => {
     }
 
     const enlargeImage = () => {
-        console.log(image.filename);
-        console.log(image.signed_url);
         selectImage(image);
         openImageModal();
     }
