@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, IntegerField, DateTimeField
-from wtforms.validators import DataRequired, Length
+from wtforms import StringField, IntegerField, DateTimeField
+from wtforms.validators import DataRequired, Length, ValidationError
 from app.models import Image
 
 """
