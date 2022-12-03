@@ -1,6 +1,6 @@
 # Prosopeople
 
-Website: [https://prosopeople.herokuapp.com/](https://prosopeople.onrender.com/)
+Website: [https://prosopeople.onrender.com/](https://prosopeople.onrender.com/)
 
 ## What is Prosopeople?
 
