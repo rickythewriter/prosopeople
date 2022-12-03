@@ -13,7 +13,7 @@ class Entry(db.Model):
     body = db.Column(db.Text)
 
     # user
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     user = db.relationship("User", back_populates="entries")
 
     # dossier
