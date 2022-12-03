@@ -3,6 +3,7 @@
 /---------------------------------------------------------------------*/
 
 const LOAD_IMAGES = 'entries/LOAD_IMAGES'
+const CLEAR_IMAGES = 'entries/CLEAR_IMAGES'
 const ADD_IMAGE = 'entries/ADD_IMAGE'
 const REMOVE_IMAGE = 'entries/REMOVE_IMAGE'
 
@@ -14,6 +15,12 @@ const getImages = (images) => ({
     images
 });
 
+export const removeImages = () => {
+    return {
+        type: CLEAR_IMAGES,
+    }
+}
+
 const addImage = (image) => ({
     type: ADD_IMAGE,
     image
@@ -23,6 +30,7 @@ const removeImage = (image) => ({
     type: REMOVE_IMAGE,
     image
 })
+
 
 /*---------------------------------------------------------------------/
     Dispatch Functions
@@ -92,6 +100,8 @@ export const imageReducer = (state = initialState, action) => {
                 images[image.id] = image
             })
             return { ...images }
+        case CLEAR_IMAGES:
+            return {};
         case ADD_IMAGE:
             newState[action.image.id] = action.image
             return newState;
