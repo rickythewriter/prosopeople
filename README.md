@@ -8,6 +8,7 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 - create dossiers of people, with whom you want to build a deeper relationship,
 - add tags, to see your friends' traits, and who has what in common,
 - write entries about them, so you don't forget what you've done together, what they like, how you feel about them.
+- entries now have a gallery reel, where you can add and view images.
 
 ## Technologies Used
 
@@ -66,8 +67,6 @@ Prosopeople is a digital auto-prosoporaphy, a technology for managing your relat
 ![Added Tag to Dossiers](https://github.com/rickythewriter/prosopeople/blob/main/docs/images/views/view-added_dossier_tag.png?raw=true)
 
 ### Upcoming Features
-
-- Upload Images to Entries
 - Mobile Optimization and iOS Version
 - Events (plan events with groups of people)
 - Recommendations based on Tags (gifts, restaurants, hangout ideas etc.)
