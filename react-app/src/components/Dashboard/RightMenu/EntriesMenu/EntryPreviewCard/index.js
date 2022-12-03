@@ -70,7 +70,6 @@ const EntryPreviewCard = ({entry}) => {
 		return formattedTime
 	}
 
-	// console.log("This is a loaded entry: ", entry)
 	return(
 		<div 
 			className='card-entry-preview'

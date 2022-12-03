@@ -42,7 +42,6 @@ const FormEntryRUD = () => {
             	title: title,
                 body: body,
             }
-            // console.log(payload)
             const newEntry = await dispatch(updateEntry(payload))
             	.catch(async(res)=> {
                 	const data = await res.json();

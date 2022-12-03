@@ -41,7 +41,6 @@ const FormPersonCreate = ({user}) => {
                 description: null,
                 user_id: user.id
             }
-            // console.log(payload)
             const newPerson = await dispatch(createPerson(payload, user))
             	.then(async(res) => {
             		tagsFilter.forEach( async tag => {
@@ -54,10 +53,8 @@ const FormPersonCreate = ({user}) => {
                 	if (data && data.errors) setErrors(data.errors)
             	}
             )
-            // dispatch(loadPeople(user));
             setName('');
             setErrors([])
-        // }
 	    }
     }
 
