@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { uploadImage, createImage, deleteImage } from '../../../../../store/image'
+import { ImageModalContext } from '../../../../../contexts/ImageModalContext';
 import './ImageArea.css'
 
 const ImageArea = ({image=null, isAddButton=false}) => {
@@ -8,6 +9,7 @@ const ImageArea = ({image=null, isAddButton=false}) => {
     const user = useSelector(state => state.session.user);
     const person = useSelector(state => state.person);
     const entry = useSelector(state => state.entry);
+    const { openImageModal, selectImage } = useContext(ImageModalContext);
 
     const dispatch = useDispatch()
 
@@ -33,12 +35,31 @@ const ImageArea = ({image=null, isAddButton=false}) => {
         dispatch(deleteImage(image))
     }
 
+    const enlargeImage = () => {
+        console.log(image.filename);
+        console.log(image.signed_url);
+        selectImage(image);
+        openImageModal();
+    }
+
     if (image) {
         return (
-            <div className='image-area has-image'>
-                <img className='filmstrip-image' src={image.signed_url} alt={image.caption}/>
-                <span className='delete-button' onClick={deleteHandler}>✕</span>
-            </div>
+            <>
+                <div className='image-area has-image'>
+                    <img 
+                        className='filmstrip-image' 
+                        src={image.signed_url} 
+                        alt={image.caption}
+                        onClick={enlargeImage}
+                    />
+                    <span 
+                        className='delete-button' 
+                        onClick={deleteHandler}
+                    >
+                        ✕
+                    </span>
+                </div>
+            </>
         )
     }
 

@@ -1,5 +1,4 @@
 #reel {
-    /* grid-area: reel; */
     max-width: var(--three-alphabets-11pt);
     display: flex;
     align-items: center;
@@ -18,7 +17,7 @@
 .nav-arrow {
     width: 36px;
     background-color: var(--button-color);
-    min-height: 144px;
+    height: 144px;
     display: flex;
     justify-content: center;
     align-items: center;

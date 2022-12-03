@@ -34,14 +34,25 @@ const ImageReel = () => {
         return visibleFilmStrip;
     }
 
-    function slideReel(forward, numImageAreas = 1) {
-        if (forward) {
-            const idxNext = reelStartIdx + numImageAreas;
-            const idxEndOfReel = imageList.length;
-            if (idxNext <= idxEndOfReel) setReelStartIdx(idxNext);
-        } else {
-            const idxPrev = reelStartIdx - numImageAreas;
-            if (idxPrev >= 0) setReelStartIdx(idxPrev);
+    function slideReel(isSlidingToNext, numImageAreas = 1) {
+
+        const PREV = 0;
+        const NEXT = 1;
+        
+        const direction = isSlidingToNext ? NEXT : PREV;
+        
+        switch(direction) {
+            case NEXT:
+                const idxNext = reelStartIdx + numImageAreas;
+                const idxEndOfReel = imageList.length;
+                if (idxNext <= idxEndOfReel) setReelStartIdx(idxNext);
+                break;
+            case PREV:
+                const idxPrev = reelStartIdx - numImageAreas;
+                if (idxPrev >= 0) setReelStartIdx(idxPrev);
+                break;
+            default:
+                break;
         }
     }
 
