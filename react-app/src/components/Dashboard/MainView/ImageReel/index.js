@@ -17,8 +17,11 @@ const ImageReel = () => {
 
     /* When an entry is chosen... */
     useEffect(() => {
-        dispatch(loadImages(entry));
-        setReelStartIdx(0);
+        const hasEntry = Object.keys(entry).length > 0
+        if (hasEntry) {
+            dispatch(loadImages(entry));
+            setReelStartIdx(0);
+        }
     }, [entry])
 
     const addButton = (<ImageArea isAddButton={true} />)
