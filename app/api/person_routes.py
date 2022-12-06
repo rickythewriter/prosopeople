@@ -36,7 +36,6 @@ def delete_person(id):
 	db.session.commit()
 	return person.to_dict();
 
-# Get entries
 @person_routes.route('/<int:id>/entries')
 @login_required
 def get_entries(id):
@@ -45,7 +44,6 @@ def get_entries(id):
     obj = {"entries":[entry.to_dict() for entry in entries]}
     return obj;
 
-# Delete all of a person's entries
 @person_routes.route('/<int:id>/entries', methods=['DELETE'])
 @login_required
 def delete_entries(id):
@@ -54,7 +52,6 @@ def delete_entries(id):
 	db.session.commit()
 	return {"message" : "entries deleted"}
 
-# Get all of a person's tags
 @person_routes.route('/<int:id>/tags')
 @login_required
 def get_person_tags(id):
@@ -63,7 +60,6 @@ def get_person_tags(id):
 	obj = {"tags":[person_tag.tag.to_dict() for person_tag in people_tags]}
 	return obj
 
-# Dissociate a tag from a person
 @person_routes.route('/<int:id>/tags/<tag_id>', methods=['DELETE'])
 @login_required
 def dissociate_tag_from_person(id, tag_id):
@@ -73,7 +69,6 @@ def dissociate_tag_from_person(id, tag_id):
 	db.session.commit()
 	return tag.to_dict()
 
-# Get all of a person's images
 @person_routes.route('/<int:id>/images')
 @login_required
 def get_person_images(id):
