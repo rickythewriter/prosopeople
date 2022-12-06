@@ -70,8 +70,7 @@ def delete_entries(id):
 def get_person_tags(id):
 	person = Person.query.get(id)
 	people_tags = PersonTag.query.filter(PersonTag.person_id == person.id).all()
-	obj = {"tags":[person_tag.tag.to_dict() for person_tag in people_tags]}
-	return obj
+	return {"tags":[person_tag.tag.to_dict() for person_tag in people_tags]}
 
 @person_routes.route('/<int:id>/tags/<tag_id>', methods=['DELETE'])
 @login_required
@@ -87,5 +86,4 @@ def dissociate_tag_from_person(id, tag_id):
 def get_person_images(id):
 	person = Person.query.get(id)
 	dossier_images = Image.query.filter(Image.person_id == person.id).all()
-	obj = {'images':[dossier_images.to_dict() for image in dossier_images]}
-	return obj
+	return {'images':[dossier_images.to_dict() for image in dossier_images]}
