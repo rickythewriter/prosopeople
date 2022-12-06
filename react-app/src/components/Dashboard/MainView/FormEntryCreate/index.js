@@ -35,11 +35,11 @@ const FormEntryCreate = () => {
                 user_id: user.id,
                 person_id: person.id,
             }
-            const newEntry = await dispatch(createEntry(payload, user, person))
-            	// .catch(async(res)=> {
-                	// const data = await res.json();
-                	// if (data && data.errors) setErrors(data.errors)
-            	// })
+            const newEntry = dispatch(createEntry(payload))
+            	.catch(async(res)=> {
+                	const data = await res.json();
+                	if (data && data.errors) setErrors(data.errors)
+            	})
             setErrors([]);
             dispatch(loadEntry(newEntry));
 	    }

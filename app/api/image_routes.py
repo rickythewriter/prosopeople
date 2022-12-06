@@ -21,10 +21,12 @@ def _create_unique_filename(name):
     timestamp = str(datetime.utcnow().timestamp()).replace('.','')
     return timestamp + '-' + name
 
-# Create an image object, and upload it to AWS
 @image_routes.route('/', methods=['POST'])
 @login_required
 def create_image():
+    """
+    Create an image object, and upload it to AWS
+    """
     form = ImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -37,14 +39,12 @@ def create_image():
 
 @image_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-# Delete an image object from database and from AWS
 def delete_image(id):
-
+    """
+    Delete an image object from database and from AWS
+    """
     image = Image.query.get(id)
-
     delete_file_from_s3_bucket(image.filename)
-
     db.session.delete(image)
     db.session.commit()
-    
     return image.to_dict();

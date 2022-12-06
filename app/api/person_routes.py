@@ -7,6 +7,19 @@ from app.s3_resources import delete_file_from_s3_bucket
 
 person_routes = Blueprint('people', __name__)
 
+@person_routes.route('/', methods=['POST'])
+@login_required
+def create_person():
+	form = PersonForm()
+	form['csrf_token'].data = request.cookies['csrf_token']
+	if form.validate_on_submit():
+		person = Person()
+		form.populate_obj(person)
+		db.session.add(person)
+		db.session.commit()
+		return person.to_dict()
+	return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 @person_routes.route('/<int:id>')
 @login_required
 def person(id):
@@ -36,16 +49,13 @@ def delete_person(id):
 	db.session.commit()
 	return person.to_dict();
 
-# Get entries
 @person_routes.route('/<int:id>/entries')
 @login_required
 def get_entries(id):
     person = Person.query.get(id)
     entries = Entry.query.filter(Entry.person_id == person.id).all()
-    obj = {"entries":[entry.to_dict() for entry in entries]}
-    return obj;
+    return {"entries":[entry.to_dict() for entry in entries]}
 
-# Delete all of a person's entries
 @person_routes.route('/<int:id>/entries', methods=['DELETE'])
 @login_required
 def delete_entries(id):
@@ -54,16 +64,13 @@ def delete_entries(id):
 	db.session.commit()
 	return {"message" : "entries deleted"}
 
-# Get all of a person's tags
 @person_routes.route('/<int:id>/tags')
 @login_required
 def get_person_tags(id):
 	person = Person.query.get(id)
 	people_tags = PersonTag.query.filter(PersonTag.person_id == person.id).all()
-	obj = {"tags":[person_tag.tag.to_dict() for person_tag in people_tags]}
-	return obj
+	return {"tags":[person_tag.tag.to_dict() for person_tag in people_tags]}
 
-# Dissociate a tag from a person
 @person_routes.route('/<int:id>/tags/<tag_id>', methods=['DELETE'])
 @login_required
 def dissociate_tag_from_person(id, tag_id):
@@ -73,11 +80,9 @@ def dissociate_tag_from_person(id, tag_id):
 	db.session.commit()
 	return tag.to_dict()
 
-# Get all of a person's images
 @person_routes.route('/<int:id>/images')
 @login_required
 def get_person_images(id):
 	person = Person.query.get(id)
 	dossier_images = Image.query.filter(Image.person_id == person.id).all()
-	obj = {'images':[dossier_images.to_dict() for image in dossier_images]}
-	return obj
+	return {'images':[image.to_dict() for image in dossier_images]}

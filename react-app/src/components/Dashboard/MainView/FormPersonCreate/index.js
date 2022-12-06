@@ -4,7 +4,8 @@ import { createPerson } from '../../../../store/people'
 import { associateTag } from '../../../../store/tags'
 import './FormPersonCreate.css'
 
-const FormPersonCreate = ({user}) => {
+const FormPersonCreate = () => {
+	const user = useSelector(state => state.session.user)
 	const tagsObj = useSelector(state => state.tags)
 	const tagsFilter = Object.values(tagsObj.filter)
 	const [name, setName] = useState("")
@@ -19,7 +20,7 @@ const FormPersonCreate = ({user}) => {
 			tag_id: tag.id,
 			user_id: user.id
 		}
-		const newPersonTagAssoc = await dispatch(associateTag(payload, user, person, tag))
+		dispatch(associateTag(payload, tag))
 	}
 
 	const handleSubmit = async e => {
@@ -35,13 +36,14 @@ const FormPersonCreate = ({user}) => {
         	return
         }
         else {
+			console.log(user);
         	/* Create new Person */
             const payload = {
                 name: name,
                 description: null,
                 user_id: user.id
             }
-            const newPerson = await dispatch(createPerson(payload, user))
+            dispatch(createPerson(payload))
             	.then(async(res) => {
             		tagsFilter.forEach( async tag => {
             			const person = res

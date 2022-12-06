@@ -86,8 +86,8 @@ export const loadPersonTags = (person) => async dispatch => {
     return data;
 }
 
-export const createTag = (newTag, user) =>  async dispatch => {
-    const res = await fetch(`/api/users/${user.id}/tags`, {
+export const createTag = (newTag) =>  async dispatch => {
+    const res = await fetch(`/api/tags/`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newTag)
@@ -99,8 +99,8 @@ export const createTag = (newTag, user) =>  async dispatch => {
     }
 }
 
-export const associateTag = (newPersonTagAssoc, user, person, tag) =>  async dispatch => {
-    const res = await fetch(`/api/users/${user.id}/people/${person.id}/tags/${tag.id}`, {
+export const associateTag = (newPersonTagAssoc, tag) =>  async dispatch => {
+    const res = await fetch(`/api/tags/${tag.id}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newPersonTagAssoc)

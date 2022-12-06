@@ -18,11 +18,7 @@ const TagSearchCR = () => {
 			tag_id: item.id,
 			user_id: user.id
 		}
-		const newPersonTagAssoc = await dispatch(associateTag(payload, user, person, item))
-			// .catch(async(res)=> {
-				// const data = await res.json()
-            	// if (data && data.errors) setErrors(data.errors)
-			// })
+		dispatch(associateTag(payload, item))
 	}
 
 	return (
