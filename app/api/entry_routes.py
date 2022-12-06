@@ -43,11 +43,13 @@ def update_entry(id):
 		db.session.commit()
 		return entry.to_dict()
 	return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
-# Delete associated images from S3 bucket, then delete entry
+	
 @entry_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_entry(id):
+	"""
+	Delete associated images from S3 bucket, then delete entry
+	"""
 	entry = Entry.query.get(id)
 	entry_images = Image.query.filter(Image.entry_id == entry.id).all()
 	[delete_file_from_s3_bucket(image.filename) for image in entry_images]
@@ -55,7 +57,6 @@ def delete_entry(id):
 	db.session.commit()
 	return entry.to_dict()
 
-# Get all of an entry's images
 @entry_routes.route('/<int:id>/images')
 @login_required
 def get_entry_images(id):
