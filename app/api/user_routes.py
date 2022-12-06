@@ -46,21 +46,6 @@ def get_user_tags(id):
     obj = {"tags":[user_tag.to_dict() for user_tag in user_tags]}
     return obj
 
-# Create a tag
-@user_routes.route('/<int:id>/tags', methods=['POST'])
-@login_required
-def create_tag(id):
-    user = User.query.get(id)
-    form = TagForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        tag = Tag()
-        form.populate_obj(tag)
-        db.session.add(tag)
-        db.session.commit()
-        return tag.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
 # Associate a tag with a person
 @user_routes.route('/<int:id>/people/<person_id>/tags/<tag_id>', methods=['POST'])
 @login_required

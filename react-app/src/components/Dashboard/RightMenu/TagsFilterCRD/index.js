@@ -42,7 +42,7 @@ const TagsFilterCRD = () => {
                 name: tagName,
                 user_id: user.id
             }
-            const newTag = await dispatch(createTag(payload, user))
+            const newTag = await dispatch(createTag(payload))
             	.catch(async(res)=> {
                 	const data = await res.json()
                 	if (data && data.errors) setErrors(data.errors)
