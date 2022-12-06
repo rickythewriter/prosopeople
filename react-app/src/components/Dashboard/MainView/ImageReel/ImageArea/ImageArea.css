@@ -38,6 +38,7 @@
     cursor: pointer;
     flex-grow: 1;
     padding: 25%;
+    overflow: hidden;
 }
 
 #upload-label:hover {
