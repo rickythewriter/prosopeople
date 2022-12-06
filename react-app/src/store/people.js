@@ -102,8 +102,8 @@ export const loadPeopleMultipleTags = (tags) => async dispatch => {
 }
 
 
-export const createPerson = (newPerson, user) =>  async dispatch => {
-    const res = await fetch(`/api/users/${user.id}/people`, {
+export const createPerson = (newPerson) =>  async dispatch => {
+    const res = await fetch(`/api/people/`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newPerson)

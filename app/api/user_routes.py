@@ -37,20 +37,6 @@ def get_people(id):
     obj = {"people":[person.to_dict() for person in people]}
     return obj;
 
-@user_routes.route('/<int:id>/people', methods=['POST'])
-@login_required
-def create_person(id):
-    user = User.query.get(id)
-    form = PersonForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        person = Person()
-        form.populate_obj(person)
-        db.session.add(person)
-        db.session.commit()
-        return person.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
 '''
 Entry Routes
 '''

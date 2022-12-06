@@ -7,6 +7,19 @@ from app.s3_resources import delete_file_from_s3_bucket
 
 person_routes = Blueprint('people', __name__)
 
+@person_routes.route('/', methods=['POST'])
+@login_required
+def create_person():
+	form = PersonForm()
+	form['csrf_token'].data = request.cookies['csrf_token']
+	if form.validate_on_submit():
+		person = Person()
+		form.populate_obj(person)
+		db.session.add(person)
+		db.session.commit()
+		return person.to_dict()
+	return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 @person_routes.route('/<int:id>')
 @login_required
 def person(id):
