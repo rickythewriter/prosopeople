@@ -85,4 +85,4 @@ def dissociate_tag_from_person(id, tag_id):
 def get_person_images(id):
 	person = Person.query.get(id)
 	dossier_images = Image.query.filter(Image.person_id == person.id).all()
-	return {'images':[dossier_images.to_dict() for image in dossier_images]}
+	return {'images':[image.to_dict() for image in dossier_images]}
