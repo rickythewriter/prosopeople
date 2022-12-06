@@ -54,8 +54,7 @@ def delete_person(id):
 def get_entries(id):
     person = Person.query.get(id)
     entries = Entry.query.filter(Entry.person_id == person.id).all()
-    obj = {"entries":[entry.to_dict() for entry in entries]}
-    return obj;
+    return {"entries":[entry.to_dict() for entry in entries]}
 
 @person_routes.route('/<int:id>/entries', methods=['DELETE'])
 @login_required
