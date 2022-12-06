@@ -33,7 +33,7 @@ def entry(id):
 @entry_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_entry(id):
-	entry=Entry.query.get(id)
+	entry = Entry.query.get(id)
 	form = EntryForm()
 	form['csrf_token'].data = request.cookies['csrf_token']
 	if form.validate_on_submit:
@@ -43,7 +43,7 @@ def update_entry(id):
 		db.session.commit()
 		return entry.to_dict()
 	return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-	
+
 @entry_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_entry(id):
