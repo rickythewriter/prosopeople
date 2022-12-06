@@ -36,3 +36,16 @@
 #right-arrow {
     border-radius: 0 3px 3px 0;
 }
+
+.arrow-body {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+#left-arrow-body {
+    border-right: 14px solid white;
+}
+
+#right-arrow-body {
+    border-left: 14px solid white;
+}

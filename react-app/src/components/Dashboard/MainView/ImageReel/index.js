@@ -69,7 +69,7 @@ const ImageReel = () => {
                     id='left-arrow'
                     onClick={() => slideReel(0)}
                 >
-                    ◀
+                    <div className='arrow-body' id='left-arrow-body'></div>
                 </div>
                 <div id="filmstrip">
                     {getVisibleImageAreas(reelStartIdx)}
@@ -79,7 +79,7 @@ const ImageReel = () => {
                     id='right-arrow'
                     onClick={() => slideReel(1)}
                 >
-                    ▶
+                    <div className='arrow-body' id='right-arrow-body'></div>
                 </div>
             </div>
         </>
