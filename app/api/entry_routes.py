@@ -11,6 +11,9 @@ entry_routes = Blueprint('entries', __name__)
 @entry_routes.route('/<int:id>')
 @login_required
 def entry(id):
+	"""
+	Get an entry
+	"""
 	entry=Entry.query.get(id)
 	return entry.to_dict()
 
