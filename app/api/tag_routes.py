@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, session
 from flask_login import login_required
 from app.models import db, Tag, PersonTag
-from app.forms import TagForm
+from app.forms import TagForm, PersonTagForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
 tag_routes = Blueprint('tags', __name__)
@@ -15,6 +15,20 @@ def create_tag():
         tag = Tag()
         form.populate_obj(tag)
         db.session.add(tag)
+        db.session.commit()
+        return tag.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@tag_routes.route('/<int:id>', methods=['POST'])
+@login_required
+def associate_tag(id):
+    tag = Tag.query.get(id)
+    form = PersonTagForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        person_tag = PersonTag()
+        form.populate_obj(person_tag)
+        db.session.add(person_tag)
         db.session.commit()
         return tag.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

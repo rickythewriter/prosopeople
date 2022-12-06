@@ -45,20 +45,3 @@ def get_user_tags(id):
     user_tags = Tag.query.filter(Tag.user_id == user.id).all()
     obj = {"tags":[user_tag.to_dict() for user_tag in user_tags]}
     return obj
-
-# Associate a tag with a person
-@user_routes.route('/<int:id>/people/<person_id>/tags/<tag_id>', methods=['POST'])
-@login_required
-def associate_tag(id, person_id, tag_id):
-    user = User.query.get(id)
-    person = Person.query.get(person_id)
-    tag = Tag.query.get(tag_id)
-    form = PersonTagForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        person_tag = PersonTag()
-        form.populate_obj(person_tag)
-        db.session.add(person_tag)
-        db.session.commit()
-        return tag.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

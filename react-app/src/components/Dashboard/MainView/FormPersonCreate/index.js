@@ -20,7 +20,7 @@ const FormPersonCreate = () => {
 			tag_id: tag.id,
 			user_id: user.id
 		}
-		const newPersonTagAssoc = await dispatch(associateTag(payload, user, person, tag))
+		dispatch(associateTag(payload, tag))
 	}
 
 	const handleSubmit = async e => {
