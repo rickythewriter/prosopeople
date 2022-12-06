@@ -32,5 +32,4 @@ def delete_tag(id):
 def get_tagged_people(id):
 	tag = Tag.query.get(id)
 	tagged_people = PersonTag.query.filter(PersonTag.tag_id == tag.id).all()
-	obj = {"people":[tagged_person.person.to_dict() for tagged_person in tagged_people]}
-	return obj
+	return {"people":[tagged_person.person.to_dict() for tagged_person in tagged_people]}
