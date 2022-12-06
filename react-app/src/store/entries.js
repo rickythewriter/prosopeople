@@ -41,8 +41,8 @@ export const loadEntries = (person) => async dispatch => {
     return data;
 }
 
-export const createEntry = (newEntry, user, person) =>  async dispatch => {
-    const res = await fetch(`/api/users/${user.id}/people/${person.id}/entries`, {
+export const createEntry = (newEntry) =>  async dispatch => {
+    const res = await fetch(`/api/entries/`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newEntry)
