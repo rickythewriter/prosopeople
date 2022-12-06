@@ -4,7 +4,6 @@ from app.models import db, Tag, PersonTag
 
 tag_routes = Blueprint('tags', __name__)
 
-# Delete a tag
 @tag_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_tag(id):
@@ -13,7 +12,6 @@ def delete_tag(id):
 	db.session.commit()
 	return tag.to_dict();
 
-# Get all of a tag's people
 @tag_routes.route('/<int:id>/people')
 @login_required
 def get_tagged_people(id):
