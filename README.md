@@ -144,7 +144,7 @@ I had originally intended for the People feature to come with a contact-informat
 ## Creator - Ricky Thang
 
 - [GitHub](https://github.com/rickythewriter)
-- [Portfolio](rickythang.com)
+- [Portfolio](https://www.rickythang.com)
 - [LinkedIn](https://www.linkedin.com/in/ricky-thang-88307a100)
 
 
